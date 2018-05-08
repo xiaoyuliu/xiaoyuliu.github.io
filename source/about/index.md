@@ -5,9 +5,9 @@ type: "about"
 comments: false
 ---
 <link rel="stylesheet" type="text/css" href="image.css">
-<div>
+<center>
     <img src="../uploads/xiaoyu.jpg">
-</div>
+</center>
 ## Bio
 **Xiaoyu Liu** is a Deep Learning Researcher at [Altumview][1]. 
 
