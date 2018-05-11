@@ -86,13 +86,15 @@ There are two different ways to install the driver:
     ```
     sudo ldconfig //validate PATH immediately
     sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev  libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx
-    cd /usr/local/cuda/samplessudo
-    make all
+    cd /usr/local/cuda/samples
+    sudo make all
     cd ./bin/x86_64/linux/release 
     ./deviceQuery //success if gpu information appears
     ```
 
     **There might be another problem when simply using `make all` here, which is one sample will not be able to be built. I'll add details and the solution later.**
+
+    **If building the examples doesn't pass, please try to run your programs directly to see if any error shows. It might be OK to skip this step.**
 
 ### Install cuDNN 5.1
 
