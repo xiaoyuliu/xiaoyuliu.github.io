@@ -1,7 +1,6 @@
 ---
 layout: post
 categories: Research
-author: xiaoyuliu   
 date: Thu Mar 30 11:30:23 2017
 title: "LabelBank: Revisiting Global Perspectives for Semantic Segmentation - Notes"
 tag:

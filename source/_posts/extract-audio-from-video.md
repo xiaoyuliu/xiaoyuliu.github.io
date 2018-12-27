@@ -1,7 +1,6 @@
 ---
 layout: post
 categories: Engineer
-author: xiaoyuliu
 title: "Extract audio from a video on Mac"
 date: Sat Apr 29 22:44:05 2017
 tag:

@@ -1,7 +1,6 @@
 ---
 layout: post
 categories: Research
-author: xiaoyuliu
 date: Tue Jun  6 10:43:15 2017
 title: "Semantic Segmentation using Adversarial Networks - Notes"
 tag:

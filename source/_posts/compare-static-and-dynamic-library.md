@@ -1,6 +1,5 @@
 ---
 title: C++ Static Libraries and Dynamic Libraries 
-author: xiaoyuliu
 date: Mon 19 Mar 2018 04:12:42 PM PDT
 categories: Engineer
 tag:

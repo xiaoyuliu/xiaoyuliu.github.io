@@ -1,7 +1,6 @@
 ---
 layout: post
 categories: Research
-author: xiaoyuliu
 date: Wed Mar 29 20:16:04 2017
 title: "Rough reading"
 tag:

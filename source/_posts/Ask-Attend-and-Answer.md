@@ -1,6 +1,5 @@
 ---
 layout: post
-author: xiaoyuliu
 date: 2017-03-16 20:21
 categories: Research
 title: "Ask, Attend and Answer: Exploring Question-Guided Spatial Attention for Visual Question Answering - Notes"

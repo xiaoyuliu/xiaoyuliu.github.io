@@ -2,7 +2,6 @@
 layout: post
 categories: Research
 date: Tue Mar 28 19:55:17 2017
-author: xiaoyuliu
 title: "Aggregated Residual Transformations for Deep Neural Networks - Notes"
 tag:
 - resnet

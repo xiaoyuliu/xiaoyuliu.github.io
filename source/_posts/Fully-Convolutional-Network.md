@@ -2,7 +2,6 @@
 layout: post
 categories: Research
 title: "Fully Convolutional Networks for Semantic Segmentation - Notes"
-author: xiaoyuliu
 date: Tue Mar  7 12:32:44 2017
 tag:
 - fcn

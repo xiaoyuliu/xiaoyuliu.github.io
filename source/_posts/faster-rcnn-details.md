@@ -1,6 +1,5 @@
 ---
 title: Details about faster RCNN for object detection
-author: xiaoyuliu
 date: Wed 27 Dec 2017 11:11:21 AM PST
 categories: Research
 layout: post

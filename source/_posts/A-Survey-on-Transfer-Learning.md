@@ -1,6 +1,5 @@
 ---
 categories: Research
-author: xiaoyuliu
 date: Sun Apr  2 14:07:08 2017
 title: "A Survey on Transfer Learning - Notes"
 tag:

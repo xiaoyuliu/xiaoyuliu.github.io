@@ -1,7 +1,6 @@
 ---
 layout: post
 categories: Research
-author: xiaoyuliu
 date: Fri Mar 24 10:32:21 2017
 title: "Mask R-CNN - Notes"
 tag:

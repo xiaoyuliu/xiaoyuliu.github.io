@@ -1,6 +1,5 @@
 ---
 title: Prepare LMDB for Caffe from custom datasets
-author: xiaoyuliu
 date: Fri 23 Feb 2018 01:27:09 PM PST
 categories: Engineer
 layout: post

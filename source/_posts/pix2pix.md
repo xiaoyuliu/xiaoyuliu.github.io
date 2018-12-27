@@ -1,7 +1,6 @@
 ---
 layout: post
 categories: Research
-author: xiaoyuliu
 date: Mon Jun 19 12:51:25 2017
 title: "Image-to-Image Translation with Conditional Adversarial Networks - Note"
 tag:

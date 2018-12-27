@@ -1,7 +1,6 @@
 ---
 date: Fri Nov  3 22:05:29 2017
 title: "Ubuntu 16.04 + GTX 1070 + CUDA 8.0 + cuDNN 5.1"
-author: xiaoyuliu
 layout: post
 categories: Engineer
 tag:

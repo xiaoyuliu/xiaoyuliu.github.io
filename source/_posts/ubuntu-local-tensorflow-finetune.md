@@ -2,7 +2,6 @@
 layout: post
 categories: Engineer
 title: "Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally"
-author: xiaoyuliu
 date: Fri Dec 8 10:13:48 2017
 tag:
 - tensorflow

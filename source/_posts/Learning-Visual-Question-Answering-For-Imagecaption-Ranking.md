@@ -1,7 +1,6 @@
 ---
 layout: post
 categories: Research
-author: xiaoyuliu
 date: Sun 26 Mar 2017 02:54:53 PM PDT
 title: "Leveraging Visual Question Answering for Image-Caption Ranking - Notes"
 tag:

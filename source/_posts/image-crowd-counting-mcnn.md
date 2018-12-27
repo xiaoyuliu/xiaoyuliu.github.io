@@ -3,7 +3,6 @@ title: "Single-Image Crowd Counting via Multi-Column Convolutional Neural Networ
 date: Wed May 24 16:32:00 2017
 layout: post
 categories: Research
-author: xiaoyuliu
 tag: 
 - crowd counting
 - density map estimation
