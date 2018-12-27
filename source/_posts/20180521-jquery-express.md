@@ -1,11 +1,14 @@
 ---
-title: 16 jQuery
-date: 2018-04-09 22:24:16
+title: 16 jQuery, 23-24 Express
+date: Mon May 21 23:33:11 2018
 categories: Web Developer Bootcamp
 tags:
 - front end
 - javascript
 ---
+
+
+## jQuery
 
 ### Introduction to [jQuery](https://jquery.com)
 
@@ -118,3 +121,85 @@ $("button").on("click", function() {
         });
     });
 ```
+
+## Express
+
+### Introduction to [Express](https://expressjs.com/)
+
+A fast web framework for Node.js, which is a javascript runtime environment to allow the server to run javascript.
+
+### Environment preparation
+
+```bash
+cd /path/to/web/folder
+npm init
+npm install express --save
+npm install ejs --save
+```
+
+### Common functions
+
+#### Import Express to `app.js`
+
+```js
+var express = require('express');
+var app = express();
+```
+
+#### Start the server
+
+```js
+app.listen(process.env.PORT, process.env.IP, function() {
+    console.log('Server is listening');
+    });
+```
+
+#### Set default engine/folder to look for `css` files
+
+```js
+// look for .ejs for rendering
+app.set('view engine', 'ejs');
+// defaultly look for .css files inside public folder
+app.use(express.static('public'));
+```
+
+#### Refer a `.css` file in `.ejs` file
+
+```html
+<link rel="stylesheet" href='/app.css'>
+```
+
+We must use <span style="background: yellow">/app</span> instead of `app`, because `/` can force the web not looking for the `.css` file under the same folder.
+
+#### Render a page with a specific route
+
+```js
+// Fix route
+app.get('/', function(req, res) {
+    res.send('This is the root page.');
+    });
+
+// route with a variable
+app.get('/homepage/:name', function(req, res) {
+    var name = req.params.name;
+    res.send('This is the homepage of ' + name);
+    });
+
+// send route variable to ejs file
+app.get('/homepage/:name', function(req, res) {
+    var name = req.params.name;
+    res.render('homepage', {name: name})
+    });
+```
+
+And inside `homepage.ejs` file:
+
+```html
+This is the page of <%= name %>
+```
+
+#### difference between `<%=` and `<%`
+
+For contents between `<%=` and `%>`, they will be added to the html file and berendered. But with `<%`, the contents will not be rendered. For example, we need to run some conditions inside the `ejs` file but we don't want to display them then we should use `<%`.
+
+
