@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.  Prepare dataset I use the code from Xitao Zhang’s github repository and modify">
+<meta name="keywords" content="tensorflow,Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally">
+<meta property="og:url" content="https://xiaoyuliu.github.io/2017/12/08/ubuntu-local-tensorflow-finetune/index.html">
+<meta property="og:site_name" content="Xiaoyu Liu">
+<meta property="og:description" content="This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.  Prepare dataset I use the code from Xitao Zhang’s github repository and modify">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-05-01T00:03:26.362Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally">
+<meta name="twitter:description" content="This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.  Prepare dataset I use the code from Xitao Zhang’s github repository and modify">
+
+
+
+
+
+
+  <link rel="canonical" href="https://xiaoyuliu.github.io/2017/12/08/ubuntu-local-tensorflow-finetune/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally | Xiaoyu Liu</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-92119705-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-92119705-1');
+</script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xiaoyu Liu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Love life and work hard</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/12/08/ubuntu-local-tensorflow-finetune/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoyu Liu">
+      <meta itemprop="description" content="Everything happens for the best">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaoyu Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-12-08 10:13:48" itemprop="dateCreated datePublished" datetime="2017-12-08T10:13:48-08:00">2017-12-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/08/ubuntu-local-tensorflow-finetune/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/08/ubuntu-local-tensorflow-finetune/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.</p>
+<ol>
+<li><h4 id="Prepare-dataset"><a href="#Prepare-dataset" class="headerlink" title="Prepare dataset"></a>Prepare dataset</h4><p> I use the code from <a href="https://github.com/offbye/tensorflow_object_detection_create_coco_tfrecord/" target="_blank" rel="noopener">Xitao Zhang’s github repository</a> and modify <code>create_coco_tf_record.py</code>:</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">LABELS_EXPECTED = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ann <span class="keyword">in</span> anns:</span><br><span class="line">    category_id = ann[<span class="string">'category_id'</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> category_id <span class="keyword">in</span> LABELS_EXPECTED:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    bboxes_data = ann[<span class="string">'bbox'</span>]</span><br><span class="line">    bboxes_data = [bboxes_data[<span class="number">0</span>]/float(pic_width), bboxes_data[<span class="number">1</span>]/float(pic_height),\</span><br><span class="line">                          bboxes_data[<span class="number">2</span>]/float(pic_width), bboxes_data[<span class="number">3</span>]/float(pic_height)]</span><br><span class="line">                 <span class="comment"># the format of coco bounding boxs is [Xmin, Ymin, width, height]</span></span><br><span class="line">    bboxes.append(bboxes_data)</span><br><span class="line">    <span class="comment"># labels.append(ann['category_id'])</span></span><br><span class="line">    <span class="keyword">if</span> category_id <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        labels.append(category_id)</span><br><span class="line">    <span class="keyword">elif</span> category_id == <span class="number">6</span>:</span><br><span class="line">        labels.append(<span class="number">5</span>)</span><br><span class="line">    <span class="keyword">elif</span> category_id == <span class="number">8</span>:</span><br><span class="line">        labels.append(<span class="number">6</span>)</span><br><span class="line"><span class="keyword">if</span> len(labels) == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+<p> Follow the instruction of installation and running from the repo. Then you can get the <code>train.record</code> and <code>eval.record</code>. For training, I produced only the <code>train.record</code>.</p>
+</li>
+<li><h4 id="Train-the-model"><a href="#Train-the-model" class="headerlink" title="Train the model"></a>Train the model</h4><ul>
+<li>Download a pre-trained object detection model from <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md" target="_blank" rel="noopener">detection_model_zoo</a> or a classification model from <a href="https://github.com/tensorflow/models/tree/master/research/slim" target="_blank" rel="noopener">classification_model_zoo</a></li>
+<li>Create an object detection training pipeline.config file: I modify one from <code>/path/to/pretrainedModels/faster_rcnn_resnet50_lowproposals_coco_2017_11_08/pipeline.config</code>, simply changing <code>num_classes</code>, <code>fine_tune_checkpoint</code>, <code>num_steps</code>, <code>label_map_path</code> and <code>tf_record_input_reader/input_path</code>.</li>
+<li>Set the correct value for <strong>from_detection_checkpoint</strong>. If you are fine-tuning from a pre-trained object detection model, set it to <em>true</em>; if from a classification pre-trained model, set it to <em>false</em></li>
+<li><p>Use the following command to train</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># From the tensorflow/models/research/ directory</span></span><br><span class="line">python object_detection/train.py \</span><br><span class="line">    --logtostderr \</span><br><span class="line">    --train_dir=<span class="variable">$&#123;PATH_TO_TRAIN_DIR&#125;</span> \</span><br><span class="line">    --pipeline_config_path=<span class="variable">$&#123;PATH_TO_YOUR_PIPELINE_CONFIG&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><h4 id="Test-the-model-along-training"><a href="#Test-the-model-along-training" class="headerlink" title="Test the model along training"></a>Test the model along training</h4><p> To use CPU for evaluation, at the beginning of the eval.py script you can set the CUDA_VISIBLE_DEVICES to empty <a href="https://github.com/tensorflow/models/issues/2225" target="_blank" rel="noopener">in the following way</a>:</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">"CUDA_VISIBLE_DEVICES"</span>]=<span class="string">""</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># From the tensorflow/models/research/ directory</span></span><br><span class="line">python object_detection/eval.py \</span><br><span class="line">--logtostderr \</span><br><span class="line">--checkpoint_dir=<span class="variable">$&#123;PATH_TO_TRAIN_DIR&#125;</span> \</span><br><span class="line">--pipeline_config_path=<span class="variable">$&#123;PATH_TO_YOUR_PIPELINE_CONFIG&#125;</span> \</span><br><span class="line">--eval_dir=<span class="variable">$&#123;PATH_TO_EVAL_DIR&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="Export-the-trained-model"><a href="#Export-the-trained-model" class="headerlink" title="Export the trained model"></a>Export the trained model</h4><p> After training, you can get a bunch of strange files that endwith ‘.ckpt’ and a file named <code>checkpoint</code>, to export the trained model to a Tensorflow graph proto, run the <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/exporting_models.md" target="_blank" rel="noopener">provided script</a>:</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># From tensorflow/models/research/</span></span><br><span class="line">python object_detection/export_inference_graph.py \</span><br><span class="line">    --input_type image_tensor \</span><br><span class="line">    --pipeline_config_path <span class="variable">$&#123;PIPELINE_CONFIG_PATH&#125;</span> \</span><br><span class="line">    --trained_checkpoint_prefix <span class="variable">$&#123;TRAIN_PATH&#125;</span> \</span><br><span class="line">    --output_directory output_inference_graph.pb</span><br></pre></td></tr></table></figure>
+<p> Finally you can get a graph named <code>output_inference_graph.pb</code></p>
+</li>
+<li><h4 id="Run-demo"><a href="#Run-demo" class="headerlink" title="Run demo"></a>Run demo</h4><p> Run demo <strong>locally</strong> using <em>object_detection_tutorial.py</em> in <em>tensorflow/models/research/object_detction</em>, you can generate the <code>.py</code> file from <code>.ipynb</code> through Jupyter notebook. Modify the following parts:</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PATH_TO_CKPT</span><br><span class="line">PATH_TO_LABELS</span><br><span class="line">NUM_CLASSES</span><br><span class="line">PATH_TO_TEST_IMAGES_DIR</span><br></pre></td></tr></table></figure>
+<p> You can also set different <strong>min_score_thresh</strong> in <em>vis_util.visualize_boxes_and_labels_on_image_array</em>.</p>
+</li>
+<li><h4 id="Use-multiple-GPUs"><a href="#Use-multiple-GPUs" class="headerlink" title="Use multiple GPUs"></a>Use multiple GPUs</h4><p> In order to train the model using <strong>multiple GPUs</strong>:</p>
+<ul>
+<li>Specify the ids of GPUs you want to assign by adding <code>CUDA_VISIBLE_DEVICES=id1,id2,id3,...</code> at the beginning of training command. This is in case of random GPU assignment by Tensorflow.</li>
+<li>Modify <code>batch_size: GPU_NUMBER</code> in <code>pipeline.config</code> file</li>
+<li>Add flag <code>--num_clones=GPU_NUMBER --ps_tasks=1</code> at then end of training command</li>
+</ul>
+</li>
+<li><h4 id="Remote-Tensorboard"><a href="#Remote-Tensorboard" class="headerlink" title="Remote Tensorboard"></a>Remote Tensorboard</h4><ul>
+<li>Run Tensorboard on the server by <code>tensorboard --logdir=${PATH_TO_MODEL_DIRECTORY}</code></li>
+<li><p>Train the model on the server and view the training process by tensorboard locally using:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 16006:127.0.0.1:6006 -p PORT SERVER_NAME@SERVER_ADDRESS</span><br></pre></td></tr></table></figure>
+<p>  Then open <a href="http://127.0.0.1:16006/" target="_blank" rel="noopener">http://127.0.0.1:16006/</a> on the local machine, fantastic!</p>
+</li>
+<li>If you meet the error <em>Tried to connect to port 6006, but address is in use</em>, type <code>ps aux | grep tensorboard</code> to list PIDs of processes of tensorboard and kill the process you don’t want</li>
+</ul>
+</li>
+<li><h4 id="Different-Model-Saving-Strategy"><a href="#Different-Model-Saving-Strategy" class="headerlink" title="Different Model Saving Strategy"></a>Different Model Saving Strategy</h4><p> During the training procedure, the operation of saving a model is wrapped in Tensorflow official scripts, and the training api only provides a parameter related to saving the model <code>save_interval_secs: How often, in seconds, to save the model to &#39;logdir&#39;</code>. I cannot achieve the target to save the model every <em>N</em> iterations, and can only save the model every <em>N</em> seconds. Here is how to do it:</p>
+<ul>
+<li><code>/path/to/tensorflow/models/research/object_detection/trainer.py: slim.learning.train</code>, add <code>save_interval_secs=WHATEVER_YOU_WANT</code>. The default value is 600, which means every 10 minutes a model will be saved</li>
+<li><code>/path/to/tensorflow/models/research/object_detection/trainer.py: f.train.Saver</code>, add <code>max_to_keep=WHATEVER_YOU_WANT</code>. The default value is 5, which means only the latest 5 checking points(trained models) will be saved</li>
+<li><code>pipeline.config: eval_config</code>, set <code>max_evals=WHATEVER_YOU_WANT(max_to_keep)</code>. The default value is 10, which means the evaluation script will evaluate only the first 10 checking points and exits.</li>
+</ul>
+</li>
+</ol>
+<p><span style="background-color: yellow">Anyone knows how to save the model according to training steps please contact me! :)</span></p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Xiaoyu Liu</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="https://xiaoyuliu.github.io/2017/12/08/ubuntu-local-tensorflow-finetune/" title="Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally">https://xiaoyuliu.github.io/2017/12/08/ubuntu-local-tensorflow-finetune/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tensorflow/" rel="tag"># tensorflow</a>
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/03/install-cuda-on-ubuntu16.04/" rel="next" title="Ubuntu 16.04 + GTX 1070 + CUDA 8.0 + cuDNN 5.1">
+                <i class="fa fa-chevron-left"></i> Ubuntu 16.04 + GTX 1070 + CUDA 8.0 + cuDNN 5.1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/27/faster-rcnn-details/" rel="prev" title="Details about faster RCNN for object detection">
+                Details about faster RCNN for object detection <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/xiaoyu.jpg" alt="Xiaoyu Liu">
+            
+              <p class="site-author-name" itemprop="name">Xiaoyu Liu</p>
+              <p class="site-description motion-element" itemprop="description">Everything happens for the best</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/xiaoyuliu" title="GitHub &rarr; https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/yxiaoyu.liu.353803" title="FB Page &rarr; https://www.facebook.com/yxiaoyu.liu.353803" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/xiaoyu_liu_shirley" title="Instagram &rarr; https://instagram.com/xiaoyu_liu_shirley" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin &rarr; https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://jiaweihemtr.weebly.com/" title="https://jiaweihemtr.weebly.com/" rel="noopener" target="_blank">Eric</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Prepare-dataset"><span class="nav-number">1.</span> <span class="nav-text">Prepare dataset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Train-the-model"><span class="nav-number">2.</span> <span class="nav-text">Train the model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-the-model-along-training"><span class="nav-number">3.</span> <span class="nav-text">Test the model along training</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Export-the-trained-model"><span class="nav-number">4.</span> <span class="nav-text">Export the trained model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Run-demo"><span class="nav-number">5.</span> <span class="nav-text">Run demo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Use-multiple-GPUs"><span class="nav-number">6.</span> <span class="nav-text">Use multiple GPUs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Remote-Tensorboard"><span class="nav-number">7.</span> <span class="nav-text">Remote Tensorboard</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-Model-Saving-Strategy"><span class="nav-number">8.</span> <span class="nav-text">Different Model Saving Strategy</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyu Liu</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+  
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://shirleyliu.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://xiaoyuliu.github.io/2017/12/08/ubuntu-local-tensorflow-finetune/";
+        this.page.identifier = "2017/12/08/ubuntu-local-tensorflow-finetune/";
+        this.page.title = 'Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shirleyliu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+    overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
