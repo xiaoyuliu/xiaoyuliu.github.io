@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="Xiaoyu Liu">
 <meta property="og:description" content="NumberSpecial Numbers Number.MAX_VALUE : the maximum positive integer number supported in JS Number.MIN_VALUE : the minimum positive number supported in JS NaN : not a number, but still number type In">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-29T01:11:06.926Z">
+<meta property="og:updated_time" content="2019-06-13T18:03:39.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Basic Data Types">
 <meta name="twitter:description" content="NumberSpecial Numbers Number.MAX_VALUE : the maximum positive integer number supported in JS Number.MIN_VALUE : the minimum positive number supported in JS NaN : not a number, but still number type In">
@@ -404,12 +404,24 @@
                 
               
 
-              <time title="Created: 2019-05-29 09:10:36 / Modified: 09:11:06" itemprop="dateCreated datePublished" datetime="2019-05-29T09:10:36+08:00">2019-05-29</time>
+              <time title="Created: 2019-05-29 09:10:36" itemprop="dateCreated datePublished" datetime="2019-05-29T09:10:36-07:00">2019-05-29</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-13 11:03:39" itemprop="dateModified" datetime="2019-06-13T11:03:39-07:00">2019-06-13</time>
               
             
           </span>
@@ -542,6 +554,25 @@
 <li><code>null</code> and <code>undefined</code> will give <code>false</code></li>
 <li><code>object</code> will give <code>true</code> </li>
 </ol>
+<h3 id="Manipulation-of-basic-data-types"><a href="#Manipulation-of-basic-data-types" class="headerlink" title="Manipulation of basic data types"></a>Manipulation of basic data types</h3><ol>
+<li><p>Anything <code>+</code> a string will be converted to string first. </p>
+<p> E.g. 1 + “abc” = “1abc”</p>
+</li>
+<li><p>Others will be converted to number first.</p>
+<p> E.g. “123” - 0 = 123</p>
+</li>
+<li><p>Using <code>+</code> can convert other data types into <code>Number</code></p>
+<p> E.g. +”123” = 123</p>
+</li>
+<li><p>The result of comparison between <code>NaN</code> and any data is <code>false</code>. Even using <code>b == NaN</code> will always return <code>false</code>, we need to use <code>isNaN(b)</code></p>
+</li>
+<li>If two strings are compared, using their unicodes to compare bit by bit</li>
+<li>Use <code>===</code> and <code>!==</code> to compare two data considering data types at the same time</li>
+</ol>
+<h3 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h3><ol>
+<li>Use Unicode in strings: “/uXXXX”</li>
+<li>Use Unicode in web: &#XXXX; (decimalism)</li>
+</ol>
 
       
     </div>
@@ -607,8 +638,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/03/20190430-html-video-audio/" rel="next" title="HTML5 - Video/Audio Element">
-                <i class="fa fa-chevron-left"></i> HTML5 - Video/Audio Element
+              <a href="/2019/01/03/20190103-100-targets/" rel="next" title="人生最想完成的一百件事">
+                <i class="fa fa-chevron-left"></i> 人生最想完成的一百件事
               </a>
             
           </div>
@@ -616,6 +647,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/14/20190613-my-old-house-summer/" rel="prev" title="我家的老房子 - 夏季篇">
+                我家的老房子 - 夏季篇 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -694,7 +729,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -904,7 +939,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Number"><span class="nav-number">1.</span> <span class="nav-text">Number</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Special-Numbers"><span class="nav-number">1.1.</span> <span class="nav-text">Special Numbers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Calculation"><span class="nav-number">1.2.</span> <span class="nav-text">Calculation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String"><span class="nav-number">2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean"><span class="nav-number">3.</span> <span class="nav-text">Boolean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Undefined"><span class="nav-number">4.</span> <span class="nav-text">Undefined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Null"><span class="nav-number">5.</span> <span class="nav-text">Null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-to-String"><span class="nav-number">6.</span> <span class="nav-text">Convert to String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-to-Number"><span class="nav-number">7.</span> <span class="nav-text">Convert to Number</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-scales"><span class="nav-number">7.1.</span> <span class="nav-text">Different scales</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conver-to-Boolean"><span class="nav-number">8.</span> <span class="nav-text">Conver to Boolean</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Number"><span class="nav-number">1.</span> <span class="nav-text">Number</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Special-Numbers"><span class="nav-number">1.1.</span> <span class="nav-text">Special Numbers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Calculation"><span class="nav-number">1.2.</span> <span class="nav-text">Calculation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String"><span class="nav-number">2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean"><span class="nav-number">3.</span> <span class="nav-text">Boolean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Undefined"><span class="nav-number">4.</span> <span class="nav-text">Undefined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Null"><span class="nav-number">5.</span> <span class="nav-text">Null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-to-String"><span class="nav-number">6.</span> <span class="nav-text">Convert to String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-to-Number"><span class="nav-number">7.</span> <span class="nav-text">Convert to Number</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-scales"><span class="nav-number">7.1.</span> <span class="nav-text">Different scales</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conver-to-Boolean"><span class="nav-number">8.</span> <span class="nav-text">Conver to Boolean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manipulation-of-basic-data-types"><span class="nav-number">9.</span> <span class="nav-text">Manipulation of basic data types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode"><span class="nav-number">10.</span> <span class="nav-text">Unicode</span></a></li></ol></div>
             
 
           </div>
