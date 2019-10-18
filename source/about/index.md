@@ -5,9 +5,9 @@ type: "about"
 comments: false
 ---
 <link rel="stylesheet" type="text/css" href="image.css">
-<center>
-    <img src="../uploads/xiaoyu.jpg">
-</center>
+<div>
+    <img style="margin-left: auto;" src="../uploads/xiaoyu.jpg">
+</div>
 ## Bio
 **Xiaoyu Liu** is a Software Engineer at Dialpad Vancouver.
 
