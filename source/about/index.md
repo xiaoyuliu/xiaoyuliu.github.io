@@ -9,18 +9,19 @@ comments: false
     <img src="../uploads/xiaoyu.jpg">
 </center>
 ## Bio
-**Xiaoyu Liu** is heading for being a Software Engineer!
+**Xiaoyu Liu** is a Software Engineer at Dialpad Vancouver.
 
 Xiaoyu was a Deep Learning Researcher at [**AltumView System Inc.**][1] from 2017.11 to 2019.04. She graduated as a Computing Science master student from **Simon Fraser University** (2015.09 - 2017.08), supervised by [Prof. Greg Mori](https://www.cs.sfu.ca/~mori/). And she earned her Bachelor’s degrees in Engineering from **University of Science and Technology of China** (2011.09 - 2015.06). 
 
-## Program Languages
-- C/C++
+## Program Skills
 - Python
-- Java
 - JavaScript
+- Java
+- C/C++
 - HTML/CSS
 - Matlab
 - SQL
+- Vue.js
 
 ## Interests
 - Hiking
