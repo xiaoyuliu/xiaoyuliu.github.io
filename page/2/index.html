@@ -4,105 +4,56 @@
 
 
 
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang="en">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '6.6.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
   };
 </script>
-
-
-  
-
-
-
 
   <meta name="description" content="Everything happens for the best">
 <meta name="keywords" content="Software Engineer, Machine Learning, Hiking, Food">
@@ -115,37 +66,33 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xiaoyu Liu">
 <meta name="twitter:description" content="Everything happens for the best">
-
-
-
-
-
-
   <link rel="canonical" href="https://xiaoyuliu.github.io/page/2/">
 
 
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
   };
 </script>
 
   <title>Xiaoyu Liu</title>
   
-
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-92119705-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-92119705-1');
-</script>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92119705-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-92119705-1');
+      }
+    </script>
+  
 
 
 
@@ -156,404 +103,152 @@
 
   <noscript>
   <style>
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion .logo-line-before i { left: initial; }
-    .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
-    
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Xiaoyu Liu</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
         <p class="site-subtitle">Love life and work hard</p>
       
-    
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
   
-    <ul id="menu" class="menu">
+  <ul id="menu" class="menu">
+      
       
         
         
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
+        <li class="menu-item menu-item-home">
       
     
 
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
+        <li class="menu-item menu-item-about">
       
     
 
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
+        <li class="menu-item menu-item-tags">
       
     
 
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
+        <li class="menu-item menu-item-categories">
       
     
 
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
+        <li class="menu-item menu-item-archives">
       
     
 
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
-
       
-      
-    </ul>
-  
+    
+  </ul>
 
-  
     
 
-  
-
-  
 </nav>
-
-
-
-  
-
-
-
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-          <div id="content" class="content">
+          <div class="content">
             
-  <section id="posts" class="posts-expand">
-    
-      
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/05/06/20180506-deep-complex-networks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xiaoyu Liu">
-      <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaoyu Liu">
-    </span>
-
-    
-      <header class="post-header">
-
+  <div class="posts-expand">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/05/06/20180506-deep-complex-networks/" class="post-title-link" itemprop="url">Deep Complex Networks - Crude notes</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-05-06 19:21:08" itemprop="dateCreated datePublished" datetime="2018-05-06T19:21:08-07:00">2018-05-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/06/20180506-deep-complex-networks/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/06/20180506-deep-complex-networks/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              This paper comes up with the key components of deep complex networks including complex convolutions, complex weight initialization. The state-of-the-a
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/05/06/20180506-deep-complex-networks/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
   
   
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/04/14/20180414-bottom-up-realtime-pose/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -565,75 +260,51 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/14/20180414-bottom-up-realtime-pose/" class="post-title-link" itemprop="url">Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields - notes</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2018/04/14/20180414-bottom-up-realtime-pose/" class="post-title-link" itemprop="url">Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields - notes</a>
+          
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               
                 
               
 
               <time title="Created: 2018-04-14 15:31:38" itemprop="dateCreated datePublished" datetime="2018-04-14T15:31:38-07:00">2018-04-14</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Research/" itemprop="url" rel="index">
+                    <span itemprop="name">Research</span>
+                  </a>
+                </span>
 
                 
                 
@@ -642,32 +313,25 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/14/20180414-bottom-up-realtime-pose/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/14/20180414-bottom-up-realtime-pose/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/04/14/20180414-bottom-up-realtime-pose/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/14/20180414-bottom-up-realtime-pose/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -675,18 +339,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-            <p>
-              I read this paper not very carefully when CVPR 2017 accepted list was released, and felt the performance was really impressive. For some reason, once 
-              ...
-            </p>
+          <p>I read this paper not very carefully when CVPR 2017 accepted list was released, and felt the performance was really impressive. For some reason, once again I re-read this paper and got a more detailed understanding about it.</p>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2018/04/14/20180414-bottom-up-realtime-pose/#more" rel="contents">
                 Read more &raquo;
               </a>
@@ -698,55 +354,21 @@
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
+  
+  
+  
 
     
-      
-
-  
-
+        
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/03/30/20180330-DOM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -758,75 +380,51 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/30/20180330-DOM/" class="post-title-link" itemprop="url">13 DOM Manipulation</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2018/03/30/20180330-DOM/" class="post-title-link" itemprop="url">13 DOM Manipulation</a>
+          
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               
                 
               
 
               <time title="Created: 2018-03-30 22:18:35" itemprop="dateCreated datePublished" datetime="2018-03-30T22:18:35-07:00">2018-03-30</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web-Developer-Bootcamp/" itemprop="url" rel="index"><span itemprop="name">Web Developer Bootcamp</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web-Developer-Bootcamp/" itemprop="url" rel="index">
+                    <span itemprop="name">Web Developer Bootcamp</span>
+                  </a>
+                </span>
 
                 
                 
@@ -835,32 +433,25 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/30/20180330-DOM/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/30/20180330-DOM/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/03/30/20180330-DOM/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/30/20180330-DOM/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -868,19 +459,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-            <p>
-              DOM: Document Object ModelDOM is the interface between JavaScript and HTML/CSS.
-Everything is stored inside of the document object. And the browser wi
-              ...
-            </p>
+          <h3 id="DOM-Document-Object-Model"><a href="#DOM-Document-Object-Model" class="headerlink" title="DOM: Document Object Model"></a>DOM: Document Object Model</h3><p>DOM is the interface between JavaScript and HTML/CSS.</p><p>Everything is stored inside of the <em>document</em> object. And the browser will turn every HTML tag into a Javascript object that we can manipulate.</p>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2018/03/30/20180330-DOM/#more" rel="contents">
                 Read more &raquo;
               </a>
@@ -892,55 +474,21 @@ Everything is stored inside of the document object. And the browser wi
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
+  
+  
+  
 
     
-      
-
-  
-
+        
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/03/30/20180330-clang-format/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -952,75 +500,51 @@ Everything is stored inside of the document object. And the browser wi
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/30/20180330-clang-format/" class="post-title-link" itemprop="url">Unify code style using clang-format</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2018/03/30/20180330-clang-format/" class="post-title-link" itemprop="url">Unify code style using clang-format</a>
+          
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               
                 
               
 
               <time title="Created: 2018-03-30 11:49:14" itemprop="dateCreated datePublished" datetime="2018-03-30T11:49:14-07:00">2018-03-30</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Engineer/" itemprop="url" rel="index">
+                    <span itemprop="name">Engineer</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1029,32 +553,25 @@ Everything is stored inside of the document object. And the browser wi
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/30/20180330-clang-format/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/30/20180330-clang-format/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/03/30/20180330-clang-format/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/30/20180330-clang-format/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -1062,18 +579,10 @@ Everything is stored inside of the document object. And the browser wi
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-            <p>
-              IntroductionClangFormat describes a set of tools that are built on top of LibFormat. It can support your workflow in a variety of ways including a sta
-              ...
-            </p>
+          <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p><a href="https://clang.llvm.org/docs/ClangFormat.html" target="_blank" rel="noopener">ClangFormat</a> describes a set of tools that are built on top of LibFormat. It can support your workflow in a variety of ways including a standalone tool and editor integrations.</p>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2018/03/30/20180330-clang-format/#more" rel="contents">
                 Read more &raquo;
               </a>
@@ -1085,55 +594,21 @@ Everything is stored inside of the document object. And the browser wi
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
+  
+  
+  
 
     
-      
-
-  
-
+        
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/03/28/how-to-sync-hexo-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1145,75 +620,51 @@ Everything is stored inside of the document object. And the browser wi
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/28/how-to-sync-hexo-blog/" class="post-title-link" itemprop="url">How to create and sync your blog using hexo</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2018/03/28/how-to-sync-hexo-blog/" class="post-title-link" itemprop="url">How to create and sync your blog using hexo</a>
+          
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               
                 
               
 
               <time title="Created: 2018-03-28 22:29:36" itemprop="dateCreated datePublished" datetime="2018-03-28T22:29:36-07:00">2018-03-28</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Engineer/" itemprop="url" rel="index">
+                    <span itemprop="name">Engineer</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1222,32 +673,25 @@ Everything is stored inside of the document object. And the browser wi
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/28/how-to-sync-hexo-blog/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/28/how-to-sync-hexo-blog/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/03/28/how-to-sync-hexo-blog/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/28/how-to-sync-hexo-blog/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -1255,20 +699,10 @@ Everything is stored inside of the document object. And the browser wi
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-            <p>
-              Thanks to the simple hexo setting, I successfully moved my homepage to hexo!
-
-Use hexo, gitpage and next themeCreate .io git repoYou must create git r
-              ...
-            </p>
+          <center><span style="background: yellow"><strong>Thanks to the simple <a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a> setting, I successfully moved my homepage to hexo!</strong></span></center><h3 id="Use-hexo-gitpage-and-next-theme"><a href="#Use-hexo-gitpage-and-next-theme" class="headerlink" title="Use hexo, gitpage and next theme"></a>Use <a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a>, <a href="https://pages.github.com/" target="_blank" rel="noopener">gitpage</a> and <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next theme</a></h3><h4 id="Create-io-git-repo"><a href="#Create-io-git-repo" class="headerlink" title="Create .io git repo"></a>Create .io git repo</h4><p>You must create git repo named <code>username.github.io</code></p>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2018/03/28/how-to-sync-hexo-blog/#more" rel="contents">
                 Read more &raquo;
               </a>
@@ -1280,55 +714,21 @@ Use hexo, gitpage and next themeCreate .io git repoYou must create git r
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
+  
+  
+  
 
     
-      
-
-  
-
+        
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/03/19/compare-static-and-dynamic-library/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1340,75 +740,51 @@ Use hexo, gitpage and next themeCreate .io git repoYou must create git r
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/19/compare-static-and-dynamic-library/" class="post-title-link" itemprop="url">C++ Static Libraries and Dynamic Libraries</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2018/03/19/compare-static-and-dynamic-library/" class="post-title-link" itemprop="url">C++ Static Libraries and Dynamic Libraries</a>
+          
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               
                 
               
 
               <time title="Created: 2018-03-19 16:12:42" itemprop="dateCreated datePublished" datetime="2018-03-19T16:12:42-07:00">2018-03-19</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Engineer/" itemprop="url" rel="index">
+                    <span itemprop="name">Engineer</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1417,32 +793,25 @@ Use hexo, gitpage and next themeCreate .io git repoYou must create git r
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/19/compare-static-and-dynamic-library/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/19/compare-static-and-dynamic-library/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/03/19/compare-static-and-dynamic-library/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/19/compare-static-and-dynamic-library/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -1450,19 +819,10 @@ Use hexo, gitpage and next themeCreate .io git repoYou must create git r
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-            <p>
-              This articile is based on the Chinese version blog introducing static libraries and dynamic libraries.
-Definition of LibraryA library is a collection 
-              ...
-            </p>
+          <p>This articile is based on the Chinese version <a href="http://www.cnblogs.com/skynet/p/3372855.html" target="_blank" rel="noopener">blog</a> introducing static libraries and dynamic libraries.</p><h3 id="Definition-of-Library"><a href="#Definition-of-Library" class="headerlink" title="Definition of Library"></a>Definition of Library</h3><p>A library is a collection of off-the-shelf scripts that can be used repeatedly. Basically it is the binary mode of executable codes and can be loaded into the operation system to run. There are two kinds of libraries on LINUX and WINDOWS:</p>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2018/03/19/compare-static-and-dynamic-library/#more" rel="contents">
                 Read more &raquo;
               </a>
@@ -1474,55 +834,21 @@ Definition of LibraryA library is a collection
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
+  
+  
+  
 
     
-      
-
-  
-
+        
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/02/23/combine-datasets-into-lmdb-for-caffe/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1534,75 +860,51 @@ Definition of LibraryA library is a collection
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/" class="post-title-link" itemprop="url">Prepare LMDB for Caffe from custom datasets</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/" class="post-title-link" itemprop="url">Prepare LMDB for Caffe from custom datasets</a>
+          
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               
                 
               
 
               <time title="Created: 2018-02-23 13:27:09" itemprop="dateCreated datePublished" datetime="2018-02-23T13:27:09-08:00">2018-02-23</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Engineer/" itemprop="url" rel="index">
+                    <span itemprop="name">Engineer</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1611,32 +913,25 @@ Definition of LibraryA library is a collection
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/23/combine-datasets-into-lmdb-for-caffe/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/23/combine-datasets-into-lmdb-for-caffe/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -1644,18 +939,10 @@ Definition of LibraryA library is a collection
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-            <p>
-              There is some scripts to create LMDB specially for MSCOCO or VOC datasets, but sometimes we need to combine two different datasets. And it would be ef
-              ...
-            </p>
+          <p>There is some scripts to create LMDB specially for MSCOCO or VOC datasets, but sometimes we need to combine two different datasets. And it would be efficient for Caffe to write both datasets into a single LMDB file.</p>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/#more" rel="contents">
                 Read more &raquo;
               </a>
@@ -1667,55 +954,21 @@ Definition of LibraryA library is a collection
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
+  
+  
+  
 
     
-      
-
-  
-
+        
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/12/27/faster-rcnn-details/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1727,75 +980,51 @@ Definition of LibraryA library is a collection
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/12/27/faster-rcnn-details/" class="post-title-link" itemprop="url">Details about faster RCNN for object detection</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2017/12/27/faster-rcnn-details/" class="post-title-link" itemprop="url">Details about faster RCNN for object detection</a>
+          
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               
                 
               
 
               <time title="Created: 2017-12-27 11:11:21" itemprop="dateCreated datePublished" datetime="2017-12-27T11:11:21-08:00">2017-12-27</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Research/" itemprop="url" rel="index">
+                    <span itemprop="name">Research</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1804,32 +1033,25 @@ Definition of LibraryA library is a collection
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/27/faster-rcnn-details/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/27/faster-rcnn-details/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/12/27/faster-rcnn-details/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/27/faster-rcnn-details/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -1837,20 +1059,10 @@ Definition of LibraryA library is a collection
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-            <p>
-              This post is to specify some details from faster rcnn series for object detection myself.
-NMS(Non-Maximum Surppression)python implementation:
-# ------
-              ...
-            </p>
+          <p><strong>This post is to specify some details from faster rcnn series for object detection myself.</strong></p><h3 id="NMS-Non-Maximum-Surppression"><a href="#NMS-Non-Maximum-Surppression" class="headerlink" title="NMS(Non-Maximum Surppression)"></a>NMS(Non-Maximum Surppression)</h3><p><a href="https://github.com/rbgirshick/py-faster-rcnn/blob/master/lib/nms/py_cpu_nms.py" target="_blank" rel="noopener">python implementation</a>:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Fast R-CNN</span></span><br><span class="line"><span class="comment"># Copyright (c) 2015 Microsoft</span></span><br><span class="line"><span class="comment"># Licensed under The MIT License [see LICENSE for details]</span></span><br><span class="line"><span class="comment"># Written by Ross Girshick</span></span><br><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">py_cpu_nms</span><span class="params">(dets, thresh)</span>:</span></span><br><span class="line">    <span class="string">"""Pure Python NMS baseline."""</span></span><br><span class="line">    x1 = dets[:, <span class="number">0</span>]</span><br><span class="line">    y1 = dets[:, <span class="number">1</span>]</span><br><span class="line">    x2 = dets[:, <span class="number">2</span>]</span><br><span class="line">    y2 = dets[:, <span class="number">3</span>]</span><br><span class="line">    scores = dets[:, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">    areas = (x2 - x1 + <span class="number">1</span>) * (y2 - y1 + <span class="number">1</span>)</span><br><span class="line">    order = scores.argsort()[::<span class="number">-1</span>] </span><br><span class="line">    <span class="comment"># sort the detections according to scores, high to low values.</span></span><br><span class="line"></span><br><span class="line">    keep = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># keep doing until all bboxes are covered by THIS BBOX</span></span><br><span class="line">    <span class="keyword">while</span> order.size &gt; <span class="number">0</span>: </span><br><span class="line">        <span class="comment"># choose the bbox with highest iou score, namely THIS BBOX</span></span><br><span class="line">        i = order[<span class="number">0</span>] </span><br><span class="line">        keep.append(i)</span><br><span class="line">        xx1 = np.maximum(x1[i], x1[order[<span class="number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[i], y1[order[<span class="number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[i], x2[order[<span class="number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[i], y2[order[<span class="number">1</span>:]])</span><br><span class="line"></span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2 - xx1 + <span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2 - yy1 + <span class="number">1</span>)</span><br><span class="line">        inter = w * h</span><br><span class="line">        ovr = inter / (areas[i] + areas[order[<span class="number">1</span>:]] - inter)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># filter out all detections which have IOUs larger than the threshold, which means they are covered by THIS BBOX</span></span><br><span class="line">        inds = np.where(ovr &lt;= thresh)[<span class="number">0</span>] </span><br><span class="line">        order = order[inds + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2017/12/27/faster-rcnn-details/#more" rel="contents">
                 Read more &raquo;
               </a>
@@ -1862,55 +1074,21 @@ NMS(Non-Maximum Surppression)python implementation:
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
+  
+  
+  
 
     
-      
-
-  
-
+        
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/12/08/ubuntu-local-tensorflow-finetune/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1922,75 +1100,51 @@ NMS(Non-Maximum Surppression)python implementation:
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/12/08/ubuntu-local-tensorflow-finetune/" class="post-title-link" itemprop="url">Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2017/12/08/ubuntu-local-tensorflow-finetune/" class="post-title-link" itemprop="url">Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally</a>
+          
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               
                 
               
 
               <time title="Created: 2017-12-08 10:13:48" itemprop="dateCreated datePublished" datetime="2017-12-08T10:13:48-08:00">2017-12-08</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Engineer/" itemprop="url" rel="index">
+                    <span itemprop="name">Engineer</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1999,32 +1153,25 @@ NMS(Non-Maximum Surppression)python implementation:
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/08/ubuntu-local-tensorflow-finetune/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/08/ubuntu-local-tensorflow-finetune/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/12/08/ubuntu-local-tensorflow-finetune/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/08/ubuntu-local-tensorflow-finetune/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -2032,20 +1179,59 @@ NMS(Non-Maximum Surppression)python implementation:
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-            <p>
-              This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.
-
-Prepare dataset I use the co
-              ...
-            </p>
+          <p>This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.</p><ol>
+<li><h4 id="Prepare-dataset"><a href="#Prepare-dataset" class="headerlink" title="Prepare dataset"></a>Prepare dataset</h4><p> I use the code from <a href="https://github.com/offbye/tensorflow_object_detection_create_coco_tfrecord/" target="_blank" rel="noopener">Xitao Zhang’s github repository</a> and modify <code>create_coco_tf_record.py</code>:</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">LABELS_EXPECTED = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ann <span class="keyword">in</span> anns:</span><br><span class="line">    category_id = ann[<span class="string">'category_id'</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> category_id <span class="keyword">in</span> LABELS_EXPECTED:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    bboxes_data = ann[<span class="string">'bbox'</span>]</span><br><span class="line">    bboxes_data = [bboxes_data[<span class="number">0</span>]/float(pic_width), bboxes_data[<span class="number">1</span>]/float(pic_height),\</span><br><span class="line">                          bboxes_data[<span class="number">2</span>]/float(pic_width), bboxes_data[<span class="number">3</span>]/float(pic_height)]</span><br><span class="line">                 <span class="comment"># the format of coco bounding boxs is [Xmin, Ymin, width, height]</span></span><br><span class="line">    bboxes.append(bboxes_data)</span><br><span class="line">    <span class="comment"># labels.append(ann['category_id'])</span></span><br><span class="line">    <span class="keyword">if</span> category_id <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        labels.append(category_id)</span><br><span class="line">    <span class="keyword">elif</span> category_id == <span class="number">6</span>:</span><br><span class="line">        labels.append(<span class="number">5</span>)</span><br><span class="line">    <span class="keyword">elif</span> category_id == <span class="number">8</span>:</span><br><span class="line">        labels.append(<span class="number">6</span>)</span><br><span class="line"><span class="keyword">if</span> len(labels) == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+<p> Follow the instruction of installation and running from the repo. Then you can get the <code>train.record</code> and <code>eval.record</code>. For training, I produced only the <code>train.record</code>.</p>
+</li>
+<li><h4 id="Train-the-model"><a href="#Train-the-model" class="headerlink" title="Train the model"></a>Train the model</h4><ul>
+<li>Download a pre-trained object detection model from <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md" target="_blank" rel="noopener">detection_model_zoo</a> or a classification model from <a href="https://github.com/tensorflow/models/tree/master/research/slim" target="_blank" rel="noopener">classification_model_zoo</a></li>
+<li>Create an object detection training pipeline.config file: I modify one from <code>/path/to/pretrainedModels/faster_rcnn_resnet50_lowproposals_coco_2017_11_08/pipeline.config</code>, simply changing <code>num_classes</code>, <code>fine_tune_checkpoint</code>, <code>num_steps</code>, <code>label_map_path</code> and <code>tf_record_input_reader/input_path</code>.</li>
+<li>Set the correct value for <strong>from_detection_checkpoint</strong>. If you are fine-tuning from a pre-trained object detection model, set it to <em>true</em>; if from a classification pre-trained model, set it to <em>false</em></li>
+<li><p>Use the following command to train</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># From the tensorflow/models/research/ directory</span></span><br><span class="line">python object_detection/train.py \</span><br><span class="line">    --logtostderr \</span><br><span class="line">    --train_dir=<span class="variable">$&#123;PATH_TO_TRAIN_DIR&#125;</span> \</span><br><span class="line">    --pipeline_config_path=<span class="variable">$&#123;PATH_TO_YOUR_PIPELINE_CONFIG&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><h4 id="Test-the-model-along-training"><a href="#Test-the-model-along-training" class="headerlink" title="Test the model along training"></a>Test the model along training</h4><p> To use CPU for evaluation, at the beginning of the eval.py script you can set the CUDA_VISIBLE_DEVICES to empty <a href="https://github.com/tensorflow/models/issues/2225" target="_blank" rel="noopener">in the following way</a>:</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">"CUDA_VISIBLE_DEVICES"</span>]=<span class="string">""</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># From the tensorflow/models/research/ directory</span></span><br><span class="line">python object_detection/eval.py \</span><br><span class="line">--logtostderr \</span><br><span class="line">--checkpoint_dir=<span class="variable">$&#123;PATH_TO_TRAIN_DIR&#125;</span> \</span><br><span class="line">--pipeline_config_path=<span class="variable">$&#123;PATH_TO_YOUR_PIPELINE_CONFIG&#125;</span> \</span><br><span class="line">--eval_dir=<span class="variable">$&#123;PATH_TO_EVAL_DIR&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="Export-the-trained-model"><a href="#Export-the-trained-model" class="headerlink" title="Export the trained model"></a>Export the trained model</h4><p> After training, you can get a bunch of strange files that endwith ‘.ckpt’ and a file named <code>checkpoint</code>, to export the trained model to a Tensorflow graph proto, run the <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/exporting_models.md" target="_blank" rel="noopener">provided script</a>:</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># From tensorflow/models/research/</span></span><br><span class="line">python object_detection/export_inference_graph.py \</span><br><span class="line">    --input_type image_tensor \</span><br><span class="line">    --pipeline_config_path <span class="variable">$&#123;PIPELINE_CONFIG_PATH&#125;</span> \</span><br><span class="line">    --trained_checkpoint_prefix <span class="variable">$&#123;TRAIN_PATH&#125;</span> \</span><br><span class="line">    --output_directory output_inference_graph.pb</span><br></pre></td></tr></table></figure>
+<p> Finally you can get a graph named <code>output_inference_graph.pb</code></p>
+</li>
+<li><h4 id="Run-demo"><a href="#Run-demo" class="headerlink" title="Run demo"></a>Run demo</h4><p> Run demo <strong>locally</strong> using <em>object_detection_tutorial.py</em> in <em>tensorflow/models/research/object_detction</em>, you can generate the <code>.py</code> file from <code>.ipynb</code> through Jupyter notebook. Modify the following parts:</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PATH_TO_CKPT</span><br><span class="line">PATH_TO_LABELS</span><br><span class="line">NUM_CLASSES</span><br><span class="line">PATH_TO_TEST_IMAGES_DIR</span><br></pre></td></tr></table></figure>
+<p> You can also set different <strong>min_score_thresh</strong> in <em>vis_util.visualize_boxes_and_labels_on_image_array</em>.</p>
+</li>
+<li><h4 id="Use-multiple-GPUs"><a href="#Use-multiple-GPUs" class="headerlink" title="Use multiple GPUs"></a>Use multiple GPUs</h4><p> In order to train the model using <strong>multiple GPUs</strong>:</p>
+<ul>
+<li>Specify the ids of GPUs you want to assign by adding <code>CUDA_VISIBLE_DEVICES=id1,id2,id3,...</code> at the beginning of training command. This is in case of random GPU assignment by Tensorflow.</li>
+<li>Modify <code>batch_size: GPU_NUMBER</code> in <code>pipeline.config</code> file</li>
+<li>Add flag <code>--num_clones=GPU_NUMBER --ps_tasks=1</code> at then end of training command</li>
+</ul>
+</li>
+<li><h4 id="Remote-Tensorboard"><a href="#Remote-Tensorboard" class="headerlink" title="Remote Tensorboard"></a>Remote Tensorboard</h4><ul>
+<li>Run Tensorboard on the server by <code>tensorboard --logdir=${PATH_TO_MODEL_DIRECTORY}</code></li>
+<li><p>Train the model on the server and view the training process by tensorboard locally using:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 16006:127.0.0.1:6006 -p PORT SERVER_NAME@SERVER_ADDRESS</span><br></pre></td></tr></table></figure>
+<p>  Then open <a href="http://127.0.0.1:16006/" target="_blank" rel="noopener">http://127.0.0.1:16006/</a> on the local machine, fantastic!</p>
+</li>
+<li>If you meet the error <em>Tried to connect to port 6006, but address is in use</em>, type <code>ps aux | grep tensorboard</code> to list PIDs of processes of tensorboard and kill the process you don’t want</li>
+</ul>
+</li>
+<li><h4 id="Different-Model-Saving-Strategy"><a href="#Different-Model-Saving-Strategy" class="headerlink" title="Different Model Saving Strategy"></a>Different Model Saving Strategy</h4><p> During the training procedure, the operation of saving a model is wrapped in Tensorflow official scripts, and the training api only provides a parameter related to saving the model <code>save_interval_secs: How often, in seconds, to save the model to &#39;logdir&#39;</code>. I cannot achieve the target to save the model every <em>N</em> iterations, and can only save the model every <em>N</em> seconds. Here is how to do it:</p>
+<ul>
+<li><code>/path/to/tensorflow/models/research/object_detection/trainer.py: slim.learning.train</code>, add <code>save_interval_secs=WHATEVER_YOU_WANT</code>. The default value is 600, which means every 10 minutes a model will be saved</li>
+<li><code>/path/to/tensorflow/models/research/object_detection/trainer.py: f.train.Saver</code>, add <code>max_to_keep=WHATEVER_YOU_WANT</code>. The default value is 5, which means only the latest 5 checking points(trained models) will be saved</li>
+<li><code>pipeline.config: eval_config</code>, set <code>max_evals=WHATEVER_YOU_WANT(max_to_keep)</code>. The default value is 10, which means the evaluation script will evaluate only the first 10 checking points and exits.</li>
+</ul>
+</li>
+</ol>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2017/12/08/ubuntu-local-tensorflow-finetune/#more" rel="contents">
                 Read more &raquo;
               </a>
@@ -2057,55 +1243,21 @@ Prepare dataset I use the co
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
+  
+  
+  
 
     
-      
-
-  
-
+        
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/11/03/install-cuda-on-ubuntu16.04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2117,75 +1269,51 @@ Prepare dataset I use the co
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/03/install-cuda-on-ubuntu16.04/" class="post-title-link" itemprop="url">Ubuntu 16.04 + GTX 1070 + CUDA 8.0 + cuDNN 5.1</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2017/11/03/install-cuda-on-ubuntu16.04/" class="post-title-link" itemprop="url">Ubuntu 16.04 + GTX 1070 + CUDA 8.0 + cuDNN 5.1</a>
+          
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               
                 
               
 
               <time title="Created: 2017-11-03 22:05:29" itemprop="dateCreated datePublished" datetime="2017-11-03T22:05:29-07:00">2017-11-03</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-30 17:03:26" itemprop="dateModified" datetime="2019-04-30T17:03:26-07:00">2019-04-30</time>
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Engineer/" itemprop="url" rel="index">
+                    <span itemprop="name">Engineer</span>
+                  </a>
+                </span>
 
                 
                 
@@ -2194,32 +1322,25 @@ Prepare dataset I use the co
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/03/install-cuda-on-ubuntu16.04/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/03/install-cuda-on-ubuntu16.04/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/11/03/install-cuda-on-ubuntu16.04/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/03/install-cuda-on-ubuntu16.04/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -2227,21 +1348,24 @@ Prepare dataset I use the co
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-            <p>
-              Spent a whole day to figure out the way to safely install these things.
-Install GTX 1070 driverThere are two different ways to install the driver:
-
-In
-              ...
-            </p>
+          <p>Spent a whole day to figure out the way to safely install these things.</p><h3 id="Install-GTX-1070-driver"><a href="#Install-GTX-1070-driver" class="headerlink" title="Install GTX 1070 driver"></a>Install GTX 1070 driver</h3><p>There are two different ways to install the driver:</p><ol start="0">
+<li><p>Install through <code>.run</code> file from <a href="https://www.geforce.com/drivers" target="_blank" rel="noopener">this link</a></p>
+<ul>
+<li><p>Ban built-in <em>nouveau</em> driver</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Alt + F1</span><br><span class="line">//input your user id and password</span><br><span class="line">sudo vi /etc/modprobe.d/blacklist-nouveau.conf</span><br></pre></td></tr></table></figure>
+<p>  Insert <code>blacklist nouveau  options nouveau modset=0</code> and save</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo update-initramfs -u</span><br><span class="line">lspci | grep nouveau //success if return nothing</span><br><span class="line">Ctrl + Alt + F7 //return to GUI</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Install GTX 1070 driver<br>  Download the corresponding <code>.run</code> file through the link above</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Alt + F1</span><br><span class="line">//input your user id and password</span><br><span class="line">sudo service lightdm stop</span><br><span class="line">cd to the root folder of driver</span><br><span class="line">sudo chmod 755 NVIDIA-Linux-x86_64-XXX.XX.run  //get privilege</span><br><span class="line">sudo ./NVIDIA-Linux-x86_64-XXX.XX.run --no-opengl-files</span><br><span class="line">sudo service lightdm start</span><br><span class="line">Ctrl + Alt + F7 //return to GUI</span><br><span class="line">nvidia-smi //success if return gpu information</span><br></pre></td></tr></table></figure>
+<p>  <strong>However, my Ubuntu system broke down when trying this method. There came lots of strange problems like I can’t use my pinyin input and my system can’t locate <em>update</em> package. Therefore I chose the second way to install nvidia driver.</strong></p>
+</li>
+</ul>
+</li>
+</ol>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2017/11/03/install-cuda-on-ubuntu16.04/#more" rel="contents">
                 Read more &raquo;
               </a>
@@ -2253,41 +1377,130 @@ In
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
+  
+  
+  
 
     
-  </section>
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/08/23/thesis-defence-completed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoyu Liu">
+      <meta itemprop="description" content="Everything happens for the best">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaoyu Liu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2017/08/23/thesis-defence-completed/" class="post-title-link" itemprop="url">Thesis defence completed</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2017-08-23 12:24:26" itemprop="dateCreated datePublished" datetime="2017-08-23T12:24:26-07:00">2017-08-23</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/08/23/thesis-defence-completed/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/23/thesis-defence-completed/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Excited!</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+  </div>
 
   
   <nav class="pagination">
@@ -2300,298 +1513,162 @@ In
           
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
-    
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      
-
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/uploads/xiaoyu.jpg" alt="Xiaoyu Liu">
-            
-              <p class="site-author-name" itemprop="name">Xiaoyu Liu</p>
-              <p class="site-description motion-element" itemprop="description">Everything happens for the best</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">38</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">categories</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">38</span>
-                    <span class="site-state-item-name">tags</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/xiaoyuliu" title="GitHub &rarr; https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.facebook.com/yxiaoyu.liu.353803" title="FB Page &rarr; https://www.facebook.com/yxiaoyu.liu.353803" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://instagram.com/xiaoyu_liu_shirley" title="Instagram &rarr; https://instagram.com/xiaoyu_liu_shirley" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin &rarr; https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://jiaweihemtr.weebly.com/" title="https://jiaweihemtr.weebly.com/" rel="noopener" target="_blank">Eric</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-            
-          
-          
-
-        </div>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
       </div>
+      <!--/noindex-->
 
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/uploads/xiaoyu.jpg"
+      alt="Xiaoyu Liu">
+  <p class="site-author-name" itemprop="name">Xiaoyu Liu</p>
+  <div class="site-description" itemprop="description">Everything happens for the best</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
       
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/xiaoyuliu" title="GitHub &rarr; https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin &rarr; https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+      </span>
+    
+  </div>
 
-      
+
+
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xiaoyu Liu</span>
-
-  
-
-  
 </div>
-
-
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
-
-
-
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  </div>
   <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
-
-
-
+  <div class="theme-info">
+      
+    Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1
+  </div>
 
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="Total Visitors">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
     </span>
   
-
+    <span class="post-meta-divider">|</span>
   
-    <span class="site-pv" title="Total Views">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
     </span>
   
 </div>
+
+
+
 
 
 
@@ -2604,217 +1681,57 @@ In
         
       </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
-        
-      </div>
-    
-
-    
-
-    
-
-    
   </div>
 
   
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
 
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shirleyliu.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
   }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=6.6.0"></script>
-
-  <script src="/js/src/motion.js?v=6.6.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
-
-
-
-  
-
-  
-    <script id="dsq-count-scr" src="https://shirleyliu.disqus.com/count.js" async></script>
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-  
-
-  
-  
-
-  
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-    overflow: auto hidden;
-}
-</style>
-
-    
-  
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>

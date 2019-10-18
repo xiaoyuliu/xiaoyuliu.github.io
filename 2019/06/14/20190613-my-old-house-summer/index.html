@@ -4,149 +4,96 @@
 
 
 
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang="en">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '6.6.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
   };
 </script>
 
-
-  
-
-
-
-
-  <meta name="description" content="一觉醒来听我妈说家里老房子转让给别人了，心里咯噔一声。虽然老早就听她说要把老房子出掉这件事，然而真的等到事成之后反而有一丝丝难过和物是人非的感觉。 停了一刻之后各种在老房子里的回忆像前段时间的鹅毛大雪飘下来。 从1999年到2008年，其实我也就在老房子里住了九年而已，在那之前我们家是没有自己的房子的，那时候的家长里短大概都是关于别人，关于什么时候能有自己的房子。 这九年里我上完了小学初中，试图学">
+  <meta name="description" content="一觉醒来听我妈说家里老房子转让给别人了，心里咯噔一声。虽然老早就听她说要把老房子出掉这件事，然而真的等到事成之后反而有一丝丝难过和物是人非的感觉。停了一刻之后各种在老房子里的回忆像前段时间的鹅毛大雪飘下来。从1999年到2008年，其实我也就在老房子里住了九年而已，在那之前我们家是没有自己的房子的，那时候的家长里短大概都是关于别人，关于什么时候能有自己的房子。">
 <meta name="keywords" content="Software Engineer, Machine Learning, Hiking, Food">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我家的老房子 - 夏季篇">
 <meta property="og:url" content="https://xiaoyuliu.github.io/2019/06/14/20190613-my-old-house-summer/index.html">
 <meta property="og:site_name" content="Xiaoyu Liu">
-<meta property="og:description" content="一觉醒来听我妈说家里老房子转让给别人了，心里咯噔一声。虽然老早就听她说要把老房子出掉这件事，然而真的等到事成之后反而有一丝丝难过和物是人非的感觉。 停了一刻之后各种在老房子里的回忆像前段时间的鹅毛大雪飘下来。 从1999年到2008年，其实我也就在老房子里住了九年而已，在那之前我们家是没有自己的房子的，那时候的家长里短大概都是关于别人，关于什么时候能有自己的房子。 这九年里我上完了小学初中，试图学">
+<meta property="og:description" content="一觉醒来听我妈说家里老房子转让给别人了，心里咯噔一声。虽然老早就听她说要把老房子出掉这件事，然而真的等到事成之后反而有一丝丝难过和物是人非的感觉。停了一刻之后各种在老房子里的回忆像前段时间的鹅毛大雪飘下来。从1999年到2008年，其实我也就在老房子里住了九年而已，在那之前我们家是没有自己的房子的，那时候的家长里短大概都是关于别人，关于什么时候能有自己的房子。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-13T18:34:10.586Z">
+<meta property="og:updated_time" content="2019-10-18T03:22:44.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我家的老房子 - 夏季篇">
-<meta name="twitter:description" content="一觉醒来听我妈说家里老房子转让给别人了，心里咯噔一声。虽然老早就听她说要把老房子出掉这件事，然而真的等到事成之后反而有一丝丝难过和物是人非的感觉。 停了一刻之后各种在老房子里的回忆像前段时间的鹅毛大雪飘下来。 从1999年到2008年，其实我也就在老房子里住了九年而已，在那之前我们家是没有自己的房子的，那时候的家长里短大概都是关于别人，关于什么时候能有自己的房子。 这九年里我上完了小学初中，试图学">
-
-
-
-
-
-
+<meta name="twitter:description" content="一觉醒来听我妈说家里老房子转让给别人了，心里咯噔一声。虽然老早就听她说要把老房子出掉这件事，然而真的等到事成之后反而有一丝丝难过和物是人非的感觉。停了一刻之后各种在老房子里的回忆像前段时间的鹅毛大雪飘下来。从1999年到2008年，其实我也就在老房子里住了九年而已，在那之前我们家是没有自己的房子的，那时候的家长里短大概都是关于别人，关于什么时候能有自己的房子。">
   <link rel="canonical" href="https://xiaoyuliu.github.io/2019/06/14/20190613-my-old-house-summer/">
 
 
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
   };
 </script>
 
   <title>我家的老房子 - 夏季篇 | Xiaoyu Liu</title>
   
-
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-92119705-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-92119705-1');
-</script>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92119705-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-92119705-1');
+      }
+    </script>
+  
 
 
 
@@ -157,210 +104,152 @@
 
   <noscript>
   <style>
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion .logo-line-before i { left: initial; }
-    .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
-    
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Xiaoyu Liu</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
         <p class="site-subtitle">Love life and work hard</p>
       
-    
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
   
-    <ul id="menu" class="menu">
+  <ul id="menu" class="menu">
+      
       
         
         
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
+        <li class="menu-item menu-item-home">
       
     
 
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
+        <li class="menu-item menu-item-about">
       
     
 
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
+        <li class="menu-item menu-item-tags">
       
     
 
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
+        <li class="menu-item menu-item-categories">
       
     
 
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
+        <li class="menu-item menu-item-archives">
       
     
 
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
-
       
-      
-    </ul>
-  
+    
+  </ul>
 
-  
     
 
-  
-
-  
 </nav>
-
-
-
-  
-
-
-
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-          <div id="content" class="content">
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2019/06/14/20190613-my-old-house-summer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -372,114 +261,87 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">我家的老房子 - 夏季篇
-
-              
+        <h1 class="post-title" itemprop="name headline">
+          
+            我家的老房子 - 夏季篇
             
-          </h1>
-        
+
+          
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               
                 
               
 
               <time title="Created: 2019-06-14 02:32:35" itemprop="dateCreated datePublished" datetime="2019-06-14T02:32:35-07:00">2019-06-14</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-13 11:34:10" itemprop="dateModified" datetime="2019-06-13T11:34:10-07:00">2019-06-13</time>
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 20:22:44" itemprop="dateModified" datetime="2019-10-17T20:22:44-07:00">2019-10-17</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
                 </span>
-                <a href="/2019/06/14/20190613-my-old-house-summer/#comments" itemprop="discussionUrl">
+
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/14/20190613-my-old-house-summer/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             Views:  
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+                
+              
             </span>
           
 
           
-
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/06/14/20190613-my-old-house-summer/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/14/20190613-my-old-house-summer/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -487,12 +349,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+        <p>一觉醒来听我妈说家里老房子转让给别人了，心里咯噔一声。虽然老早就听她说要把老房子出掉这件事，然而真的等到事成之后反而有一丝丝难过和物是人非的感觉。</p><p>停了一刻之后各种在老房子里的回忆像前段时间的鹅毛大雪飘下来。</p><p>从1999年到2008年，其实我也就在老房子里住了九年而已，在那之前我们家是没有自己的房子的，那时候的家长里短大概都是关于别人，关于什么时候能有自己的房子。</p><a id="more"></a>
 
-      
-        <p>一觉醒来听我妈说家里老房子转让给别人了，心里咯噔一声。虽然老早就听她说要把老房子出掉这件事，然而真的等到事成之后反而有一丝丝难过和物是人非的感觉。</p>
-<p>停了一刻之后各种在老房子里的回忆像前段时间的鹅毛大雪飘下来。</p>
-<p>从1999年到2008年，其实我也就在老房子里住了九年而已，在那之前我们家是没有自己的房子的，那时候的家长里短大概都是关于别人，关于什么时候能有自己的房子。</p>
+
 <p>这九年里我上完了小学初中，试图学习舞蹈和绘画，早早夭折；<br>小学时和男生打架被对方用乒乓球拍KO，回家找我妈撑腰；<br>九个天还没亮就起床准备六一儿童节的活动的早上，想起来我们班的同学在二楼上给我加油；<br>在房间里偷偷抄情歌歌词被我爸发现以为我早恋，送出了人生的第一个白眼；<br>冰箱上贴了许多和朋友出去玩拍下的大头贴，后来被我妈好好收藏着；<br>在被窝里用Newman小小的屏幕看完了达芬奇密码的小说，出了一身大汗；<br>冬天太冷了用吹风机吹被窝忘了时间，把被子烫了个大窟窿，被我爸骂到哭。</p>
 <p>老房子里总是有无数奇形怪状的昆虫，小时候的我天不怕地不怕，甚至楼上邻居比我大一岁的儿子也需要我“罩着”，可我最怕的就是这些小虫子，飞蛾、蟑螂、蜘蛛最甚，即便我属鸡。每到夏天的晚上，不在房间里便不敢开房间里的灯，因为开灯后不一会儿就会听到噗噗噗窗外昆虫撞上纱窗的声音，让我浑身起鸡皮疙瘩。最初的那批纱经过数年的风吹雨打日晒之后早就破破烂烂，打了很多的补丁。在我妈无数次念叨之后，终于换成了新的铁丝纱。</p>
 <p>夏天多雷雨，说来就来，风狂雨骤。一开始刮风，我妈便会招呼我把所有房间的门都打开，穿堂风带来了夏天里令人贪恋的凉意。不过一会儿，噼里啪啦的雨点就打下来了。我家的小楼从前盛行安装雨棚，有塑料的也有金属的，所以有时候虽然雨不大，可是打在雨棚上声音分外响亮。虽然过了这许多年雨棚破了不少，但也还残留了一些痕迹，我的房间窗外就有两根金属管伸出来，是从前安装的雨棚留下的。因为背面是一个小土坡，没有住房，只有一小块地和一坡的小树林，每一天从早到晚满耳都是鸟叫声，还时常会有小鸟站在窗外的金属管上偷看我，当我一转头或是拿起手机准备拍下它们时，它们就马上飞走了。到了晚上更是各种昆虫大合奏，吵得不可开交。</p>
@@ -501,393 +360,212 @@
 <p>我家楼下原本住的小帅哥很早就搬去了市里，后来那家的主人换了又换，最近终于又换成了我曾经的同学。曾经也是在我们晚自习和下课时不停讨论的八卦里的女生，现在已经为人母了，当初在我们的八卦里和她有关的男生，也早就结婚了。初中的时候真是快乐啊，完全感觉不到中考的压力，生活里最大的烦恼就是晚自习下课后需要走十分钟回家，路上灯有点少。</p>
 <p>初中毕业之后，我就仿佛成了家里的客人了，只有夏冬在家。假期时能遇到的小伙伴也越来越少，越来越多的在家的时间都用来陪伴父母了。希望搬去新家能热闹点～</p>
 
-      
     </div>
 
     
+    
+    
+        
       
 
+      <footer class="post-footer">
 
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-      <div>
         
 
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/05/29/2019-05-29-js-basic-data-types/" rel="next" title="JavaScript Basic Data Types">
+                  <i class="fa fa-chevron-left"></i> JavaScript Basic Data Types
+                </a>
+              
+            </div>
 
+            <span class="post-nav-divider"></span>
 
-  
-
-
-
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:  </strong>Xiaoyu Liu</li>
-  <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    
-    <a href="https://xiaoyuliu.github.io/2019/06/14/20190613-my-old-house-summer/" title="我家的老房子 - 夏季篇">https://xiaoyuliu.github.io/2019/06/14/20190613-my-old-house-summer/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
-</ul>
-
-      </div>
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/05/29/2019-05-29-js-basic-data-types/" rel="next" title="JavaScript Basic Data Types">
-                <i class="fa fa-chevron-left"></i> JavaScript Basic Data Types
-              </a>
-            
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
           </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+      </footer>
+    
   </article>
-
+  
+  
+  
 
   </div>
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
-
+  </div>
   
-
-
+  
 
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/uploads/xiaoyu.jpg"
+      alt="Xiaoyu Liu">
+  <p class="site-author-name" itemprop="name">Xiaoyu Liu</p>
+  <div class="site-description" itemprop="description">Everything happens for the best</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
         
           
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/xiaoyuliu" title="GitHub &rarr; https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin &rarr; https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+      </span>
+    
   </div>
 
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
 
-      
 
-      
-
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/uploads/xiaoyu.jpg" alt="Xiaoyu Liu">
-            
-              <p class="site-author-name" itemprop="name">Xiaoyu Liu</p>
-              <p class="site-description motion-element" itemprop="description">Everything happens for the best</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">38</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">categories</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">38</span>
-                    <span class="site-state-item-name">tags</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/xiaoyuliu" title="GitHub &rarr; https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.facebook.com/yxiaoyu.liu.353803" title="FB Page &rarr; https://www.facebook.com/yxiaoyu.liu.353803" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://instagram.com/xiaoyu_liu_shirley" title="Instagram &rarr; https://instagram.com/xiaoyu_liu_shirley" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin &rarr; https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://jiaweihemtr.weebly.com/" title="https://jiaweihemtr.weebly.com/" rel="noopener" target="_blank">Eric</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-            
-          
-          
-
-        </div>
       </div>
-
-      
-
-      
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xiaoyu Liu</span>
-
-  
-
-  
 </div>
-
-
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
-
-
-
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  </div>
   <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
-
-
-
+  <div class="theme-info">
+      
+    Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1
+  </div>
 
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="Total Visitors">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
     </span>
   
-
+    <span class="post-meta-divider">|</span>
   
-    <span class="site-pv" title="Total Views">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
     </span>
   
 </div>
@@ -900,219 +578,85 @@
 
 
 
+
+
+
         
       </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
-        
-      </div>
-    
-
-    
-
-    
-
-    
   </div>
 
   
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
 
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shirleyliu.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
   }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=6.6.0"></script>
-
-  <script src="/js/src/motion.js?v=6.6.0"></script>
-
-
-
-  
-  
-
-  
-  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
-<script src="/js/src/post-details.js?v=6.6.0"></script>
-
-
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
-
-
-
-  
-
-  
-    <script id="dsq-count-scr" src="https://shirleyliu.disqus.com/count.js" async></script>
-  
-
-  
-    <script>
-      var disqus_config = function () {
-        this.page.url = "https://xiaoyuliu.github.io/2019/06/14/20190613-my-old-house-summer/";
-        this.page.identifier = "2019/06/14/20190613-my-old-house-summer/";
-        this.page.title = '我家的老房子 - 夏季篇';
-        };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://shirleyliu.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
-    </script>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+  function disqus_config() {
+    this.page.url = "https://xiaoyuliu.github.io/2019/06/14/20190613-my-old-house-summer/";
+    this.page.identifier = "2019/06/14/20190613-my-old-house-summer/";
+    this.page.title = '我家的老房子 - 夏季篇';
+  }
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://shirleyliu.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
     }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+  }
+    window.addEventListener('load', loadComments, false);
+  
 </script>
-
-
-  
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-    overflow: auto hidden;
-}
-</style>
-
-    
-  
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
