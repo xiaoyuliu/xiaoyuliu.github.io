@@ -1,106 +1,72 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xiaoyuliu.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-  <meta name="description" content="BioXiaoyu Liu is a Software Engineer at Amazon Vancouver.Learn more about my professional experience on my Linkedin!Program Skills Python JavaScript Java C/C++ HTML/CSS Matlab SQL Vue.js">
+  <meta name="description" content="BioXiaoyu Liu is a Software Engineer at Amazon Vancouver. Learn more about my professional experience on my Linkedin! Program Skills Java JavaScript C++ Python HTML/CSS ReactJS  Interests Hiking">
 <meta name="keywords" content="Software Engineer, Machine Learning, Hiking, Food">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
 <meta property="og:url" content="https://xiaoyuliu.github.io/about/index.html">
 <meta property="og:site_name" content="Xiaoyu Liu">
-<meta property="og:description" content="BioXiaoyu Liu is a Software Engineer at Amazon Vancouver.Learn more about my professional experience on my Linkedin!Program Skills Python JavaScript Java C/C++ HTML/CSS Matlab SQL Vue.js">
+<meta property="og:description" content="BioXiaoyu Liu is a Software Engineer at Amazon Vancouver. Learn more about my professional experience on my Linkedin! Program Skills Java JavaScript C++ Python HTML/CSS ReactJS  Interests Hiking">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://xiaoyuliu.github.io/uploads/xiaoyu.jpg">
-<meta property="og:updated_time" content="2019-11-06T08:17:25.917Z">
+<meta property="og:updated_time" content="2020-06-29T05:31:47.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about">
-<meta name="twitter:description" content="BioXiaoyu Liu is a Software Engineer at Amazon Vancouver.Learn more about my professional experience on my Linkedin!Program Skills Python JavaScript Java C/C++ HTML/CSS Matlab SQL Vue.js">
+<meta name="twitter:description" content="BioXiaoyu Liu is a Software Engineer at Amazon Vancouver. Learn more about my professional experience on my Linkedin! Program Skills Java JavaScript C++ Python HTML/CSS ReactJS  Interests Hiking">
 <meta name="twitter:image" content="https://xiaoyuliu.github.io/uploads/xiaoyu.jpg">
-  <link rel="canonical" href="https://xiaoyuliu.github.io/about/">
+
+<link rel="canonical" href="https://xiaoyuliu.github.io/about/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: false,
-    isPage: true,
-    isArchive: false
+    isHome : false,
+    isPost : false,
+    lang   : 'en'
   };
 </script>
 
-  <title>
-      about | Xiaoyu Liu
-    
-  </title>
+  <title>about | Xiaoyu Liu
+</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92119705-1"></script>
     <script>
-      var host = window.location.hostname;
-      if (host !== "localhost" || !true) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-92119705-1');
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-92119705-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
       }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
     </script>
-  
-
-
 
 
 
@@ -138,19 +104,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Xiaoyu Liu</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Love life and work hard</p>
-      
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -158,100 +111,59 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Xiaoyu Liu</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Love life and work hard</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-        
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
-      
-    
   </ul>
-
-    
-
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -265,10 +177,13 @@
     <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div class="content">
+          
+  
+  
+
+          <div class="content page posts-expand">
             
 
-  <div class="posts-expand">
     
     
     
@@ -276,8 +191,6 @@
       <header class="post-header">
 
 <h1 class="post-title" itemprop="name headline">about
-  
-
 </h1>
 
 <div class="post-meta">
@@ -291,28 +204,25 @@
       
       
       <div class="post-body">
-          <p><link rel="stylesheet" type="text/css" href="image.css"></p><p><div><br>    <img style="margin-left: auto;" src="../uploads/xiaoyu.jpg"><br></div></p><h2 id="Bio"><a href="#Bio" class="headerlink" title="Bio"></a>Bio</h2><p><strong>Xiaoyu Liu</strong> is a Software Engineer at Amazon Vancouver.</p><p>Learn more about my professional experience on my <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" target="_blank" rel="noopener">Linkedin</a>!</p><h2 id="Program-Skills"><a href="#Program-Skills" class="headerlink" title="Program Skills"></a>Program Skills</h2><ul>
-<li>Python</li>
-<li>JavaScript</li>
+          <p><link rel="stylesheet" type="text/css" href="image.css"></p>
+<p><div><br>    <img style="margin-left: auto;" src="../uploads/xiaoyu.jpg"><br></div></p>
+<h2 id="Bio"><a href="#Bio" class="headerlink" title="Bio"></a>Bio</h2><p><strong>Xiaoyu Liu</strong> is a Software Engineer at Amazon Vancouver.</p>
+<p>Learn more about my professional experience on my <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" target="_blank" rel="noopener">Linkedin</a>!</p>
+<h2 id="Program-Skills"><a href="#Program-Skills" class="headerlink" title="Program Skills"></a>Program Skills</h2><ul>
 <li>Java</li>
-<li>C/C++</li>
+<li>JavaScript</li>
+<li>C++</li>
+<li>Python</li>
 <li>HTML/CSS</li>
-<li>Matlab</li>
-<li>SQL</li>
-<li>Vue.js</li>
-</ul><a id="more"></a>
-
-
-
-
+<li>ReactJS</li>
+</ul>
 <h2 id="Interests"><a href="#Interests" class="headerlink" title="Interests"></a>Interests</h2><ul>
 <li>Hiking</li>
 <li>Cooking</li>
 <li>Singing</li>
 </ul>
-<h2 id="Speciality-D"><a href="#Speciality-D" class="headerlink" title="Speciality :D"></a><em>Speciality :D</em></h2><p><strong>Experience in sleeping in</strong>: Bus(<em>Proficient</em>), SkyTrain/Subtrain: (<em>Skilled</em>), Flight: (<em>Experienced</em>)</p>
+<h2 id="Speciality-XD"><a href="#Speciality-XD" class="headerlink" title="Speciality XD"></a><em>Speciality XD</em></h2><p><strong>Experience in sleeping in</strong>: Bus(<em>Proficient</em>), SkyTrain/Subtrain: (<em>Skilled</em>), Flight: (<em>Experienced</em>)</p>
 
-        
       </div>
       
       
@@ -323,11 +233,32 @@
     
     
     
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -340,11 +271,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -357,81 +283,47 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bio"><span class="nav-number">1.</span> <span class="nav-text">Bio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Program-Skills"><span class="nav-number">2.</span> <span class="nav-text">Program Skills</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interests"><span class="nav-number">3.</span> <span class="nav-text">Interests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Speciality-D"><span class="nav-number">4.</span> <span class="nav-text">Speciality :D</span></a></li></ol></div>
-        
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bio"><span class="nav-number">1.</span> <span class="nav-text">Bio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Program-Skills"><span class="nav-number">2.</span> <span class="nav-text">Program Skills</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interests"><span class="nav-number">3.</span> <span class="nav-text">Interests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Speciality-XD"><span class="nav-number">4.</span> <span class="nav-text">Speciality XD</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/uploads/xiaoyu.jpg"
-      alt="Xiaoyu Liu">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyu Liu"
+      src="/uploads/xiaoyu.jpg">
   <p class="site-author-name" itemprop="name">Xiaoyu Liu</p>
   <div class="site-description" itemprop="description">Everything happens for the best</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        <span class="site-state-item-count">38</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/xiaoyuliu" title="GitHub &rarr; https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/xiaoyuliu" title="GitHub → https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin &rarr; https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+        <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin → https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
       </span>
-    
   </div>
 
 
@@ -450,46 +342,21 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
+  
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xiaoyu Liu</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">
-      
-    Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
 
 
 
@@ -498,49 +365,35 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-
-<script src="/js/next-boot.js?v=7.4.1"></script>
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 

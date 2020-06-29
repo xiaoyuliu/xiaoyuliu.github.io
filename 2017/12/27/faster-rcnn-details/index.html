@@ -1,101 +1,69 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xiaoyuliu.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-  <meta name="description" content="This post is to specify some details from faster rcnn series for object detection myself.NMS(Non-Maximum Surppression)python implementation:123456789101112131415161718192021222324252627282930313233343">
+  <meta name="description" content="This post is to specify some details from faster rcnn series for object detection myself. NMS(Non-Maximum Surppression)python implementation: 1234567891011121314151617181920212223242526272829303132333">
 <meta name="keywords" content="detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Details about faster RCNN for object detection">
 <meta property="og:url" content="https://xiaoyuliu.github.io/2017/12/27/faster-rcnn-details/index.html">
 <meta property="og:site_name" content="Xiaoyu Liu">
-<meta property="og:description" content="This post is to specify some details from faster rcnn series for object detection myself.NMS(Non-Maximum Surppression)python implementation:123456789101112131415161718192021222324252627282930313233343">
+<meta property="og:description" content="This post is to specify some details from faster rcnn series for object detection myself. NMS(Non-Maximum Surppression)python implementation: 1234567891011121314151617181920212223242526272829303132333">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-10-18T04:29:34.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Details about faster RCNN for object detection">
-<meta name="twitter:description" content="This post is to specify some details from faster rcnn series for object detection myself.NMS(Non-Maximum Surppression)python implementation:123456789101112131415161718192021222324252627282930313233343">
-  <link rel="canonical" href="https://xiaoyuliu.github.io/2017/12/27/faster-rcnn-details/">
+<meta name="twitter:description" content="This post is to specify some details from faster rcnn series for object detection myself. NMS(Non-Maximum Surppression)python implementation: 1234567891011121314151617181920212223242526272829303132333">
+
+<link rel="canonical" href="https://xiaoyuliu.github.io/2017/12/27/faster-rcnn-details/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
   <title>Details about faster RCNN for object detection | Xiaoyu Liu</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92119705-1"></script>
     <script>
-      var host = window.location.hostname;
-      if (host !== "localhost" || !true) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-92119705-1');
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-92119705-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
       }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
     </script>
-  
-
-
 
 
 
@@ -133,19 +101,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Xiaoyu Liu</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Love life and work hard</p>
-      
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -153,82 +108,59 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Xiaoyu Liu</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Love life and work hard</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-        
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
-      
-    
   </ul>
-
-    
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -242,20 +174,21 @@
     <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/12/27/faster-rcnn-details/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -263,77 +196,45 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            Details about faster RCNN for object detection
-            
-
-          
+          Details about faster RCNN for object detection
         </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-12-27 11:11:21" itemprop="dateCreated datePublished" datetime="2017-12-27T11:11:21-08:00">2017-12-27</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
-          
-            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/12/27/faster-rcnn-details/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/12/27/faster-rcnn-details/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/27/faster-rcnn-details/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -349,9 +250,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>This post is to specify some details from faster rcnn series for object detection myself.</strong></p><h3 id="NMS-Non-Maximum-Surppression"><a href="#NMS-Non-Maximum-Surppression" class="headerlink" title="NMS(Non-Maximum Surppression)"></a>NMS(Non-Maximum Surppression)</h3><p><a href="https://github.com/rbgirshick/py-faster-rcnn/blob/master/lib/nms/py_cpu_nms.py" target="_blank" rel="noopener">python implementation</a>:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Fast R-CNN</span></span><br><span class="line"><span class="comment"># Copyright (c) 2015 Microsoft</span></span><br><span class="line"><span class="comment"># Licensed under The MIT License [see LICENSE for details]</span></span><br><span class="line"><span class="comment"># Written by Ross Girshick</span></span><br><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">py_cpu_nms</span><span class="params">(dets, thresh)</span>:</span></span><br><span class="line">    <span class="string">"""Pure Python NMS baseline."""</span></span><br><span class="line">    x1 = dets[:, <span class="number">0</span>]</span><br><span class="line">    y1 = dets[:, <span class="number">1</span>]</span><br><span class="line">    x2 = dets[:, <span class="number">2</span>]</span><br><span class="line">    y2 = dets[:, <span class="number">3</span>]</span><br><span class="line">    scores = dets[:, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">    areas = (x2 - x1 + <span class="number">1</span>) * (y2 - y1 + <span class="number">1</span>)</span><br><span class="line">    order = scores.argsort()[::<span class="number">-1</span>] </span><br><span class="line">    <span class="comment"># sort the detections according to scores, high to low values.</span></span><br><span class="line"></span><br><span class="line">    keep = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># keep doing until all bboxes are covered by THIS BBOX</span></span><br><span class="line">    <span class="keyword">while</span> order.size &gt; <span class="number">0</span>: </span><br><span class="line">        <span class="comment"># choose the bbox with highest iou score, namely THIS BBOX</span></span><br><span class="line">        i = order[<span class="number">0</span>] </span><br><span class="line">        keep.append(i)</span><br><span class="line">        xx1 = np.maximum(x1[i], x1[order[<span class="number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[i], y1[order[<span class="number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[i], x2[order[<span class="number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[i], y2[order[<span class="number">1</span>:]])</span><br><span class="line"></span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2 - xx1 + <span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2 - yy1 + <span class="number">1</span>)</span><br><span class="line">        inter = w * h</span><br><span class="line">        ovr = inter / (areas[i] + areas[order[<span class="number">1</span>:]] - inter)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># filter out all detections which have IOUs larger than the threshold, which means they are covered by THIS BBOX</span></span><br><span class="line">        inds = np.where(ovr &lt;= thresh)[<span class="number">0</span>] </span><br><span class="line">        order = order[inds + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure><a id="more"></a>
-
-
+        <p><strong>This post is to specify some details from faster rcnn series for object detection myself.</strong></p>
+<h3 id="NMS-Non-Maximum-Surppression"><a href="#NMS-Non-Maximum-Surppression" class="headerlink" title="NMS(Non-Maximum Surppression)"></a>NMS(Non-Maximum Surppression)</h3><p><a href="https://github.com/rbgirshick/py-faster-rcnn/blob/master/lib/nms/py_cpu_nms.py" target="_blank" rel="noopener">python implementation</a>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Fast R-CNN</span></span><br><span class="line"><span class="comment"># Copyright (c) 2015 Microsoft</span></span><br><span class="line"><span class="comment"># Licensed under The MIT License [see LICENSE for details]</span></span><br><span class="line"><span class="comment"># Written by Ross Girshick</span></span><br><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">py_cpu_nms</span><span class="params">(dets, thresh)</span>:</span></span><br><span class="line">    <span class="string">"""Pure Python NMS baseline."""</span></span><br><span class="line">    x1 = dets[:, <span class="number">0</span>]</span><br><span class="line">    y1 = dets[:, <span class="number">1</span>]</span><br><span class="line">    x2 = dets[:, <span class="number">2</span>]</span><br><span class="line">    y2 = dets[:, <span class="number">3</span>]</span><br><span class="line">    scores = dets[:, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">    areas = (x2 - x1 + <span class="number">1</span>) * (y2 - y1 + <span class="number">1</span>)</span><br><span class="line">    order = scores.argsort()[::<span class="number">-1</span>] </span><br><span class="line">    <span class="comment"># sort the detections according to scores, high to low values.</span></span><br><span class="line"></span><br><span class="line">    keep = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># keep doing until all bboxes are covered by THIS BBOX</span></span><br><span class="line">    <span class="keyword">while</span> order.size &gt; <span class="number">0</span>: </span><br><span class="line">        <span class="comment"># choose the bbox with highest iou score, namely THIS BBOX</span></span><br><span class="line">        i = order[<span class="number">0</span>] </span><br><span class="line">        keep.append(i)</span><br><span class="line">        xx1 = np.maximum(x1[i], x1[order[<span class="number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[i], y1[order[<span class="number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[i], x2[order[<span class="number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[i], y2[order[<span class="number">1</span>:]])</span><br><span class="line"></span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2 - xx1 + <span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2 - yy1 + <span class="number">1</span>)</span><br><span class="line">        inter = w * h</span><br><span class="line">        ovr = inter / (areas[i] + areas[order[<span class="number">1</span>:]] - inter)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># filter out all detections which have IOUs larger than the threshold, which means they are covered by THIS BBOX</span></span><br><span class="line">        inds = np.where(ovr &lt;= thresh)[<span class="number">0</span>] </span><br><span class="line">        order = order[inds + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure>
 <p>From the scripts we can tell the principle of NMS is searching the local maximum value and surpressing others. Therefore, starting from the <em>prediction bbox</em>(MAX) with highest iou score with its <em>ground-truth bbox</em>, excluding all bboxes with $iou(THIS, MAX) \geqslant THRESH$. Then selecting the next prediction bbox with the highest iou from the left bboxes until no bbox left.</p>
 <p><span style="background: yellow">Any NMS method needs to apply for each category.</span></p>
 <h4 id="Is-NMS-really-effective"><a href="#Is-NMS-really-effective" class="headerlink" title="Is NMS really effective?"></a>Is NMS really effective?</h4><p>In <a href="https://arxiv.org/abs/1506.01497" target="_blank" rel="noopener">Ren et al.</a>, a similar mAP without NMS during testing can be achieved at the cost of evaluating more RoIs. However it is not clear whether NMS is necessary during training procedure.</p>
@@ -384,42 +285,26 @@
     
     
     
-        
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
               <a href="/tags/detection/" rel="tag"># detection</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2017/12/08/ubuntu-local-tensorflow-finetune/" rel="next" title="Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally">
-                  <i class="fa fa-chevron-left"></i> Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/" rel="prev" title="Prepare LMDB for Caffe from custom datasets">
-                  Prepare LMDB for Caffe from custom datasets <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/12/08/ubuntu-local-tensorflow-finetune/" rel="prev" title="Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally">
+      <i class="fa fa-chevron-left"></i> Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/" rel="next" title="Prepare LMDB for Caffe from custom datasets">
+      Prepare LMDB for Caffe from custom datasets <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -427,20 +312,39 @@
   
   
 
-  </div>
 
 
           </div>
           
     
-    
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
-  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -453,11 +357,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -471,80 +370,46 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NMS-Non-Maximum-Surppression"><span class="nav-number">1.</span> <span class="nav-text">NMS(Non-Maximum Surppression)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Is-NMS-really-effective"><span class="nav-number">1.1.</span> <span class="nav-text">Is NMS really effective?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SOFT-NMS"><span class="nav-number">1.2.</span> <span class="nav-text">SOFT-NMS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Normalization-in-CNN"><span class="nav-number">2.</span> <span class="nav-text">Normalization in CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Input-normalization"><span class="nav-number">2.1.</span> <span class="nav-text">Input normalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LRN-Local-response-normalization"><span class="nav-number">2.2.</span> <span class="nav-text">LRN (Local response normalization)</span></a></li></ol></li></ol></div>
-        
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/uploads/xiaoyu.jpg"
-      alt="Xiaoyu Liu">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyu Liu"
+      src="/uploads/xiaoyu.jpg">
   <p class="site-author-name" itemprop="name">Xiaoyu Liu</p>
   <div class="site-description" itemprop="description">Everything happens for the best</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        <span class="site-state-item-count">38</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/xiaoyuliu" title="GitHub &rarr; https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/xiaoyuliu" title="GitHub → https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin &rarr; https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+        <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin → https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
       </span>
-    
   </div>
 
 
@@ -563,46 +428,21 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
+  
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xiaoyu Liu</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">
-      
-    Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
 
 
 
@@ -611,49 +451,35 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-
-<script src="/js/next-boot.js?v=7.4.1"></script>
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
@@ -670,12 +496,12 @@
   window.addEventListener('load', loadCount, false);
 </script>
 <script>
-  function disqus_config() {
+  var disqus_config = function() {
     this.page.url = "https://xiaoyuliu.github.io/2017/12/27/faster-rcnn-details/";
     this.page.identifier = "2017/12/27/faster-rcnn-details/";
-    this.page.title = 'Details about faster RCNN for object detection';
-  }
-  function loadComments() {
+    this.page.title = "Details about faster RCNN for object detection";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
       DISQUS.reset({
         reload: true,
@@ -687,9 +513,7 @@
       s.setAttribute('data-timestamp', '' + +new Date());
       (d.head || d.body).appendChild(s);
     }
-  }
-    window.addEventListener('load', loadComments, false);
-  
+  });
 </script>
 
 </body>

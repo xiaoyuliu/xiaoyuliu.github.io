@@ -1,59 +1,24 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xiaoyuliu.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="Everything happens for the best">
 <meta name="keywords" content="Software Engineer, Machine Learning, Hiking, Food">
@@ -66,35 +31,38 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xiaoyu Liu">
 <meta name="twitter:description" content="Everything happens for the best">
-  <link rel="canonical" href="https://xiaoyuliu.github.io/page/3/">
+
+<link rel="canonical" href="https://xiaoyuliu.github.io/page/3/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
   };
 </script>
 
   <title>Xiaoyu Liu</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92119705-1"></script>
     <script>
-      var host = window.location.hostname;
-      if (host !== "localhost" || !true) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-92119705-1');
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-92119705-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
       }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
     </script>
-  
-
-
 
 
 
@@ -132,19 +100,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Xiaoyu Liu</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Love life and work hard</p>
-      
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -152,82 +107,59 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Xiaoyu Liu</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Love life and work hard</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-        
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
-      
-    
   </ul>
-
-    
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -241,89 +173,155 @@
     <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div class="content">
-            
+          
 
-  <div class="posts-expand">
-        
+          <div class="content index posts-expand">
+            
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/06/19/pix2pix/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/08/23/thesis-defence-completed/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
-            <a href="/2017/06/19/pix2pix/" class="post-title-link" itemprop="url">Image-to-Image Translation with Conditional Adversarial Networks - Note</a>
-          
-        </h1>
+            <a href="/2017/08/23/thesis-defence-completed/" class="post-title-link" itemprop="url">Thesis defence completed</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
-              <time title="Created: 2017-06-19 12:51:25" itemprop="dateCreated datePublished" datetime="2017-06-19T12:51:25-07:00">2017-06-19</time>
+              <time title="Created: 2017-08-23 12:24:26" itemprop="dateCreated datePublished" datetime="2017-08-23T12:24:26-07:00">2017-08-23</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/06/19/pix2pix/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/08/23/thesis-defence-completed/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/23/thesis-defence-completed/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Excited!</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/06/19/pix2pix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
+      <meta itemprop="name" content="Xiaoyu Liu">
+      <meta itemprop="description" content="Everything happens for the best">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaoyu Liu">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/06/19/pix2pix/" class="post-title-link" itemprop="url">Image-to-Image Translation with Conditional Adversarial Networks - Note</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-06-19 12:51:25" itemprop="dateCreated datePublished" datetime="2017-06-19T12:51:25-07:00">2017-06-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/06/19/pix2pix/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/19/pix2pix/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -340,16 +338,26 @@
 
       
           <p>This paper introduces a novel approach to learn image-to-image translation with conditional adversarial networks, which is a uniform method instead of specially designed for one dataset.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/06/19/pix2pix/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><p>People are tired of defining a subtle loss function for each CNN, which is hard some time as well. Therefore, it is desirable to look for an approach in which CNN can learn features according to some high-level requirement, like “make the output indistinguishable from reality”. And satisfying the high-level requirement is exactly the task of discriminator in Generative Adversarial Model(GAN). </p>
+<p>However, original GAN tends to learn the unknown input distribution instead of a mapping from input to output, so the paper utilizes conditional GAN(cGAN), where the condition is the relationship between any input image and the corresponding output image.</p>
+<h3 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h3><ol start="0">
+<li><p><strong>Generator</strong></p>
+<p> <img src="https://cl.ly/1Q3c2G22172q/Image%202017-06-19%20at%201.09.23%20PM.png" alt="generator"></p>
+<p> For generator, the paper uses a “U-Net”-based architecture, which is similar with encoder-decoder network. There are some skips in U-Net between each layer $i$ and $n-i$, which are helpful to share lots of low-level information between the input and output.</p>
+</li>
+<li><p><strong>Discriminator</strong></p>
+<p> <img src="https://cl.ly/091m253Q0B32/Image%202017-06-19%20at%201.16.55%20PM.png" alt="discriminator"></p>
+<p> For discriminator, there are two inputs: original frame and a label map, which could be ground truth or output of generator. The comprehensive obejctive is:</p>
+<p> $$<br> G^* = arg \underset{G}{\min}\underset{D}{\max}\mathcal{L}<em>{cGAN}(G, D) + \lambda\mathcal{L}</em>{L_1}(G)<br> $$</p>
+<p> Where </p>
+<p> $$<br> \mathcal{L}<em>{cGAN}(G,D) = \mathbb{E}</em>{x,y~p_{data}(x,y)}[logD(x,y)] + \mathbb{E}<em>{x~p</em>{data}(x), z~p_z(z)}[log(1-D(x,G(x,z)))]<br> $$</p>
+<p> $$<br> \mathcal{L}<em>{L1}(G) = \mathbb{E}</em>{x,y~p_{data}(x,y), z~p_z(z)}[||y - G(x,z)||_1]<br> $$</p>
+<p> L1 distance is used because it encourages less blurring than L2 distance and it can also help accurately capture the low frequencies.</p>
+</li>
+</ol>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>cGAN appears to be effective in image processing and graphic tasks, and even though it achieves some success in vision problems like semantic segmentation, simply using reconstruction losses like L1 is mostly sufficient. </p>
+<p>(Really impressed by the transformation performance)</p>
+
       
     </div>
 
@@ -364,86 +372,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/06/06/semantic-segmentation-using-gan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/06/06/semantic-segmentation-using-gan/" class="post-title-link" itemprop="url">Semantic Segmentation using Adversarial Networks - Notes</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-06-06 10:43:15" itemprop="dateCreated datePublished" datetime="2017-06-06T10:43:15-07:00">2017-06-06</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/06/06/semantic-segmentation-using-gan/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/06/06/semantic-segmentation-using-gan/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/06/semantic-segmentation-using-gan/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -460,16 +445,40 @@
 
       
           <p>This paper utilized Generative Adversarial Network(GAN) to learn higher-order inconsistencies between ground truth sementation maps and the ones generated by sementation net.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/06/06/semantic-segmentation-using-gan/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><ol start="0">
+<li>Simply using CNN to do segmentation means independently predicting class label for each pixel, at least during training, which is definitely incorrect.</li>
+<li>Conditional Markov random fields(CRFs) can enforce spatial contiguity in the output label maps to some extent, but only pairwise potentials are considered.</li>
+<li>Existing work to discover higher-order potentials usually is limited to a very specific classes.</li>
+<li>Therefore, the author came up with a method to enforce higher-order consistency in the ouput label map without being limited to special classes.</li>
+</ol>
+<h3 id="Adversatial-training"><a href="#Adversatial-training" class="headerlink" title="Adversatial training"></a>Adversatial training</h3><ol start="0">
+<li><p><strong>Loss Function</strong>:</p>
+<p> $$<br> l(\theta_s, \theta_a) = \sum_{n=1}^{N}l_{mce}(s(x_n), y_n) - \lambda[l_{bce}(a(x_n, y_n),1) + l_{bce}(a(x_n,s(x_n)),0)]<br> $$</p>
+<p> Where $\theta_s$ and $\theta_a$ represent parameters of sementation net and adversarial net, $a(x,y) \in [0,1]$ is the probability that adversarial model predicts that $y$ is the ground-truth label map of $x$.</p>
+<p> The loss function is composed of two elements:</p>
+<ul>
+<li>First one: muli-class cross-entropy loss to encourage the sementation model to predict the right class label at each pixel independently.</li>
+<li>Second one: binary cross-entropy loss to enforce the discriminator being able to distinguish the output of segmentation net and the ground truth label map.</li>
+</ul>
+</li>
+<li><p><strong>Network Struction</strong>:</p>
+<p> <img src="https://cl.ly/2p1q3a301U0p/Image%202017-06-06%20at%2011.25.15%20AM.png" alt="overview of the proposed approach"></p>
+<p> Two separate branches generate ground-truth label map and output of segmentation net, which have roughly the same number of channels to avoid one signal dominates the other. The ground-truth maps are down-sampled to match the size of output of segmentation net, and fed into the adversarial network in a 1-hot encoding way if selected. </p>
+<p> For <strong>Stanford Background dataset</strong>, the inputs to adversarial network is the original RGB image and the corresponding label map, the label map is either the gorund-truth one or generated one by the segmentation net. The prediction of adversarial net is whether the label map is the ground-truth of RGB frame.</p>
+<p> For <strong>Pascal VOC 2012 dataset</strong>, the author explored three variants for the input: <em>Basic</em>, <em>Product</em> and <em>Scaling</em>.</p>
+<ul>
+<li><em>Basic</em>: The only input is label map, either ground-truth one or probability map generated by the segmentation network. However it’s easy to overfit because the difference in two kinds of label map.</li>
+<li><em>Product</em>: The only input is the product result of label map and input image, which is an input with 3C channels(C is the number of classes).</li>
+<li><p><em>Scaling</em>: Replace the 1-hot coding of the ground-truth label map with distrbutions as similar as possible to the distributions generated by the sementation network, while with a least mass value $\tau$. Then use the newly generated map as input(?). <span class="evidence">Not sure!!!</span></p>
+<p>Then the authors zero-out all values at the spatial positons and corresponding gradient values of unlabeled pixels in all label maps.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Performance</strong></p>
+<p> Achieve some improvement on both two datasets, but the paper dosn’t provide any comparison results with other methods on the same datasets.</p>
+</li>
+</ol>
+
       
     </div>
 
@@ -484,86 +493,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/05/24/image-crowd-counting-mcnn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/05/24/image-crowd-counting-mcnn/" class="post-title-link" itemprop="url">Single-Image Crowd Counting via Multi-Column Convolutional Neural Network - Notes</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-05-24 16:32:00" itemprop="dateCreated datePublished" datetime="2017-05-24T16:32:00-07:00">2017-05-24</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/05/24/image-crowd-counting-mcnn/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/05/24/image-crowd-counting-mcnn/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/24/image-crowd-counting-mcnn/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -580,16 +566,20 @@
 
       
           <p>This paper utilized a 3-col CNN(Multi-col CNN, MCNN) to address crowd counting problem by summing up estimated density map based on still images. Furthermore, the author came up with a new labeled dataset for dense crowd count task.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/05/24/image-crowd-counting-mcnn/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h3 id="Crowd-Counting"><a href="#Crowd-Counting" class="headerlink" title="Crowd Counting"></a>Crowd Counting</h3><p>No matter from perspective of public safety or crowd control, crowd counting has become a pretty important practical problem. Traditional methods to resolve this question developed from detection-based to regression-based algorithms.</p>
+<ol start="0">
+<li><strong>Detection-based</strong>: People assumed that every individual can be accurately detected and be used for crowd count. It is apparent that occlusion can have significantly negative effect on this kind of algorithm, also this is called direct count.</li>
+<li><strong>Regression-based</strong>: It is named indirect count as well because this method makes use of various features from the foreground of still image, such as area of crowd mask, edge count, or texture features. Then a linear or nonlinear regression model is applied on the features to generate count value.</li>
+</ol>
+<h3 id="Network-Structure"><a href="#Network-Structure" class="headerlink" title="Network Structure"></a>Network Structure</h3><p><img src="https://cl.ly/2O3o341G411i/Image%202017-05-24%20at%204.46.48%20PM.png" alt="Network structure"></p>
+<p>The structure of 3-col CNN is pretty simple and straightforward to understand, there are several points about the network:</p>
+<ul>
+<li>The intention of multi-col design is for addressing heads of different sizes, increasing the network’s robustness to different situations. </li>
+<li>There is no fully-connected layer inside MCNN, which is flexible to inputs of different sizes.  </li>
+<li>Before convolving with the final $1x1$ conv layer, feature maps from 3 networks are concatenated together. It should be noted that all feature maps before concatenating share the same size only different number of channels, so they can be concatenated.</li>
+<li>During training, the output density map is of $[\frac{W}{4}, \frac{H}{4}]$. In order to calculate loss, the author downsampled the original input to of the same size with output, then generated corresponding ground truth density map. Finally, they use Euclidean distance as training loss.</li>
+</ul>
+
       
     </div>
 
@@ -604,86 +594,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/04/29/extract-audio-from-video/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/04/29/extract-audio-from-video/" class="post-title-link" itemprop="url">Extract audio from a video on Mac</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-04-29 22:44:05" itemprop="dateCreated datePublished" datetime="2017-04-29T22:44:05-07:00">2017-04-29</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Engineer/" itemprop="url" rel="index">
-                    <span itemprop="name">Engineer</span>
-                  </a>
+                  <a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/04/29/extract-audio-from-video/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/04/29/extract-audio-from-video/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/29/extract-audio-from-video/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -699,17 +666,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Besides many applications, we can simply extract audio from a video by a comman line tool <code>ffmpeg</code>.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mov -b:a 128k output.mp3</span><br></pre></td></tr></table></figure><p>If you need to extract the audio within a certain time period:</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/04/29/extract-audio-from-video/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <p>Besides many applications, we can simply extract audio from a video by a comman line tool <code>ffmpeg</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mov -b:a 128k output.mp3</span><br></pre></td></tr></table></figure>
+<p>If you need to extract the audio within a certain time period:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.avi -ss 00:00:00.000 -to 00:10:00.000 -b:a 128k output.mp3</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -724,86 +684,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/04/19/yolo9000/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/04/19/yolo9000/" class="post-title-link" itemprop="url">YOLO9000: Better, Faster, Stronger - Notes</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-04-19 10:26:12" itemprop="dateCreated datePublished" datetime="2017-04-19T10:26:12-07:00">2017-04-19</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/04/19/yolo9000/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/04/19/yolo9000/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/19/yolo9000/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -820,16 +757,34 @@
 
       
           <p>YOLO2 is a real-time object detection and classification system jointly trained on object detection and classification, which allows it to predict detections for object class that don’t have labelled detection data.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/04/19/yolo9000/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h3 id="Shortage-of-YOLO"><a href="#Shortage-of-YOLO" class="headerlink" title="Shortage of YOLO"></a>Shortage of YOLO</h3><ol start="0">
+<li>Significant localization error: Because there’s no training aiming at improving localization accuracy.</li>
+<li>Relatively low recall</li>
+</ol>
+<p>Therefore, recall and localization accuray are two main improvements.</p>
+<h3 id="Improvement-Trick"><a href="#Improvement-Trick" class="headerlink" title="Improvement(Trick)"></a>Improvement(Trick)</h3><ol start="0">
+<li>Use anchor boxes to predict bounding boxes and remove fully connected layers to predict offsets based on each anchor box at every location instead of coordinates. The latter approach is easier to learn for the network. <ul>
+<li><code>Slightly worse mAP while much better recall</code></li>
+</ul>
+</li>
+<li>Increase input image size to <strong>416x416</strong> and do downsample of 32 to get an output feature map of <strong>13x13</strong>. The reason to get an odd number of locations is there will be a single center cell.</li>
+<li>No class and objectness prediction for every anchor box, objectness prediction is based on IOU of ground truth and proposed boxes, class prediction is the <strong>conditional probability</strong> of that class given that there is an object.</li>
+<li>Do box dimensions clustering to provide better priors. <ul>
+<li><code>More centroids lead to much higher average IOU</code></li>
+</ul>
+</li>
+<li>Constrain box localizations by predicting location coordinates relative to the location of the grid cell.<ul>
+<li><code>Improve 5% with 3 together</code></li>
+</ul>
+</li>
+<li>Concatenate the higher resolution features with the low one by stacking adjacent features into different channels(<strong>the result generated from the higher resolution feature map will have same spatial dimension with the low resolution feature map but bigger number of channels</strong>). Improve localization for smaller objects.<ul>
+<li><code>1% performance increase</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p><strong>How does ImageNet help in the network? Except increasing its vocabulary? How does it help to improve robutness?</strong></p>
+<p>I don’t think ImageNet is helpful for localization at all, because when the network meets a classfication image, it only backpropogates on classification error.</p>
+
       
     </div>
 
@@ -844,86 +799,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/04/02/A-Survey-on-Transfer-Learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/04/02/A-Survey-on-Transfer-Learning/" class="post-title-link" itemprop="url">A Survey on Transfer Learning - Notes</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-04-02 14:07:08" itemprop="dateCreated datePublished" datetime="2017-04-02T14:07:08-07:00">2017-04-02</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/04/02/A-Survey-on-Transfer-Learning/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/04/02/A-Survey-on-Transfer-Learning/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/02/A-Survey-on-Transfer-Learning/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -939,17 +871,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Transfer learning is to address the difference between feature space of training dataset and test dataset without expensive data relabeling effort.</p><h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/04/02/A-Survey-on-Transfer-Learning/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <p>Transfer learning is to address the difference between feature space of training dataset and test dataset without expensive data relabeling effort.</p>
+<h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><p>Many machine learning methods work with a restriction that <strong>the training and test data share the same feature space and the same distribution</strong>.Therefore, when the distribution changes, most statistical models need to be retrained from scratch using newly collected data.</p>
+<h3 id="Multi-task-Learning-v-s-Transfer-Learning"><a href="#Multi-task-Learning-v-s-Transfer-Learning" class="headerlink" title="Multi-task Learning v.s. Transfer Learning"></a>Multi-task Learning v.s. Transfer Learning</h3><p><img src="https://cl.ly/0R1l0620011Q/Image%202017-04-02%20at%205.42.26%20PM.png" alt="comparison"></p>
+<p>In multi-task learning, it aimes at learning all the <em>source</em> and <em>target</em> tasks simultaneously.</p>
+<p>In transfer learning, it aimes at extracting knowledge from <em>source</em> tasks and applying to a <em>target</em> task, it cares <em>target</em> more.</p>
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>There are two tasks in all learning procedures, <em>source</em> task and <em>target</em> task, each is composed of a feature space <em>X</em> and a marginal probability distribution <em>P</em> over the feature space. </p>
+<p>In traditional machine learning problem, $X_S = X_T$ and $P(Y_{S} \vert X_{S}) = P(Y_{T} \vert X_{S})$, source task and target task share the same input feature space and marginal probability distribution. Take document classification as an example, input feature space can be treated as language used in the document, marginal probability distribution is considered as topic of the document. As contrarary, in transfer learning, either $X_S \neq X_T$ or $P(Y_{S} \vert X_{S}) \neq P(Y_{T} \vert X_{S})$, which means either the language in the document is not the same or the documents are for different topics.</p>
+
       
     </div>
 
@@ -964,86 +893,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/03/30/LabelBank/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/03/30/LabelBank/" class="post-title-link" itemprop="url">LabelBank: Revisiting Global Perspectives for Semantic Segmentation - Notes</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-03-30 11:30:23" itemprop="dateCreated datePublished" datetime="2017-03-30T11:30:23-07:00">2017-03-30</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/03/30/LabelBank/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/03/30/LabelBank/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/30/LabelBank/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -1059,17 +965,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>This paper leverages holistic information in the form of a LabelBank to improve pixel-level semantic segmentation performance. </p><h3 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h3><p><img src="https://cl.ly/0p0z0u2j1R3v/Image%202017-03-30%20at%202.22.19%20PM.png" alt="framework"></p><center>Semantic segmentation framework</center>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/03/30/LabelBank/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <p>This paper leverages holistic information in the form of a LabelBank to improve pixel-level semantic segmentation performance. </p>
+<h3 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h3><p><img src="https://cl.ly/0p0z0u2j1R3v/Image%202017-03-30%20at%202.22.19%20PM.png" alt="framework"></p>
+<center>Semantic segmentation framework</center>
+
+<p>The framework is composed of three components:</p>
+<ul>
+<li>A holistic inference process, taking varied information sources to reason about the LabelBank representation of an image;</li>
+<li>A detailed semantic segmentation process to produce preliminary semantic segmentation map;</li>
+<li>A holistic filtering process, leveraging the inferred LabelBank to filter out false-positive pixel predictions in preliminary semantic segmentation results.</li>
+</ul>
+<h3 id="Holistic-Filtering"><a href="#Holistic-Filtering" class="headerlink" title="Holistic Filtering"></a>Holistic Filtering</h3><p>LabelBank and preliminary segmentation result are two matrix of the same dimension, which contain confidences for assigning each semantic category label on each image pixel. </p>
+<p>After filtering, the final confidence will be high only when both the LabelBank and segmentation confidences are high, and it will be low to 0 either one of the two confidences is low.</p>
+<h3 id="LabelBank-Inference"><a href="#LabelBank-Inference" class="headerlink" title="LabelBank Inference"></a>LabelBank Inference</h3><ol start="0">
+<li><p>SPP for visual appearance</p>
+<ul>
+<li>Employ a feature network (i.e., low-level layers of convolution and pooling) to extract a feature map on an image. </li>
+<li>Apply spatial pyramid pooling on the feature map, followed by a multi-layer perception to predict the LabelBank.</li>
+</ul>
+</li>
+<li><p>DC for visual appearance</p>
+<ul>
+<li>Apply the same feature network as the SPP architecture.</li>
+<li>Densely crop the feature map to obtain features on image windows for location-aware predictions.</li>
+</ul>
+</li>
+</ol>
+
       
     </div>
 
@@ -1084,86 +1006,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/03/29/reading/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/03/29/reading/" class="post-title-link" itemprop="url">Rough reading</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-03-29 20:16:04" itemprop="dateCreated datePublished" datetime="2017-03-29T20:16:04-07:00">2017-03-29</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/03/29/reading/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/03/29/reading/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/29/reading/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -1179,19 +1078,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Semi-and-Weakly-Supervised-Semantic-Segmentation-Using-Generative-Adversarial-Network"><a href="#Semi-and-Weakly-Supervised-Semantic-Segmentation-Using-Generative-Adversarial-Network" class="headerlink" title="Semi and Weakly Supervised Semantic Segmentation Using Generative Adversarial Network"></a>Semi and Weakly Supervised Semantic Segmentation Using Generative Adversarial Network</h3><p>Not clear about the intuition….</p><blockquote>
+          <h3 id="Semi-and-Weakly-Supervised-Semantic-Segmentation-Using-Generative-Adversarial-Network"><a href="#Semi-and-Weakly-Supervised-Semantic-Segmentation-Using-Generative-Adversarial-Network" class="headerlink" title="Semi and Weakly Supervised Semantic Segmentation Using Generative Adversarial Network"></a>Semi and Weakly Supervised Semantic Segmentation Using Generative Adversarial Network</h3><p>Not clear about the intuition….</p>
+<blockquote>
 <p>Adding large fake visual data forces real samples to be close in the feature space, enabling a bottom-up clustering process, which, in turn, improves multiclass pixel classification</p>
 </blockquote>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/03/29/reading/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>Use a fully convolutional multi-class classifier to replace the traditional discriminator <em>D</em> in GAN. The classifier is going to assign each input image pixel a label from <em>K</em> semantic classes or mark it as a fake sample, so there are acturally <em>K+1</em> classes.</p>
+<p>Fit semantic segmentation into conditional GAN, where generator and discriminator are provided with extra information (e.g., image class labeles) to driving the generator. </p>
+<p><img src="https://cl.ly/1G361K0I1V2j/Image%202017-03-29%20at%208.24.01%20PM.png" alt="semi-supervised"><br><img src="https://cl.ly/3i2V371S2k37/Image%202017-03-29%20at%208.24.45%20PM.png" alt="weakly-supervised"></p>
+<figcaption class="caption">Semi-supervised &amp; Weakly supervised onvolutional GAN architecture.</figcaption>
+
+<p>In general, the performance of weakly supervised architecture is better than semi-supervised one and both outperform fully-supervised methods.</p>
+<h3 id="Feature-Pyramid-Networks-for-Object-Detection"><a href="#Feature-Pyramid-Networks-for-Object-Detection" class="headerlink" title="Feature Pyramid Networks for Object Detection"></a>Feature Pyramid Networks for Object Detection</h3><p><img src="https://cl.ly/1m253Q3q0W0s/Image%202017-03-29%20at%208.35.28%20PM.png" alt="building block"></p>
+<figcaption class="caption">Building block.</figcaption>
+
+<p>The bottom-up pathway is the same as the feed-forward computation of the backbone ConvNet. And the original point is the <strong>top-down pathway and lateral connections</strong>:</p>
+<ul>
+<li>Each lateral connection merges feature maps of the same spatial size from the bottom-up pathway and the top-down pathway. </li>
+<li>For feature maps of different spatial sizes, the paper upsamples the spatial resolution by a factor of 2 on a coarser-resolution feature map and then merges it with the corresponding bottom-up map.</li>
+</ul>
+<h3 id="Who-Said-What-Modeling-Individual-Labelers-Improves-Classification"><a href="#Who-Said-What-Modeling-Individual-Labelers-Improves-Classification" class="headerlink" title="Who Said What: Modeling Individual Labelers Improves Classification"></a>Who Said What: Modeling Individual Labelers Improves Classification</h3><blockquote>
+<p>Make use of potentially valuable information about which expert produced which label and take advantage of the unique strengths of individual experts at classifying certain types of data.</p>
+</blockquote>
+<p>Like 因材施教，：）</p>
+
       
     </div>
 
@@ -1206,86 +1115,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/03/28/ResNext/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/03/28/ResNext/" class="post-title-link" itemprop="url">Aggregated Residual Transformations for Deep Neural Networks - Notes</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-03-28 19:55:17" itemprop="dateCreated datePublished" datetime="2017-03-28T19:55:17-07:00">2017-03-28</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/03/28/ResNext/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/03/28/ResNext/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/28/ResNext/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -1301,17 +1187,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>This paper introduces a new “dimension” except the width and depth of networks – “cardinality”, which is the number of transformations in a set.</p><h3 id="ResNet-v-s-Inception-v-s-ResNeXt"><a href="#ResNet-v-s-Inception-v-s-ResNeXt" class="headerlink" title="ResNet v.s. Inception v.s. ResNeXt"></a>ResNet v.s. Inception v.s. ResNeXt</h3>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/03/28/ResNext/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <p>This paper introduces a new “dimension” except the width and depth of networks – “cardinality”, which is the number of transformations in a set.</p>
+<h3 id="ResNet-v-s-Inception-v-s-ResNeXt"><a href="#ResNet-v-s-Inception-v-s-ResNeXt" class="headerlink" title="ResNet v.s. Inception v.s. ResNeXt"></a>ResNet v.s. Inception v.s. ResNeXt</h3><p><strong>ResNet</strong>: Stacking building blocks of the same shape(topology).</p>
+<p><strong>Inception</strong>: Split-Transformation-Merge.</p>
+<ul>
+<li>Split the input into a few lower-dimensional embeddings</li>
+<li>Transform using a set of specialized filters</li>
+<li>Merge by concatenation</li>
+</ul>
+<p>A successful multi-branch architecture, but each branch needs to be carefully customized, no matter filter numbers or sizes. It’s hard to be adapted to new tasks/datasets.</p>
+<p><strong>ResNeXt</strong>: Split-Transformation-Aggregate.</p>
+<ul>
+<li>Apply a set of transformations(same topoloty), each on a low-dimensional embedding</li>
+<li>Aggregate the output by summation</li>
+</ul>
+<h3 id="Difference-between-Inception-and-ResNeXt"><a href="#Difference-between-Inception-and-ResNeXt" class="headerlink" title="Difference between Inception and ResNeXt"></a>Difference between Inception and ResNeXt</h3><blockquote>
+<p>Our module differs from all existing Inception modules in that all our paths share the same topology and thus the number of paths can be easily isolated as a factor to be investigated.</p>
+</blockquote>
+<p><span class="evidence">Key words: same topology. What is same topology?</span></p>
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p>More effective to increase cardinality than going deeper or wider.</p>
+<h3 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h3><p>The network consists of a stack of residual blocks, which have the same <strong>topology</strong> and are subjective to two rules:</p>
+<ol start="0">
+<li>If two blocks produce spatial maps of the same size, they share the same hyper-parameters(width and filter sizes).</li>
+<li><p>When the spatial map is downsampled by a factor of 2, the width of the blocks is multiplied by a factor of 2. This makes sure the computational complexity is roughly the same for all blocks.</p>
+<ul>
+<li>Here the <strong>width</strong> means output channel nummber according to the section <em>Relation to Grouped Convolutions</em> and <em>Model Capacity</em>.</li>
+</ul>
+</li>
+<li><p>The network can be interpreted as:</p>
+<p> $$<br> F(x) = \sum_{i=1}^C T_i(x)<br> $$<br> Where C is the size of the set of transformations to be aggregated, is <em>cardinality</em>.$T_i(x)$ means <em>i</em>-th transformation applied on <em>x</em>. The residual block is:</p>
+<p> $$<br> y = x + \sum_{i=1}^C T_i(x)<br> $$</p>
+</li>
+<li><p>Reformulation</p>
+</li>
+</ol>
+<p><img src="https://cl.ly/422f3m3s1v1d/Image%202017-03-28%20at%208.59.04%20PM.png" alt="reformulation"></p>
+<figcaption class="caption">Equivalent building blocks of ResNeXt</figcaption>
+
+<p>(b) seems similar to Inception-ResNet block because it involves branching and concatenationg in the residual function. But different in <strong>sharing the same topology among the multiple paths</strong> in ResNext.</p>
+<p>(c) uses the natotaion of grouped convolutions, which is supposed to be introduced by AlexNet for the first time, just for distributing the task to two GPUs, and no evidence to speed up training.</p>
+<p>(b) and (c) are equivalant reformulations to (a), but for (c) when the block has a depth smaller than 3, there’s no meaning to use (c) reformulation except <strong>leading to a trivially wide and dense model</strong>. <span class="evidence">Is that because for a two-layer block there is no chance to divide the input channels to groups? Having no middle layer in (c).</span></p>
+
       
     </div>
 
@@ -1326,128 +1242,6 @@
   
   
 
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/03/26/Learning-Visual-Question-Answering-For-Imagecaption-Ranking/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xiaoyu Liu">
-      <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaoyu Liu">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2017/03/26/Learning-Visual-Question-Answering-For-Imagecaption-Ranking/" class="post-title-link" itemprop="url">Leveraging Visual Question Answering for Image-Caption Ranking - Notes</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2017-03-26 14:54:53" itemprop="dateCreated datePublished" datetime="2017-03-26T14:54:53-07:00">2017-03-26</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/03/26/Learning-Visual-Question-Answering-For-Imagecaption-Ranking/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/26/Learning-Visual-Question-Answering-For-Imagecaption-Ranking/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>This paper focused on ultilizing pre-trained VQA model as a <strong>feature extraction</strong> method to improve image caption ranking performance. The author <strong>embeded</strong> images and captions into the space of VQA questions and answers using VQA models.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/03/26/Learning-Visual-Question-Answering-For-Imagecaption-Ranking/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-  </div>
 
   
   <nav class="pagination">
@@ -1458,6 +1252,28 @@
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -1487,74 +1303,41 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/uploads/xiaoyu.jpg"
-      alt="Xiaoyu Liu">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyu Liu"
+      src="/uploads/xiaoyu.jpg">
   <p class="site-author-name" itemprop="name">Xiaoyu Liu</p>
   <div class="site-description" itemprop="description">Everything happens for the best</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        <span class="site-state-item-count">38</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/xiaoyuliu" title="GitHub &rarr; https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/xiaoyuliu" title="GitHub → https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin &rarr; https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+        <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin → https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
       </span>
-    
   </div>
 
 
@@ -1573,46 +1356,21 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
+  
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xiaoyu Liu</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">
-      
-    Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
 
 
 
@@ -1621,49 +1379,35 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-
-<script src="/js/next-boot.js?v=7.4.1"></script>
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 

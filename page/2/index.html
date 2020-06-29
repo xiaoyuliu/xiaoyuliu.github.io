@@ -1,59 +1,24 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xiaoyuliu.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="Everything happens for the best">
 <meta name="keywords" content="Software Engineer, Machine Learning, Hiking, Food">
@@ -66,35 +31,38 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xiaoyu Liu">
 <meta name="twitter:description" content="Everything happens for the best">
-  <link rel="canonical" href="https://xiaoyuliu.github.io/page/2/">
+
+<link rel="canonical" href="https://xiaoyuliu.github.io/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
   };
 </script>
 
   <title>Xiaoyu Liu</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92119705-1"></script>
     <script>
-      var host = window.location.hostname;
-      if (host !== "localhost" || !true) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-92119705-1');
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-92119705-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
       }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
     </script>
-  
-
-
 
 
 
@@ -132,19 +100,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Xiaoyu Liu</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Love life and work hard</p>
-      
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -152,82 +107,59 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Xiaoyu Liu</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Love life and work hard</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-        
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-    
-      
-      
-        
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
-      
-    
   </ul>
-
-    
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -241,89 +173,184 @@
     <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div class="content">
-            
+          
 
-  <div class="posts-expand">
-        
+          <div class="content index posts-expand">
+            
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/04/14/20180414-bottom-up-realtime-pose/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/05/06/20180506-deep-complex-networks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
-            <a href="/2018/04/14/20180414-bottom-up-realtime-pose/" class="post-title-link" itemprop="url">Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields - notes</a>
-          
-        </h1>
+            <a href="/2018/05/06/20180506-deep-complex-networks/" class="post-title-link" itemprop="url">Deep Complex Networks - Crude notes</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
-              <time title="Created: 2018-04-14 15:31:38" itemprop="dateCreated datePublished" datetime="2018-04-14T15:31:38-07:00">2018-04-14</time>
+              <time title="Created: 2018-05-06 19:21:08" itemprop="dateCreated datePublished" datetime="2018-05-06T19:21:08-07:00">2018-05-06</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2018/04/14/20180414-bottom-up-realtime-pose/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2018/05/06/20180506-deep-complex-networks/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/06/20180506-deep-complex-networks/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>This paper comes up with the key components of deep complex networks including <em>complex convolutions</em>, <em>complex weight initialization</em>. The state-of-the-art results on audio-related tasks are achieved by the complex-valued models.</p>
+<h3 id="Potential-of-complex-representations"><a href="#Potential-of-complex-representations" class="headerlink" title="Potential of complex representations"></a>Potential of complex representations</h3><ul>
+<li>[Easier optimization][1]</li>
+<li>[Better generalization][2]</li>
+<li>[Faster learning][3]</li>
+<li>[More robust to noise][4]</li>
+<li>[Richer representation capacity][5]</li>
+</ul>
+<h3 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h3><ul>
+<li>Formulate the complex batch normalization</li>
+<li>Complex weight initialization</li>
+<li>Comparison </li>
+<li>State-of-the-art results on MusicNet multi-instrument music transcription dataset</li>
+<li>State-of-the-art results in the Speech Spectrum Prediction task on the [TIMIT][6] dataset</li>
+</ul>
+<h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><h4 id="Improve-information-retrieval-from-associative-memory"><a href="#Improve-information-retrieval-from-associative-memory" class="headerlink" title="Improve information retrieval from associative memory"></a>Improve information retrieval from associative memory</h4><p>Residual networks and Hightway Networks have similar architectures to associative memories: The associate memory is provided by the identity connection for computing residuals.</p>
+<p>Complex numbers are demonstrated to be numerically efficient and stable for information retrieval from an associative momory.[7]</p>
+<h4 id="Address-gradient-vanishing-and-exploding-problems"><a href="#Address-gradient-vanishing-and-exploding-problems" class="headerlink" title="Address gradient vanishing and exploding problems"></a>Address gradient vanishing and exploding problems</h4><p>Unitary matrices can provide a richer representation, and unitary matrices are extentions of the orthogonal matrices over the complex number field.</p>
+<h4 id="Biological-importance"><a href="#Biological-importance" class="headerlink" title="Biological importance"></a>Biological importance</h4><pre><code>The complex-valued formulation allows one to express the neuron’s output 
+in terms of its firing rate and the relative timing of its activity. The 
+amplitude of the complex neuron represents the former and its phase the 
+latter.
+</code></pre><p>Possible main advantage: The ability to consider <strong>phase</strong> information.</p>
+<h4 id="Signal-processing-perspective"><a href="#Signal-processing-perspective" class="headerlink" title="Signal processing perspective"></a>Signal processing perspective</h4><ul>
+<li>For speech signals, the phase information affects the intelligibility.</li>
+<li>For image signals, the phase information is sufficient to recover the majority of the information from magnitudes. Because it encodes shapes, edges and orientations.</li>
+</ul>
+<h3 id="Previous-works"><a href="#Previous-works" class="headerlink" title="Previous works"></a>Previous works</h3><p>Previous works either only yield real-valued kernels, or are simply applied on toy tasks with some exceptions. </p>
+<h3 id="Complex-Building-Blocks"><a href="#Complex-Building-Blocks" class="headerlink" title="Complex Building Blocks"></a>Complex Building Blocks</h3><h4 id="Representation"><a href="#Representation" class="headerlink" title="Representation"></a>Representation</h4><p>For a 2D convolutional layer that has N feature maps and N is divisible by 2. It can be represented as complex numbers by treating the first N/2 feature maps as the real components and another N/2 as the imaginary components.</p>
+<h4 id="TBC"><a href="#TBC" class="headerlink" title="TBC"></a>TBC</h4><p>这篇paper好难啊……<br>以及最近有点懒散……<br>反思反思……</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/04/14/20180414-bottom-up-realtime-pose/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
+      <meta itemprop="name" content="Xiaoyu Liu">
+      <meta itemprop="description" content="Everything happens for the best">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaoyu Liu">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/04/14/20180414-bottom-up-realtime-pose/" class="post-title-link" itemprop="url">Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields - notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-04-14 15:31:38" itemprop="dateCreated datePublished" datetime="2018-04-14T15:31:38-07:00">2018-04-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/04/14/20180414-bottom-up-realtime-pose/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/14/20180414-bottom-up-realtime-pose/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -340,16 +367,41 @@
 
       
           <p>I read this paper not very carefully when CVPR 2017 accepted list was released, and felt the performance was really impressive. For some reason, once again I re-read this paper and got a more detailed understanding about it.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/04/14/20180414-bottom-up-realtime-pose/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>The most eye-catching key words of this paper are <strong>Realtime</strong> and <strong>Multi-person</strong>. The biggest difference for the common pose estimation methods is that this algorithm DOES NOT require person detector ahead. Though this is the most popular/straightforward solution to the pose estimation problem.</p>
+<p>Similar to skeleton detection/body keypoint detection, pose estimation methods aim at detecting and localizing body joints, connecting them to find body parts. This paper proposes an efficient way to address the problem in 2D environment.</p>
+<h3 id="Top-down-pose-estimation-algorithm"><a href="#Top-down-pose-estimation-algorithm" class="headerlink" title="Top-down pose estimation algorithm"></a>Top-down pose estimation algorithm</h3><h4 id="Overview-of-top-down-algorithms-from-paper"><a href="#Overview-of-top-down-algorithms-from-paper" class="headerlink" title="Overview of top-down algorithms from paper"></a>Overview of top-down algorithms from <a href="https://arxiv.org/pdf/1701.01779.pdf" target="_blank" rel="noopener">paper</a></h4><p>According to the <a href="http://cocodataset.org/#keypoints-leaderboard" target="_blank" rel="noopener">keypoint detection leaderboard</a> from MSCOCO, most of leading algorithms(<a href="https://arxiv.org/abs/1711.07319" target="_blank" rel="noopener">Megvii (Face++)</a>, <a href="https://github.com/MVIG-SJTU/RMPE" target="_blank" rel="noopener">RMPE</a>) are two-stage ones as well as top-down ones. They obtain keypoint results by applying single-person skeleton models on the human bounding boxes generated from some advanced object detector/pedestrian detector.</p>
+<h4 id="Limitation-of-top-down-algorithms"><a href="#Limitation-of-top-down-algorithms" class="headerlink" title="Limitation of top-down algorithms"></a>Limitation of top-down algorithms</h4><p>It is clear that top-down algorithms will highly depend on the accuracy and speed of the first-stage person detector. In this case, it will be a hard decision to make for the tradeoff between accuracy and speed. What’s more, the comlexity of top-down algorithms can increase proportionally as the number of people increases. This feature also makes top-down algorithms difficult to scale to indense environments.</p>
+<h3 id="Bottom-up-pose-estimation-algorithm"><a href="#Bottom-up-pose-estimation-algorithm" class="headerlink" title="Bottom-up pose estimation algorithm"></a>Bottom-up pose estimation algorithm</h3><p>Naturally bottom-up pose estimation algorithms are on the opposite location with top-down ones. For bottom-up algorithms, the person detector is not required, all they need is the raw image. The principle of bottom-up algorithms is that they will find all potential body parts, then they will match/parse them. This looks perfect for an end-to-end pose estimation system. </p>
+<h4 id="Limitation-of-bottom-up-algorithms"><a href="#Limitation-of-bottom-up-algorithms" class="headerlink" title="Limitation of bottom-up algorithms"></a>Limitation of bottom-up algorithms</h4><figure><br>    <img src="https://cl.ly/3A152A17071t/Image%202018-04-14%20at%203.58.46%20PM.png"><br>    <figcaption style="text-align: center;">Different association strategies from this paper</figcaption><br></figure>
+
+<p>However the top-down algorithms occupy most leading positions because the final parse requires “costly global inference” as a NP-hard integer linear programming problem according to this paper. Usually it’s going to take time on the order of hours to solve the parsing, which makes top-down algorithms look more efficient.</p>
+<p>Some works investigate how to speed up the parsing time but can’t meet the requirement for a real-time compact pose estimation system.</p>
+<h3 id="Innovation"><a href="#Innovation" class="headerlink" title="Innovation"></a>Innovation</h3><p>Instead of only detecting body joints, this method also estimates the association between two joints, which is called <em>Part Affinity Fields</em> (PAF) in this paper.</p>
+<center><br>    <img src="https://cl.ly/2h161X1z072R/Image%202018-04-14%20at%204.27.01%20PM.png"><br></center>
+
+<p>With a start point and the direction vector, it is much easier to associate body parts.</p>
+<h3 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h3><center><br>    <img src="https://cl.ly/1p2E3a1V3B2e/Image%202018-04-14%20at%204.31.18%20PM.png"><br></center>
+
+<p>This paper ultilizes an iterative process and the algorithm can be divided into three parts:</p>
+<ul>
+<li>Input raw figures to the first CNN to generate confidence map $S^1$ and PAF $L^1$</li>
+<li>Combined $S^{t-1} + L^{t-1} + F$ as the new input</li>
+<li>Apply NMS according to $S^t$ and $L^t$ to select final part candidates, linear integration to calculate association weights, then generate the final parsing result</li>
+</ul>
+<h4 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h4><p>$L_2$ loss is selected between the estimated predictions and groundtruths for both sub-networks.</p>
+<p>$$<br>f_S^t = \sum_{j=1}^J \sum_p||S_j^t(p)-S_j^*(p)||_2^2<br>$$</p>
+<p>In the loss of both brachs, $W$ is provided to distinguish between locations missing the annotation or not. The final loss is simply adding two together. </p>
+<p>$$<br>f = \sum^T_{t=1}(f_S^t + f_L^t)<br>$$</p>
+<h4 id="Generation-of-confidence-map"><a href="#Generation-of-confidence-map" class="headerlink" title="Generation of confidence map"></a>Generation of confidence map</h4><p>The groundtruth confidence map is generated using the raw figure and 2D annotations for each part. For every location on the map, the confidence value should be </p>
+<p>$$<br>S_{j,k}^*(P) = exp(-\frac{||p-x_{j,k}||_2^2}{\sigma^2})<br>$$</p>
+<p>Where: </p>
+<ul>
+<li>$x_{j,k}$: 2D position of body part $j$ for person $k$ </li>
+<li>$\sigma$: peak width controller</li>
+</ul>
+<p>Final/Integrated confidence map is from all individual confidence maps via a max operator as</p>
+<p>$$<br>S_j^(P) = S_{j,k}^(P)<br>$$</p>
+
       
     </div>
 
@@ -364,86 +416,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/03/30/20180330-DOM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2018/03/30/20180330-DOM/" class="post-title-link" itemprop="url">13 DOM Manipulation</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2018-03-30 22:18:35" itemprop="dateCreated datePublished" datetime="2018-03-30T22:18:35-07:00">2018-03-30</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web-Developer-Bootcamp/" itemprop="url" rel="index">
-                    <span itemprop="name">Web Developer Bootcamp</span>
-                  </a>
+                  <a href="/categories/Web-Developer-Bootcamp/" itemprop="url" rel="index"><span itemprop="name">Web Developer Bootcamp</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2018/03/30/20180330-DOM/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2018/03/30/20180330-DOM/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/30/20180330-DOM/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -459,17 +488,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="DOM-Document-Object-Model"><a href="#DOM-Document-Object-Model" class="headerlink" title="DOM: Document Object Model"></a>DOM: Document Object Model</h3><p>DOM is the interface between JavaScript and HTML/CSS.</p><p>Everything is stored inside of the <em>document</em> object. And the browser will turn every HTML tag into a Javascript object that we can manipulate.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/03/30/20180330-DOM/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <h3 id="DOM-Document-Object-Model"><a href="#DOM-Document-Object-Model" class="headerlink" title="DOM: Document Object Model"></a>DOM: Document Object Model</h3><p>DOM is the interface between JavaScript and HTML/CSS.</p>
+<p>Everything is stored inside of the <em>document</em> object. And the browser will turn every HTML tag into a Javascript object that we can manipulate.</p>
+<h4 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h4><h5 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> body = <span class="built_in">document</span>.querySelector(<span class="string">"body"</span>); <span class="comment">//SELECT</span></span><br></pre></td></tr></table></figure>
+<h5 id="MANIPULATE"><a href="#MANIPULATE" class="headerlink" title="MANIPULATE"></a>MANIPULATE</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body.style.background = <span class="string">"white"</span>; <span class="comment">//MANIPULATE</span></span><br></pre></td></tr></table></figure>
+<h4 id="DOM-selectors"><a href="#DOM-selectors" class="headerlink" title="DOM selectors"></a>DOM selectors</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById() <span class="comment">//html-style selector</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByClassName() <span class="comment">//return a list</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName() <span class="comment">//return a list</span></span><br><span class="line"><span class="built_in">document</span>.querySelector() <span class="comment">//return the first element that</span></span><br><span class="line">                         <span class="comment">// matches a given css-style selector</span></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll()</span><br></pre></td></tr></table></figure>
+<p>For methods <code>getElements</code> the output will be a nodelist of javascript objects instead of an array. You can all <code>outputs.length</code> or <code>outputs[i]</code> but you cannot use <code>forEach</code> function on a nodelist.</p>
+<p>For <code>querySelector</code> the output will only be one.<br>For <code>querySelectorAll</code> the output will be a nodelist.</p>
+<h4 id="DOM-Manipulation"><a href="#DOM-Manipulation" class="headerlink" title="DOM Manipulation"></a>DOM Manipulation</h4><h5 id="change-style-There-must-be-a-string-on-the-right-of-equation"><a href="#change-style-There-must-be-a-string-on-the-right-of-equation" class="headerlink" title="change style: There must be a string on the right of equation"></a>change style: There must be a string on the right of equation</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">element.style.color = STRING</span><br><span class="line">element.style.border = STRING</span><br><span class="line">element.style.fontSize = STRING</span><br><span class="line">element.style.background = STRING</span><br><span class="line">element.style.marginTop = STRING</span><br></pre></td></tr></table></figure>
+<h5 id="add-remove-classes-using-classList"><a href="#add-remove-classes-using-classList" class="headerlink" title="add/remove classes using classList"></a>add/remove classes using <code>classList</code></h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.some-class</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: orange;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">100px</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tag = <span class="built_in">document</span>.querySelector(<span class="string">"h1"</span>);</span><br><span class="line">tag.classList.add(<span class="string">"some-class"</span>);</span><br><span class="line">tag.classList.remove(<span class="string">"some-class"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// if a class exists in the list, remove it</span></span><br><span class="line"><span class="comment">// or turn on it</span></span><br><span class="line">tag.classList.toggle(<span class="string">"some-class"</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="change-content"><a href="#change-content" class="headerlink" title="change content"></a>change content</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// treat everything as txt, even &lt;h1&gt;</span></span><br><span class="line">tag.textContent</span><br><span class="line"><span class="comment">// treat things as html format</span></span><br><span class="line">tag.innerHTML</span><br></pre></td></tr></table></figure>
+<h5 id="change-attributes"><a href="#change-attributes" class="headerlink" title="change attributes"></a>change attributes</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tag.getAttribute </span><br><span class="line">tag.setAttribute</span><br></pre></td></tr></table></figure>
+<h4 id="DOM-Events"><a href="#DOM-Events" class="headerlink" title="DOM Events"></a>DOM Events</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(type, functionToCall);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">"button"</span>);</span><br><span class="line">button.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Other kinds of events:</p>
+<ul>
+<li>change</li>
+<li>mouseover</li>
+<li>mouseout </li>
+</ul>
+<p>More on the <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank" rel="noopener">MDN</a>.</p>
+
       
     </div>
 
@@ -484,86 +523,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/03/30/20180330-clang-format/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2018/03/30/20180330-clang-format/" class="post-title-link" itemprop="url">Unify code style using clang-format</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2018-03-30 11:49:14" itemprop="dateCreated datePublished" datetime="2018-03-30T11:49:14-07:00">2018-03-30</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Engineer/" itemprop="url" rel="index">
-                    <span itemprop="name">Engineer</span>
-                  </a>
+                  <a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2018/03/30/20180330-clang-format/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2018/03/30/20180330-clang-format/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/30/20180330-clang-format/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -580,16 +596,51 @@
 
       
           <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p><a href="https://clang.llvm.org/docs/ClangFormat.html" target="_blank" rel="noopener">ClangFormat</a> describes a set of tools that are built on top of LibFormat. It can support your workflow in a variety of ways including a standalone tool and editor integrations.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/03/30/20180330-clang-format/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p><em>Only for Ubuntu and macOS so far</em></p>
+<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install clang-format</span><br><span class="line"><span class="comment"># sudo apt-get install clang-format-3.8</span></span><br><span class="line"><span class="comment"># (version 3.8 is what I get using the first command)</span></span><br></pre></td></tr></table></figure>
+<h4 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install homebrew</span></span><br><span class="line">ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</span><br><span class="line">brew install clang-format</span><br></pre></td></tr></table></figure>
+<p>Check successful installation by</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang-format -<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<h3 id="Configuration-for-IDEs-Editors"><a href="#Configuration-for-IDEs-Editors" class="headerlink" title="Configuration for IDEs/Editors"></a>Configuration for IDEs/Editors</h3><p><em>Only for Ubuntu and macOS so far, based on Ubuntu</em></p>
+<p><span style="background: yellow;">Use: /usr/local/bin/clang-format (if for macOS)</span></p>
+<h4 id="CLion"><a href="#CLion" class="headerlink" title="CLion"></a><a href="https://www.jetbrains.com/clion/download/#section=linux" target="_blank" rel="noopener">CLion</a></h4><ul>
+<li>Go to <code>File-&gt;Settingls-&gt;Tools-&gt;External Tools</code>, click <code>+</code></li>
+<li><p>Fill the create tool as following and save</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Name: WHATEVER_YOU_LIKE</span><br><span class="line">Program: /usr/bin/clang-format-3.8 (/path/to/your/clang-format/executable/file)</span><br><span class="line">Arguments: --style=file -i $FileName$</span><br><span class="line">Working directory: $FileDir$</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Go to <code>Keymap</code>, assign a shortcut for <code>WHATEVER_YOU_LIKE</code></p>
+</li>
+<li>Put <code>.clang-format</code> file from the end of this article under the project root</li>
+<li>Save and restart CLion</li>
+<li>Go to any script page, use the shortcut you set and see the difference. (CLion saves the page automatically)</li>
+</ul>
+<h4 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a></h4><ul>
+<li>Go to <code>Extentions</code> and install <code>C/C++</code>, <code>Clang-Format</code></li>
+<li>Go to <code>File-&gt;Preferences-&gt;Settings</code></li>
+<li><p>Put the following scripts under <code>USER SETTING</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;C_Cpp.clang_format_path&quot;: &quot;/usr/bin/clang-format-3.8&quot; (/path/to/your/clang-format/executable/file),</span><br><span class="line">&quot;C_Cpp.clang_format_style&quot;: &quot;file&quot;,</span><br><span class="line">&quot;C_Cpp.clang_format_fallbackStyle&quot;: &quot;none&quot;,</span><br><span class="line">&quot;editor.formatOnSave&quot;: true,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Put <code>.clang-format</code> file from the end of this article under the project root</p>
+</li>
+<li>Save and restart VSCODE</li>
+<li>Go to any script page, save it and see the difference</li>
+</ul>
+<h4 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a><a href="https://www.sublimetext.com/" target="_blank" rel="noopener">Sublime</a></h4><ul>
+<li>Go to <code>Preferences-&gt;Package Control: Install Package</code></li>
+<li>Install <code>Clang Format</code></li>
+<li><p>Go to <code>Preferences-&gt;Package Settings-&gt;Clang Format-&gt;Setting-User</code>, set as following</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;binary&quot;: &quot;/usr/bin/clang-format-3.8&quot; (/path/to/your/clang-format/executable/file),</span><br><span class="line">    &quot;format_on_save&quot;: true,</span><br><span class="line">    &quot;style&quot;: &quot;Custom&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Go to <code>Preferences-&gt;Package Settings-&gt;Clang Format-&gt;Custom Style-User</code>, add .c<code>lang-format</code> content inside, need to make some modification. For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;Language&quot;: &quot;Cpp&quot;,</span><br><span class="line">    &quot;TabWidth&quot;: 4,</span><br><span class="line">    &quot;AlignTrailingComments&quot;: &quot;true&quot;,</span><br><span class="line">    &quot;UseTab&quot;: &quot;Never&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Save and restart Sublime</p>
+</li>
+<li>Go to any script page, save it and see the difference</li>
+</ul>
+<h4 id="My-clang-format-example"><a href="#My-clang-format-example" class="headerlink" title="My .clang-format example"></a>My .clang-format example</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Language: Cpp</span><br><span class="line">BreakBeforeBraces: Attach</span><br><span class="line">PointerAlignment: Right</span><br><span class="line">TabWidth: 4</span><br><span class="line">IndentWidth: 4</span><br><span class="line">AccessModifierOffset: 0</span><br><span class="line">ColumnLimit: 120</span><br><span class="line">NamespaceIndentation: All</span><br><span class="line">AlignTrailingComments: true</span><br><span class="line">AllowAllParametersOfDeclarationOnNextLine: true</span><br><span class="line">AlwaysBreakTemplateDeclarations: true</span><br><span class="line">UseTab: Never</span><br></pre></td></tr></table></figure>
+<p>You can find all explanation about each variable in the <a href="https://clang.llvm.org/docs/ClangFormatStyleOptions.html" target="_blank" rel="noopener">document</a>.<br>For CLion and VSCODE, you must create a file named .clang-format and copy the content into the file.</p>
+
       
     </div>
 
@@ -604,86 +655,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/03/28/how-to-sync-hexo-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2018/03/28/how-to-sync-hexo-blog/" class="post-title-link" itemprop="url">How to create and sync your blog using hexo</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2018-03-28 22:29:36" itemprop="dateCreated datePublished" datetime="2018-03-28T22:29:36-07:00">2018-03-28</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Engineer/" itemprop="url" rel="index">
-                    <span itemprop="name">Engineer</span>
-                  </a>
+                  <a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2018/03/28/how-to-sync-hexo-blog/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2018/03/28/how-to-sync-hexo-blog/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/28/how-to-sync-hexo-blog/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -699,17 +727,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <center><span style="background: yellow"><strong>Thanks to the simple <a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a> setting, I successfully moved my homepage to hexo!</strong></span></center><h3 id="Use-hexo-gitpage-and-next-theme"><a href="#Use-hexo-gitpage-and-next-theme" class="headerlink" title="Use hexo, gitpage and next theme"></a>Use <a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a>, <a href="https://pages.github.com/" target="_blank" rel="noopener">gitpage</a> and <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next theme</a></h3><h4 id="Create-io-git-repo"><a href="#Create-io-git-repo" class="headerlink" title="Create .io git repo"></a>Create .io git repo</h4><p>You must create git repo named <code>username.github.io</code></p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/03/28/how-to-sync-hexo-blog/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <center><span style="background: yellow"><strong>Thanks to the simple <a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a> setting, I successfully moved my homepage to hexo!</strong></span></center>
+
+<h3 id="Use-hexo-gitpage-and-next-theme"><a href="#Use-hexo-gitpage-and-next-theme" class="headerlink" title="Use hexo, gitpage and next theme"></a>Use <a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a>, <a href="https://pages.github.com/" target="_blank" rel="noopener">gitpage</a> and <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next theme</a></h3><h4 id="Create-io-git-repo"><a href="#Create-io-git-repo" class="headerlink" title="Create .io git repo"></a>Create .io git repo</h4><p>You must create git repo named <code>username.github.io</code></p>
+<h4 id="Combine"><a href="#Combine" class="headerlink" title="Combine"></a>Combine</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install hexo</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># initialize hexo folder</span></span><br><span class="line"><span class="comment"># hexo init FOLDER_NAME</span></span><br><span class="line">hexo init hexo</span><br><span class="line"></span><br><span class="line"><span class="comment"># link next theme and update</span></span><br><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br><span class="line"><span class="built_in">cd</span> themes/next &amp;&amp; git pull</span><br></pre></td></tr></table></figure>
+<p>Now we have two <code>_config.yml</code> files, one under <code>hexo</code> and another under <code>hexo/themes/next</code>. </p>
+<h5 id="Set-hexo-config-yml-for-linking-gitpage-and-next-theme"><a href="#Set-hexo-config-yml-for-linking-gitpage-and-next-theme" class="headerlink" title="Set hexo/_config.yml for linking gitpage and next theme"></a>Set <code>hexo/_config.yml</code> for linking <a href="https://pages.github.com/" target="_blank" rel="noopener">gitpage</a> and <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next theme</a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">url: https://username.github.io/</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">theme: next</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/username/username.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h5 id="Set-hexo-themes-next-config-yml-for-different-styles-you-want"><a href="#Set-hexo-themes-next-config-yml-for-different-styles-you-want" class="headerlink" title="Set hexo/themes/next/_config.yml for different styles you want"></a>Set <code>hexo/themes/next/_config.yml</code> for different styles you want</h5><h4 id="Test-hexo-homepage"><a href="#Test-hexo-homepage" class="headerlink" title="Test hexo homepage"></a>Test hexo homepage</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># under hexo folder</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment"># view on the local</span></span><br><span class="line">hexo s </span><br><span class="line"></span><br><span class="line"><span class="comment"># deploy to gitpage</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="Sync-hexo-blogs-among-different-computers"><a href="#Sync-hexo-blogs-among-different-computers" class="headerlink" title="Sync hexo blogs among different computers"></a>Sync hexo blogs among different computers</h3><h4 id="Put-github-io-and-hexo-folder-into-the-same-repo"><a href="#Put-github-io-and-hexo-folder-into-the-same-repo" class="headerlink" title="Put github.io and hexo folder into the same repo"></a>Put github.io and hexo folder into the same repo</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:username/username.github.io.git</span><br><span class="line"><span class="built_in">cd</span> username.github.io</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"><span class="comment"># create a new branch for hexo folder</span></span><br><span class="line">git branch hexo</span><br><span class="line">git checkout hexo</span><br><span class="line"></span><br><span class="line"><span class="comment"># clean the branch</span></span><br><span class="line">git rm -rf .</span><br><span class="line"></span><br><span class="line"><span class="comment"># copy all files inside the previous hexo folder here</span></span><br><span class="line">sudo cp -r /path/to/hexo/* .</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"create hexo"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<p>You can see the new branch on GitHub like:</p>
+<center><img src="https://cl.ly/3Z3a2y1a1L2o/Image%202018-03-28%20at%2010.58.35%20PM.png" style="width: 50%"></center>
+
+<h4 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h4><p>Make sure you are always in <span style="background: yellow">hexo</span> branch！</p>
+<h5 id="Modify-your-post"><a href="#Modify-your-post" class="headerlink" title="Modify your post"></a>Modify your post</h5><h5 id="Push-to-hexo-branch-and-update-your-online-homepage"><a href="#Push-to-hexo-branch-and-update-your-online-homepage" class="headerlink" title="Push to hexo branch and update your online homepage"></a>Push to hexo branch and update your online homepage</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"whatever you want to say"</span></span><br><span class="line">git push</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<center><span style="background: pink">I believe this is the most straighforward tutorial for the topic~</span></center>
+
+
       
     </div>
 
@@ -724,86 +757,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/03/19/compare-static-and-dynamic-library/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2018/03/19/compare-static-and-dynamic-library/" class="post-title-link" itemprop="url">C++ Static Libraries and Dynamic Libraries</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2018-03-19 16:12:42" itemprop="dateCreated datePublished" datetime="2018-03-19T16:12:42-07:00">2018-03-19</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Engineer/" itemprop="url" rel="index">
-                    <span itemprop="name">Engineer</span>
-                  </a>
+                  <a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2018/03/19/compare-static-and-dynamic-library/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2018/03/19/compare-static-and-dynamic-library/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/19/compare-static-and-dynamic-library/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -819,17 +829,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>This articile is based on the Chinese version <a href="http://www.cnblogs.com/skynet/p/3372855.html" target="_blank" rel="noopener">blog</a> introducing static libraries and dynamic libraries.</p><h3 id="Definition-of-Library"><a href="#Definition-of-Library" class="headerlink" title="Definition of Library"></a>Definition of Library</h3><p>A library is a collection of off-the-shelf scripts that can be used repeatedly. Basically it is the binary mode of executable codes and can be loaded into the operation system to run. There are two kinds of libraries on LINUX and WINDOWS:</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/03/19/compare-static-and-dynamic-library/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <p>This articile is based on the Chinese version <a href="http://www.cnblogs.com/skynet/p/3372855.html" target="_blank" rel="noopener">blog</a> introducing static libraries and dynamic libraries.</p>
+<h3 id="Definition-of-Library"><a href="#Definition-of-Library" class="headerlink" title="Definition of Library"></a>Definition of Library</h3><p>A library is a collection of off-the-shelf scripts that can be used repeatedly. Basically it is the binary mode of executable codes and can be loaded into the operation system to run. There are two kinds of libraries on LINUX and WINDOWS:</p>
+<ul>
+<li><em>Static library</em>: <code>.a</code> for LINUX, <code>.lib</code> for WINDOWS</li>
+<li><em>Dynamic library</em>: <code>.so</code> for LINUX, <code>.dll</code> for WINDOWS</li>
+</ul>
+<p>To generate an executable file, the source file will go through <em>pre-compile</em>, <em>compile</em>, <em>assemble</em> and <em>link</em>. <code>.a/.lib</code> and <code>.so/.dll</code> comes from <em>link</em> stage.</p>
+<ul>
+<li><p><strong>Static Library</strong></p>
+<p>  A static library can be simply treated as a set of <code>.o/.obj</code> files. It can be linked together with <code>.o/.obj</code> files from <em>aseemble</em> to generate the executable file. </p>
+<p>  Static libraries increase the size of the code in your binary. They’re always loaded and whatever version of the code you compiled with is the version of the code that will run. (from the <a href="https://stackoverflow.com/questions/140061/when-to-use-dynamic-vs-static-libraries" target="_blank" rel="noopener">answer</a>)</p>
+<ul>
+<li><p><strong>Generate Static Library</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ar under LINUX, lib.exe under WINDOWS</span></span><br><span class="line">g++ -c StaticFunction.cpp</span><br><span class="line">ar -crv libStaticFunction.a StaticFunction.o</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Use Static Library Under LINUX</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ Teststaticfunction.cpp -L../StaticFunction -lstaticfunction</span><br></pre></td></tr></table></figure>
+<p>  <code>-L</code>: specify the search path of static libraries<br>  <code>-l</code>: specify the name of static libraries, no prefix or subfix.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Dynamic Library</strong></p>
+<p>  A dynamic library will not be loaded into program until running. If different programs use the same dynamic library, there will be only one instance of the shared library in memory. This feature saves lots of memory and it is incremental update. <em>(When the library is updated, the programs that use this library don’t need to be re-compiled, the user can simply update the library)</em></p>
+<ul>
+<li><p><strong>Generate Dynamic Library</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">g++ -fPIC -c DynamicFunction.cpp</span><br><span class="line">g++ -shared -o libdynamicfunction.so DynamicFunction.o</span><br><span class="line"></span><br><span class="line"><span class="comment"># g++ -fPIC -shared -o libDynamicFunction.so DynamicFunction.cpp</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Use Dynamic Library Under LINUX</strong></p>
+<p>In order to make sure that our system can find the dynamic library, do either: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv DynamicFunction.o /usr/lib/</span><br></pre></td></tr></table></figure>
+<p>or add the path to the dynamic library to <code>/etc/ld.so.cache</code> file and run <code>ldconfig</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ TestDynamicFunction.cpp -L../DynamicFunction -ldynamicfunction</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Comparison</strong></p>
+<ul>
+<li><p>The features of static libraries:</p>
+<ul>
+<li>The link is completed during <em>compile</em>, running fast</li>
+<li>During running, the program is not related to static libraries any more</li>
+<li>Space and resource consuming, because all <code>.o/.obj</code> files and related function libraries can be linked and combined into an executable file multiple times</li>
+<li>When the library is updated, all programs that use this library need to be re-compiled</li>
+</ul>
+</li>
+<li><p>The features of dynamic libraries:</p>
+<ul>
+<li>The link is completed during <em>running</em>, running slower</li>
+<li>During running, the dynamic libraries must be kept while running</li>
+<li>Save memory because there will be only one copy for the shared dynamic library for programs using it in the memory</li>
+<li>When the library is updated, all customers need to update is simply the dynamic library.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Combine Multiple Static Libraries</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># under LINUX</span></span><br><span class="line">ar x libA.a</span><br><span class="line">ar x libB.a</span><br><span class="line">ar cur libAB.a *.o</span><br><span class="line">ranlib libAB.a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Combine Multiple Dynamic Libraries</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># under LINUX, do not test this yet</span></span><br><span class="line"><span class="comment"># have to compile the dynamic libraries into static libraries and use this command to combine them into a .so file</span></span><br><span class="line">gcc -shared -o c.so -Wl,--whole-archive a.a b.a -Wl,--no-whole-archive</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
 
@@ -844,86 +906,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2018/02/23/combine-datasets-into-lmdb-for-caffe/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/" class="post-title-link" itemprop="url">Prepare LMDB for Caffe from custom datasets</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2018-02-23 13:27:09" itemprop="dateCreated datePublished" datetime="2018-02-23T13:27:09-08:00">2018-02-23</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Engineer/" itemprop="url" rel="index">
-                    <span itemprop="name">Engineer</span>
-                  </a>
+                  <a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/23/combine-datasets-into-lmdb-for-caffe/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -940,16 +979,64 @@
 
       
           <p>There is some scripts to create LMDB specially for MSCOCO or VOC datasets, but sometimes we need to combine two different datasets. And it would be efficient for Caffe to write both datasets into a single LMDB file.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/02/23/combine-datasets-into-lmdb-for-caffe/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>Take the combination fo <a href="http://cocodataset.org/#home" target="_blank" rel="noopener">MSCOCO</a> and <a href="http://detrac-db.rit.albany.edu/" target="_blank" rel="noopener">UA-DETRAC</a> as an example in this article.</p>
+<ol start="0">
+<li><p>Get the LMDB scripts</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> data</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/weiliu89/coco.git</span><br><span class="line"><span class="built_in">cd</span> coco</span><br><span class="line">git checkout dev</span><br><span class="line"><span class="built_in">cd</span> PythonAPI</span><br><span class="line">python setup.py build_ext --inplace</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create folders required</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /path/to/your/dataset/folder</span><br><span class="line">mkdir Annotations</span><br><span class="line">mkdir ImageSets</span><br><span class="line">mkdir JPEGImages</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Set up COCO and DETRAC images</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> JPEGImages</span><br><span class="line">wget http://images.cocodataset.org/zips/train2017.zip</span><br><span class="line">wget http://images.cocodataset.org/zips/val2017.zip</span><br><span class="line">wget http://detrac-db.rit.albany.edu/Data/DETRAC-train-data.zip</span><br><span class="line">unzip DETRAC-train-data.zip</span><br><span class="line">unzip train2017.zip</span><br><span class="line">unzip val2017.zip</span><br><span class="line">mv Insight-MVT_Annotation_Train/* ../</span><br><span class="line">rm -r Insight-MVT_Annotation_Train</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Set up the <code>JPEGImages</code> folder as:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">JPEGImages/MVI_20011/imgXXXXX.jpg</span><br><span class="line">JPEGImages/MVI_20012/imgXXXXX.jpg</span><br><span class="line">JPEGImages/MVI_20032/imgXXXXX.jpg</span><br><span class="line">...</span><br><span class="line">JPEGImages/train2017/XXXXXXXXXXXX.jpg</span><br><span class="line">JPEGImages/val2017/XXXXXXXXXXXX.jpg</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Set up COCO and DETRAC annotations</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../Annotations/</span><br><span class="line">wget http://images.cocodataset.org/annotations/annotations_trainval2017.zip</span><br><span class="line">wget http://detrac-db.rit.albany.edu/Data/DETRAC-Train-Annotations-XML.zip</span><br><span class="line">unzip annotations_trainval2017.zip</span><br><span class="line">unzip DETRAC-Train-Annotations-XML.zip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Generate your dataset’s label map file, I used:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">item &#123;</span><br><span class="line">  name: &quot;none_of_the_above&quot;</span><br><span class="line">  label: 0</span><br><span class="line">  display_name: &quot;background&quot;</span><br><span class="line">&#125;</span><br><span class="line">item &#123;</span><br><span class="line">  name: &quot;1&quot;</span><br><span class="line">  label: 1</span><br><span class="line">  display_name: &quot;person&quot;</span><br><span class="line">&#125;</span><br><span class="line">item &#123;</span><br><span class="line">  name: &quot;2&quot;</span><br><span class="line">  label: 2</span><br><span class="line">  display_name: &quot;bicycle&quot;</span><br><span class="line">&#125;</span><br><span class="line">item &#123;</span><br><span class="line">  name: &quot;3&quot;</span><br><span class="line">  label: 3</span><br><span class="line">  display_name: &quot;car&quot;</span><br><span class="line">&#125;</span><br><span class="line">item &#123;</span><br><span class="line">  name: &quot;4&quot;</span><br><span class="line">  label: 4</span><br><span class="line">  display_name: &quot;motorcycle&quot;</span><br><span class="line">&#125;</span><br><span class="line">item &#123;</span><br><span class="line">  name: &quot;5&quot;</span><br><span class="line">  label: 5</span><br><span class="line">  display_name: &quot;other&quot;</span><br><span class="line">&#125;</span><br><span class="line">item &#123;</span><br><span class="line">  name: &quot;6&quot;</span><br><span class="line">  label: 6</span><br><span class="line">  display_name: &quot;bus&quot;</span><br><span class="line">&#125;</span><br><span class="line">item &#123;</span><br><span class="line">  name: &quot;7&quot;</span><br><span class="line">  label: 7</span><br><span class="line">  display_name: &quot;train&quot;</span><br><span class="line">&#125;</span><br><span class="line">item &#123;</span><br><span class="line">  name: &quot;8&quot;</span><br><span class="line">  label: 8</span><br><span class="line">  display_name: &quot;truck&quot;</span><br><span class="line">&#125;</span><br><span class="line">item &#123;</span><br><span class="line">  name: &quot;9&quot;</span><br><span class="line">  label: 9</span><br><span class="line">  display_name: &quot;boat&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Generate every image’s annotation txt file, and set up the <code>Annotation</code> folder as:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Annotation/MVI_20011.xml-anno/annoXXXXX.txt</span><br><span class="line">Annotation/MVI_20012.xml-anno/annoXXXXX.txt</span><br><span class="line">Annotation/MVI_20032.xml-anno/annoXXXXX.txt</span><br><span class="line">...</span><br><span class="line">Annotation/train2017TXT/XXXXXXXXXXXX.txt</span><br><span class="line">Annotation/val2017TXT/XXXXXXXXXXXX.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>The content of every `.txt` file is:
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># [label] [x1] [y1] [x2] [y2]</span><br><span class="line">1 0.0 104.98 500.0 370.61</span><br></pre></td></tr></table></figure>
+
+**Refer COCO&apos;s PythonAPI for efficiently loading COCO annotations from JSON files**
+</code></pre><ol start="7">
+<li><p>Generate list files for training images and validation images. Set up the <code>ImageSets</code> folder as:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ImageSets/train.txt</span><br><span class="line">ImageSets/val.txt</span><br></pre></td></tr></table></figure>
+<p> The content of <code>train.txt</code> file is:</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MVI_20011/imgXXXXX.jpg</span><br><span class="line">MVI_20011/imgXXXXX.jpg</span><br><span class="line">...</span><br><span class="line">MVI_20012/imgXXXXX.jpg</span><br><span class="line">MVI_20012/imgXXXXX.jpg</span><br><span class="line">...</span><br><span class="line">train2017/XXXXXXXXXXXX.jpg</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+**NO** `val2017` images are included in `train.txt`
+</code></pre><p> The content of <code>val.txt</code> file is:</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val2017/XXXXXXXXXXXX.jpg</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+**NO** `train2017` or `MVI_200XX` images are included in `val.txt`
+</code></pre></li>
+<li><p>Generate <code>train.txt</code> and <code>val.txt</code> files indicating relationships between each single image and the corresponding annotation file under <code>/PATH/TO/CAFFE/data/coco</code>. The content should be like:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># train.txt</span><br><span class="line">JPEGImages/MVI_XXXXX/imgXXXXX.jpg Annotations/MVI_XXXXX.xml-anno/annoXXXXX.txt</span><br><span class="line">...</span><br><span class="line">JPEGImages/train2017/XXXXXXXXXXXX.jpg Annotations/train2017TXT/XXXXXXXXXXXX.txt</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"># val.txt</span><br><span class="line">JPEGImages/val2017/XXXXXXXXXXXX.jpg Annotations/val2017TXT/XXXXXXXXXXXX.txt</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p> Similarly, <strong>NO</strong> <code>train2017</code> or <code>MVI_200XX</code> images are included in <code>val.txt</code> and <strong>NO</strong> <code>val2017</code> images are included in <code>train.txt</code>.</p>
+</li>
+<li><p>Generate LMDB</p>
+<p> Modify <code>/PATH/TO/CAFFE/data/coco/create_data.sh</code>:</p>
+<pre><code>- root_dir: /PATH/TO/CAFFE/
+- data_root_dir: /PATH/TO/CAFFE/data/coco
+- mapfile: /PATH/TO/CAFFE/data/coco/${maplabelfile}
+- label_type: &quot;txt&quot;
+- `for subset in val train`
+</code></pre><p> Run the script and it will create lmdb files for train, val with encoded original image:</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/PATH/TO/CAFFE/data/coco/lmdb/coco_val_lmdb</span><br><span class="line">/PATH/TO/CAFFE/data/coco/lmdb/coco_train_lmdb</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+</ol>
+<p><em>Actually if only LMDB files are needed, the relationship files are enough. But sometimes some extra files are required, which might need a stable file structure.</em></p>
+
       
     </div>
 
@@ -964,86 +1051,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/12/27/faster-rcnn-details/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/12/27/faster-rcnn-details/" class="post-title-link" itemprop="url">Details about faster RCNN for object detection</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-12-27 11:11:21" itemprop="dateCreated datePublished" datetime="2017-12-27T11:11:21-08:00">2017-12-27</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
-                  </a>
+                  <a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/12/27/faster-rcnn-details/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/12/27/faster-rcnn-details/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/27/faster-rcnn-details/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -1059,17 +1123,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>This post is to specify some details from faster rcnn series for object detection myself.</strong></p><h3 id="NMS-Non-Maximum-Surppression"><a href="#NMS-Non-Maximum-Surppression" class="headerlink" title="NMS(Non-Maximum Surppression)"></a>NMS(Non-Maximum Surppression)</h3><p><a href="https://github.com/rbgirshick/py-faster-rcnn/blob/master/lib/nms/py_cpu_nms.py" target="_blank" rel="noopener">python implementation</a>:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Fast R-CNN</span></span><br><span class="line"><span class="comment"># Copyright (c) 2015 Microsoft</span></span><br><span class="line"><span class="comment"># Licensed under The MIT License [see LICENSE for details]</span></span><br><span class="line"><span class="comment"># Written by Ross Girshick</span></span><br><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">py_cpu_nms</span><span class="params">(dets, thresh)</span>:</span></span><br><span class="line">    <span class="string">"""Pure Python NMS baseline."""</span></span><br><span class="line">    x1 = dets[:, <span class="number">0</span>]</span><br><span class="line">    y1 = dets[:, <span class="number">1</span>]</span><br><span class="line">    x2 = dets[:, <span class="number">2</span>]</span><br><span class="line">    y2 = dets[:, <span class="number">3</span>]</span><br><span class="line">    scores = dets[:, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">    areas = (x2 - x1 + <span class="number">1</span>) * (y2 - y1 + <span class="number">1</span>)</span><br><span class="line">    order = scores.argsort()[::<span class="number">-1</span>] </span><br><span class="line">    <span class="comment"># sort the detections according to scores, high to low values.</span></span><br><span class="line"></span><br><span class="line">    keep = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># keep doing until all bboxes are covered by THIS BBOX</span></span><br><span class="line">    <span class="keyword">while</span> order.size &gt; <span class="number">0</span>: </span><br><span class="line">        <span class="comment"># choose the bbox with highest iou score, namely THIS BBOX</span></span><br><span class="line">        i = order[<span class="number">0</span>] </span><br><span class="line">        keep.append(i)</span><br><span class="line">        xx1 = np.maximum(x1[i], x1[order[<span class="number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[i], y1[order[<span class="number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[i], x2[order[<span class="number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[i], y2[order[<span class="number">1</span>:]])</span><br><span class="line"></span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2 - xx1 + <span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2 - yy1 + <span class="number">1</span>)</span><br><span class="line">        inter = w * h</span><br><span class="line">        ovr = inter / (areas[i] + areas[order[<span class="number">1</span>:]] - inter)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># filter out all detections which have IOUs larger than the threshold, which means they are covered by THIS BBOX</span></span><br><span class="line">        inds = np.where(ovr &lt;= thresh)[<span class="number">0</span>] </span><br><span class="line">        order = order[inds + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/12/27/faster-rcnn-details/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <p><strong>This post is to specify some details from faster rcnn series for object detection myself.</strong></p>
+<h3 id="NMS-Non-Maximum-Surppression"><a href="#NMS-Non-Maximum-Surppression" class="headerlink" title="NMS(Non-Maximum Surppression)"></a>NMS(Non-Maximum Surppression)</h3><p><a href="https://github.com/rbgirshick/py-faster-rcnn/blob/master/lib/nms/py_cpu_nms.py" target="_blank" rel="noopener">python implementation</a>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Fast R-CNN</span></span><br><span class="line"><span class="comment"># Copyright (c) 2015 Microsoft</span></span><br><span class="line"><span class="comment"># Licensed under The MIT License [see LICENSE for details]</span></span><br><span class="line"><span class="comment"># Written by Ross Girshick</span></span><br><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">py_cpu_nms</span><span class="params">(dets, thresh)</span>:</span></span><br><span class="line">    <span class="string">"""Pure Python NMS baseline."""</span></span><br><span class="line">    x1 = dets[:, <span class="number">0</span>]</span><br><span class="line">    y1 = dets[:, <span class="number">1</span>]</span><br><span class="line">    x2 = dets[:, <span class="number">2</span>]</span><br><span class="line">    y2 = dets[:, <span class="number">3</span>]</span><br><span class="line">    scores = dets[:, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">    areas = (x2 - x1 + <span class="number">1</span>) * (y2 - y1 + <span class="number">1</span>)</span><br><span class="line">    order = scores.argsort()[::<span class="number">-1</span>] </span><br><span class="line">    <span class="comment"># sort the detections according to scores, high to low values.</span></span><br><span class="line"></span><br><span class="line">    keep = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># keep doing until all bboxes are covered by THIS BBOX</span></span><br><span class="line">    <span class="keyword">while</span> order.size &gt; <span class="number">0</span>: </span><br><span class="line">        <span class="comment"># choose the bbox with highest iou score, namely THIS BBOX</span></span><br><span class="line">        i = order[<span class="number">0</span>] </span><br><span class="line">        keep.append(i)</span><br><span class="line">        xx1 = np.maximum(x1[i], x1[order[<span class="number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[i], y1[order[<span class="number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[i], x2[order[<span class="number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[i], y2[order[<span class="number">1</span>:]])</span><br><span class="line"></span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2 - xx1 + <span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2 - yy1 + <span class="number">1</span>)</span><br><span class="line">        inter = w * h</span><br><span class="line">        ovr = inter / (areas[i] + areas[order[<span class="number">1</span>:]] - inter)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># filter out all detections which have IOUs larger than the threshold, which means they are covered by THIS BBOX</span></span><br><span class="line">        inds = np.where(ovr &lt;= thresh)[<span class="number">0</span>] </span><br><span class="line">        order = order[inds + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure>
+<p>From the scripts we can tell the principle of NMS is searching the local maximum value and surpressing others. Therefore, starting from the <em>prediction bbox</em>(MAX) with highest iou score with its <em>ground-truth bbox</em>, excluding all bboxes with $iou(THIS, MAX) \geqslant THRESH$. Then selecting the next prediction bbox with the highest iou from the left bboxes until no bbox left.</p>
+<p><span style="background: yellow">Any NMS method needs to apply for each category.</span></p>
+<h4 id="Is-NMS-really-effective"><a href="#Is-NMS-really-effective" class="headerlink" title="Is NMS really effective?"></a>Is NMS really effective?</h4><p>In <a href="https://arxiv.org/abs/1506.01497" target="_blank" rel="noopener">Ren et al.</a>, a similar mAP without NMS during testing can be achieved at the cost of evaluating more RoIs. However it is not clear whether NMS is necessary during training procedure.</p>
+<ul>
+<li>In a Fast RCNN related <a href="https://arxiv.org/abs/1604.03540" target="_blank" rel="noopener">paper</a>, NMS is believed to be crucial for selecting hard examples, so should be beneficial for training.</li>
+<li><p>In <a href="https://arxiv.org/abs/1702.02138" target="_blank" rel="noopener">Chen et al.</a>, to figure out whether NMS can be helpful for Faster RCNN as well. They designed 4 training strategies: <em>NMS</em>, <em>ALL</em>, <em>PRE</em> and <em>POW</em>; 2 test strategies: <em>NMS</em> and <em>TOP</em>:</p>
+<ul>
+<li><em>NMS</em> means using the original NMS method</li>
+<li><em>ALL</em> means simply feeding all top K regions for positive/negative without NMS</li>
+<li><em>PRE</em> means calculating the final sample ratio according to some pre-trained Faster RCNN model that used NMS to fit the training distribution</li>
+<li><em>POW</em> means the sample ratio is not related to NMS at all, but to the scale: $r(s) = s^{-\gamma}$</li>
+<li><p><em>TOP</em> means simply selecting top K proposals for evaluation directly</p>
+<p>The conclusion is: For testing, <em>TOP</em> has a constant advantage when K is large enough; for training, the difference between <em>POW</em> and <em>NMS</em> narrows down when the training iteration increases.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="SOFT-NMS"><a href="#SOFT-NMS" class="headerlink" title="SOFT-NMS"></a><a href="https://arxiv.org/abs/1704.04503" target="_blank" rel="noopener">SOFT-NMS</a></h4><p>The problem of NMS:<br>When two ground-truth bboxes are highly overlaped, the bbox with the lower score will be excluded(score is set to 0), which harms the performance of object detection.</p>
+<p>Soft-NMS means treating the score as a function of IOU, so the bbox with the lower score will not be deleted directly. There are two ways achieving the target, <em>Linear Function</em> and <em>Gaussian Function</em>. <a href="https://arxiv.org/pdf/1704.04503.pdf" target="_blank" rel="noopener">More details</a>.</p>
+<p>According to the paper, on MSCOCO dataset, <code>mAP@[0.5:0.95]</code> of R-FCN and Faster RCNN models can be increased by around <code>1%</code>.</p>
+<p><strong>2018-04-10 update:</strong></p>
+<p>Python script of sof-nms can be found in <a href="https://github.com/bharatsingh430/soft-nms/blob/b8e69bdf8df2ad53025c9d198ded909b50471d4f/lib/nms/cpu_nms.pyx#L17" target="_blank" rel="noopener">link</a>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">if</span> method == <span class="number">1</span>:</span><br><span class="line">    <span class="comment"># linear, faster than gaussian method but worse performance</span></span><br><span class="line">    <span class="keyword">if</span> ov &gt; Nt: </span><br><span class="line">        weight = <span class="number">1</span> - ov</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        weight = <span class="number">1</span></span><br><span class="line"><span class="keyword">elif</span> method == <span class="number">2</span>:</span><br><span class="line">    <span class="comment"># gaussian, slightly better performance than linear</span></span><br><span class="line">    weight = np.exp(-(ov * ov)/sigma)</span><br><span class="line"><span class="keyword">else</span>: <span class="comment"># original NMS</span></span><br><span class="line">    <span class="keyword">if</span> ov &gt; Nt: </span><br><span class="line">        weight = <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        weight = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">boxes[pos, <span class="number">4</span>] = weight*boxes[pos, <span class="number">4</span>]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="Normalization-in-CNN"><a href="#Normalization-in-CNN" class="headerlink" title="Normalization in CNN"></a>Normalization in CNN</h3><h4 id="Input-normalization"><a href="#Input-normalization" class="headerlink" title="Input normalization"></a>Input normalization</h4><p>It is common to do input normalization by scaling the inputs to have mean 0 and a variance of 1. In my understanding, input normalization can make sure the network work properly by forcing the input lying into the working domain and accelerate the training stage as well as reduce the possiblity of getting stuck by local optimas.</p>
+<p>Of course, there should be some theoretical supports for the effect. BUT it might take a long time and is a large project for me. (I’m not very good at Math things) However, I will try my best to provide more theoretical details about it, hopelly soon.</p>
+<h4 id="LRN-Local-response-normalization"><a href="#LRN-Local-response-normalization" class="headerlink" title="LRN (Local response normalization)"></a>LRN (Local response normalization)</h4><p>According to caffe official <a href="http://caffe.berkeleyvision.org/tutorial/layers/lrn.html" target="_blank" rel="noopener">statement</a></p>
+
       
     </div>
 
@@ -1084,86 +1167,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/12/08/ubuntu-local-tensorflow-finetune/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/12/08/ubuntu-local-tensorflow-finetune/" class="post-title-link" itemprop="url">Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-12-08 10:13:48" itemprop="dateCreated datePublished" datetime="2017-12-08T10:13:48-08:00">2017-12-08</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Engineer/" itemprop="url" rel="index">
-                    <span itemprop="name">Engineer</span>
-                  </a>
+                  <a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/12/08/ubuntu-local-tensorflow-finetune/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/12/08/ubuntu-local-tensorflow-finetune/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/08/ubuntu-local-tensorflow-finetune/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -1179,7 +1239,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.</p><ol>
+          <p>This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.</p>
+<ol>
 <li><h4 id="Prepare-dataset"><a href="#Prepare-dataset" class="headerlink" title="Prepare dataset"></a>Prepare dataset</h4><p> I use the code from <a href="https://github.com/offbye/tensorflow_object_detection_create_coco_tfrecord/" target="_blank" rel="noopener">Xitao Zhang’s github repository</a> and modify <code>create_coco_tf_record.py</code>:</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">LABELS_EXPECTED = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ann <span class="keyword">in</span> anns:</span><br><span class="line">    category_id = ann[<span class="string">'category_id'</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> category_id <span class="keyword">in</span> LABELS_EXPECTED:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    bboxes_data = ann[<span class="string">'bbox'</span>]</span><br><span class="line">    bboxes_data = [bboxes_data[<span class="number">0</span>]/float(pic_width), bboxes_data[<span class="number">1</span>]/float(pic_height),\</span><br><span class="line">                          bboxes_data[<span class="number">2</span>]/float(pic_width), bboxes_data[<span class="number">3</span>]/float(pic_height)]</span><br><span class="line">                 <span class="comment"># the format of coco bounding boxs is [Xmin, Ymin, width, height]</span></span><br><span class="line">    bboxes.append(bboxes_data)</span><br><span class="line">    <span class="comment"># labels.append(ann['category_id'])</span></span><br><span class="line">    <span class="keyword">if</span> category_id <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        labels.append(category_id)</span><br><span class="line">    <span class="keyword">elif</span> category_id == <span class="number">6</span>:</span><br><span class="line">        labels.append(<span class="number">5</span>)</span><br><span class="line">    <span class="keyword">elif</span> category_id == <span class="number">8</span>:</span><br><span class="line">        labels.append(<span class="number">6</span>)</span><br><span class="line"><span class="keyword">if</span> len(labels) == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
 <p> Follow the instruction of installation and running from the repo. Then you can get the <code>train.record</code> and <code>eval.record</code>. For training, I produced only the <code>train.record</code>.</p>
@@ -1229,16 +1290,8 @@
 </ul>
 </li>
 </ol>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/12/08/ubuntu-local-tensorflow-finetune/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p><span style="background-color: yellow">Anyone knows how to save the model according to training steps please contact me! :)</span></p>
+
       
     </div>
 
@@ -1253,86 +1306,63 @@
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/11/03/install-cuda-on-ubuntu16.04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
       <meta itemprop="name" content="Xiaoyu Liu">
       <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xiaoyu Liu">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
-            
             <a href="/2017/11/03/install-cuda-on-ubuntu16.04/" class="post-title-link" itemprop="url">Ubuntu 16.04 + GTX 1070 + CUDA 8.0 + cuDNN 5.1</a>
-          
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2017-11-03 22:05:29" itemprop="dateCreated datePublished" datetime="2017-11-03T22:05:29-07:00">2017-11-03</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Engineer/" itemprop="url" rel="index">
-                    <span itemprop="name">Engineer</span>
-                  </a>
+                  <a href="/categories/Engineer/" itemprop="url" rel="index"><span itemprop="name">Engineer</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2017/11/03/install-cuda-on-ubuntu16.04/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/2017/11/03/install-cuda-on-ubuntu16.04/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/03/install-cuda-on-ubuntu16.04/" itemprop="commentCount"></span>
     </a>
   </span>
@@ -1348,7 +1378,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Spent a whole day to figure out the way to safely install these things.</p><h3 id="Install-GTX-1070-driver"><a href="#Install-GTX-1070-driver" class="headerlink" title="Install GTX 1070 driver"></a>Install GTX 1070 driver</h3><p>There are two different ways to install the driver:</p><ol start="0">
+          <p>Spent a whole day to figure out the way to safely install these things.</p>
+<h3 id="Install-GTX-1070-driver"><a href="#Install-GTX-1070-driver" class="headerlink" title="Install GTX 1070 driver"></a>Install GTX 1070 driver</h3><p>There are two different ways to install the driver:</p>
+<ol start="0">
 <li><p>Install through <code>.run</code> file from <a href="https://www.geforce.com/drivers" target="_blank" rel="noopener">this link</a></p>
 <ul>
 <li><p>Ban built-in <em>nouveau</em> driver</p>
@@ -1363,16 +1395,45 @@
 </ul>
 </li>
 </ol>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/11/03/install-cuda-on-ubuntu16.04/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<ol>
+<li><p>According to <a href="https://askubuntu.com/questions/791439/trouble-installing-ubuntu-16-04-since-i-got-gtx-1070" target="_blank" rel="noopener">this answer</a>:</p>
+<p> There is a compiled driver that already supports GTX 1070, which is 367.<br> So we can simply using:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:graphics-drivers/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install nvidia-367</span><br></pre></td></tr></table></figure>
+<p> Then you need to reboot your machine and “surprisingly” the driver works now. </p>
+</li>
+</ol>
+<h3 id="Install-CUDA-8-0"><a href="#Install-CUDA-8-0" class="headerlink" title="Install CUDA 8.0"></a>Install CUDA 8.0</h3><ul>
+<li>Download the corresponding <code>.run</code> file from <a href="https://developer.nvidia.com/cuda-80-ga2-download-archive" target="_blank" rel="noopener">page</a></li>
+<li><code>sudo sh cuda_8.0.61_375.26_linux.run</code></li>
+<li>Answer to the questions<ul>
+<li>accept</li>
+<li><strong>Most important</strong>: Install NVIDIA Accelerated Graphics Driver for Linux-x86_64 375.26? <strong>No</strong>, because usually the version of cuda driver will be older and we just installed newer nvidia driver</li>
+<li>y</li>
+<li>y</li>
+<li>y</li>
+</ul>
+</li>
+<li>There will be some <code>warning</code> sentences but they don’t matter</li>
+<li><p>Set PATH:</p>
+<ul>
+<li><code>sudo vi /etc/profile</code></li>
+<li><p>Insert:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-8.0/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Save and exit the file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo ldconfig //validate PATH immediately</span><br><span class="line">sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev  libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx</span><br><span class="line">cd /usr/local/cuda/samples</span><br><span class="line">sudo make all</span><br><span class="line">cd ./bin/x86_64/linux/release </span><br><span class="line">./deviceQuery //success if gpu information appears</span><br></pre></td></tr></table></figure>
+<p><strong>There might be another problem when simply using <code>make all</code> here, which is one sample will not be able to be built. I’ll add details and the solution later.</strong></p>
+<p><strong>If building the examples doesn’t pass, please try to run your programs directly to see if any error shows. It might be OK to skip this step.</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Install-cuDNN-5-1"><a href="#Install-cuDNN-5-1" class="headerlink" title="Install cuDNN 5.1"></a>Install cuDNN 5.1</h3><ul>
+<li>Download from <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/cudnn-8.0-linux-x64-v5.1-tgz" target="_blank" rel="noopener">link</a>, registration required</li>
+<li>After extracting, <code>cd</code> to the folder and run  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo cp cuda/include/cudnn.h /usr/local/cuda-8.0/include</span><br><span class="line">sudo cp cuda/lib64/libcudnn* /usr/local/cuda-8.0/lib64</span><br><span class="line">sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda-8.0/lib64/libcudnn*</span><br><span class="line">sudo ln -sf libcudnn.so.5.1.10 libcudnn.so.5  </span><br><span class="line">sudo ln -sf libcudnn.so.5 libcudnn.so  </span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
 
@@ -1387,120 +1448,6 @@
   
   
 
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://xiaoyuliu.github.io/2017/08/23/thesis-defence-completed/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xiaoyu Liu">
-      <meta itemprop="description" content="Everything happens for the best">
-      <meta itemprop="image" content="/uploads/xiaoyu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaoyu Liu">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2017/08/23/thesis-defence-completed/" class="post-title-link" itemprop="url">Thesis defence completed</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2017-08-23 12:24:26" itemprop="dateCreated datePublished" datetime="2017-08-23T12:24:26-07:00">2017-08-23</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/08/23/thesis-defence-completed/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/23/thesis-defence-completed/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Excited!</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-  </div>
 
   
   <nav class="pagination">
@@ -1511,6 +1458,28 @@
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -1540,74 +1509,41 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/uploads/xiaoyu.jpg"
-      alt="Xiaoyu Liu">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyu Liu"
+      src="/uploads/xiaoyu.jpg">
   <p class="site-author-name" itemprop="name">Xiaoyu Liu</p>
   <div class="site-description" itemprop="description">Everything happens for the best</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        <span class="site-state-item-count">38</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/xiaoyuliu" title="GitHub &rarr; https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/xiaoyuliu" title="GitHub → https://github.com/xiaoyuliu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin &rarr; https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+        <a href="https://www.linkedin.com/in/xiaoyu-liu-25b90096/" title="Linkedin → https://www.linkedin.com/in/xiaoyu-liu-25b90096/" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
       </span>
-    
   </div>
 
 
@@ -1626,46 +1562,21 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
+  
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xiaoyu Liu</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">
-      
-    Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
 
 
 
@@ -1674,49 +1585,35 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-
-<script src="/js/next-boot.js?v=7.4.1"></script>
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
