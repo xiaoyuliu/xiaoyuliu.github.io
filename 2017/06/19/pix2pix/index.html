@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"xiaoyuliu.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="This paper introduces a novel approach to learn image-to-image translation with conditional adversarial networks, which is a uniform method instead of specially designed for one dataset. MotivationPeo">
+  <meta name="description" content="This paper introduces a novel approach to learn image-to-image translation with conditional adversarial networks, which is a uniform method instead of specially designed for one dataset.">
 <meta name="keywords" content="GAN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Image-to-Image Translation with Conditional Adversarial Networks - Note">
 <meta property="og:url" content="https://xiaoyuliu.github.io/2017/06/19/pix2pix/index.html">
 <meta property="og:site_name" content="Xiaoyu Liu">
-<meta property="og:description" content="This paper introduces a novel approach to learn image-to-image translation with conditional adversarial networks, which is a uniform method instead of specially designed for one dataset. MotivationPeo">
+<meta property="og:description" content="This paper introduces a novel approach to learn image-to-image translation with conditional adversarial networks, which is a uniform method instead of specially designed for one dataset.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://cl.ly/1Q3c2G22172q/Image%202017-06-19%20at%201.09.23%20PM.png">
 <meta property="og:image" content="https://cl.ly/091m253Q0B32/Image%202017-06-19%20at%201.16.55%20PM.png">
-<meta property="og:updated_time" content="2019-10-18T04:29:34.074Z">
+<meta property="og:updated_time" content="2020-06-30T05:20:29.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Image-to-Image Translation with Conditional Adversarial Networks - Note">
-<meta name="twitter:description" content="This paper introduces a novel approach to learn image-to-image translation with conditional adversarial networks, which is a uniform method instead of specially designed for one dataset. MotivationPeo">
+<meta name="twitter:description" content="This paper introduces a novel approach to learn image-to-image translation with conditional adversarial networks, which is a uniform method instead of specially designed for one dataset.">
 <meta name="twitter:image" content="https://cl.ly/1Q3c2G22172q/Image%202017-06-19%20at%201.09.23%20PM.png">
 
 <link rel="canonical" href="https://xiaoyuliu.github.io/2017/06/19/pix2pix/">
@@ -216,7 +216,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:20:29" itemprop="dateModified" datetime="2020-06-29T22:20:29-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -229,6 +229,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -254,6 +261,7 @@
 
       
         <p>This paper introduces a novel approach to learn image-to-image translation with conditional adversarial networks, which is a uniform method instead of specially designed for one dataset.</p>
+<a id="more"></a>
 <h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><p>People are tired of defining a subtle loss function for each CNN, which is hard some time as well. Therefore, it is desirable to look for an approach in which CNN can learn features according to some high-level requirement, like “make the output indistinguishable from reality”. And satisfying the high-level requirement is exactly the task of discriminator in Generative Adversarial Model(GAN). </p>
 <p>However, original GAN tends to learn the unknown input distribution instead of a mapping from input to output, so the paper utilizes conditional GAN(cGAN), where the condition is the relationship between any input image and the corresponding output image.</p>
 <h3 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h3><ol start="0">
@@ -437,6 +445,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 

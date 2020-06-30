@@ -212,7 +212,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:20:22" itemprop="dateModified" datetime="2020-06-29T22:20:22-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,49 +250,14 @@
 
       
           <p>This paper focused on ultilizing pre-trained VQA model as a <strong>feature extraction</strong> method to improve image caption ranking performance. The author <strong>embeded</strong> images and captions into the space of VQA questions and answers using VQA models.</p>
-<h3 id="Image-Caption-Ranking"><a href="#Image-Caption-Ranking" class="headerlink" title="Image-Caption Ranking"></a>Image-Caption Ranking</h3><ol start="0">
-<li><p><strong>Formulation and Loss Function</strong></p>
-<p> Retrieve relevant images given a query caption, and relevant captions given a query image. When training, the input is ($I,C$), image and caption pair, with $K-1$ sample images and $K-1$ random captions, then the target for the network is </p>
-<ul>
-<li>Retrieving $I$ from <em>K</em> captions given <em>C</em> </li>
-<li><p>Retrieving $C$ from <em>K</em> images given <em>I</em></p>
-<p>The paper uses the sum of two expected negative log-likelihoods of image and caption retrieval over all image-caption pairs(<em>I,C</em>):</p>
-<p>$$<br>L(\theta) = E_{(I,C)}[-logP_{im}(I|C)] + E_{(I,C)}[-logP_{cap}(C|I)]<br>$$</p>
-</li>
-</ul>
-</li>
-<li><p><strong>VQA-agnostic Models</strong></p>
-<p> In VQA-agnostic models for image-caption ranking, there’s no prior knowledge utilized from VQA corpora. They use a vectorized image representation, which is the hidden layer activation from an image classification pretrained CNN; and a vectorized caption representation, which is namely the encoded sentence using an RNN.</p>
-<p> This kind of structure requires a high volume of training image-caption ranking dataset to learn the necessary knowledge. The state-of-the-art VQA-agnostic model for image-caption ranking task is also treated as <a href="https://arxiv.org/abs/1411.2539" target="_blank" rel="noopener">baseline</a> in the paper. It projects image representation and sentence representation into feature space of the same dimension as sentence representation, and scoring function is the dot product between the embedded unit-norm vectors.</p>
-</li>
-<li><p><strong>VQA-grounded Models</strong></p>
-<p> Because there are two different tasks in image-caption ranking, the author takes advantage of <strong>VQA model</strong> to provide caption retrieval needed probability<br> $$<br> P_I(A|Q,I)<br> $$<br> , and <strong>VQA-Caption model</strong> to provide image retrieval needed probability $$<br> P_C(A|Q,C)<br> $$.</p>
-<p> Here, VQA-Caption takes a caption and a question about the same image, then generates an answer.</p>
-<p> And it is worthy to notice, in<br> $$<br> P_I(A_i||Q_i, I_i)<br> $$ if the <em>question</em> is “What is the man wearing on his head?” and correct <em>answer</em> is “Helmet”, <strong>even if there is no person present in the image or mentioned in the caption, the model may still assess the plausibility of a man wearing a helmet</strong>.</p>
-<p> But when using VQA-grounded models only, the sentence structure of caption and image saliency will lose, so the author proposed two strateges to fuse VQA-agnostic and VQA-grounded models.</p>
-</li>
-<li><p><strong>Fuse Two Models</strong></p>
-<p> <img src="https://cl.ly/1k0R1L41062m/Image%202017-03-27%20at%207.41.28%20PM.png" alt="fusion"></p>
- <figcaption class="caption">Two fusion strategies</figcaption>
-
-<ul>
-<li><p>Score-level fusion:</p>
-<ul>
-<li>First compute score according to two models separately</li>
-<li>Fuse two scores using two parameters<br>To be noticed, the fusion parameters are learned based on validation set in case of overfitting.</li>
-</ul>
-</li>
-<li><p>Representation-level fusion</p>
-<ul>
-<li>First compute image and caption representations in two models</li>
-<li>Fuse them using several parameters<br>These parameters are learned on training set.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h3><p>Both score-level and representation-level fusion are better than VQA-agnostic state-of-the-art, which proves the effectiveness of VQA corpora in improving image-caption ranking performance. And among them, representation-level fusion is slightly better than score-level, I guess it’s because representation-level fusion model has one more layer.</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/26/Learning-Visual-Question-Answering-For-Imagecaption-Ranking/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -342,7 +307,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:20:25" itemprop="dateModified" datetime="2020-06-29T22:20:25-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -380,39 +345,14 @@
 
       
           <p>This paper aims at building a strong baseline in <em>instance segmentation</em> as Fast/Faster R-CNN in <em>object detection</em> and Fully Convolutional Network(FCN) in <em>semantic segmentation</em>.</p>
-<h3 id="Instance-Segmentation"><a href="#Instance-Segmentation" class="headerlink" title="Instance Segmentation"></a>Instance Segmentation</h3><p><strong>Methods:</strong> Bottom-up segments $\rightarrow$ Segment proposals (like region proposals in R-CNN) $\rightarrow$ Fully convolutional instance segmentation</p>
-<p>But usually those approaches do segment proposals then recognition or classification, which is slower and more complex than <em>parallel</em> prediction of masks and class labels in this paper.</p>
-<p>Fully convolutional instance segmentation(FCIS) aims at simultaneously addressing object classes, boxes and masks together, based on a set of position-sensitive channels. And it cannot handle with overlap well.</p>
-<h3 id="Improvements-Over-Faster-R-CNN"><a href="#Improvements-Over-Faster-R-CNN" class="headerlink" title="Improvements Over Faster R-CNN"></a>Improvements Over Faster R-CNN</h3><ol start="0">
-<li>Predict segmentation masks on each ROI together with doing bbox classification and regression.</li>
-<li>Propose a quantization-free layer, <em>RoIAlign</em>, to solve the disability of faster R-CNN to do pixel-to-pixel alignment, which is able to improve mask accuracy by <strong>relative 10% to 50%</strong>. ($\leftarrow$ I feel this is the key element)</li>
-</ol>
-<h3 id="Improvements-Over-FCN"><a href="#Improvements-Over-FCN" class="headerlink" title="Improvements Over FCN"></a>Improvements Over FCN</h3><ol start="0">
-<li><p>Decouple mask and class prediction(FCN performs per-pixel multi-class categorization, which combines segmentation and classification): </p>
-<blockquote>
-<p>We predict a binary mask for each class independently, without competition among classes, and rely on the network’s RoI classification branch to predict the category</p>
-</blockquote>
-<p> The paper uses <em>average binary cross-entropy loss</em> to indicate mask loss, and for each ground-truth class <em>k</em>, the corresponding loss is only defined on the <em>k</em>-th mask.(Dimension of mask: K <em>x</em> m <em>x</em> m) So there is no competition among classes, according to experiments this is better than <em>per-pixel softmax</em> and <em>multinomial cross-entropy</em> that require classes competition. And in FCIS, there is competition between ROI inside and ROI outside.</p>
-<p> The second stage of Mask R-CNN predicts the class label for each ROI, then generates a mask for each class. This is not contradictory with <em>parallel</em> design because they are done iteratively through one forward.</p>
-</li>
-</ol>
-<h3 id="RoIPool-and-RoIAlign"><a href="#RoIPool-and-RoIAlign" class="headerlink" title="RoIPool and RoIAlign"></a>RoIPool and RoIAlign</h3><p>RoIPool or all kinds of pooling would introduce misalignments between the RoI and the extracted features, for extracting feature for the whole image, it is robust to this small translations while for pixel-accurate masks this will be harmful because doing <em>quantization</em> will cause small shift between generated mask and original instance.</p>
-<p><span class="evidence">How exactly does RoIPooling work?</span></p>
-<p><strong>RoIAlign</strong>:</p>
-<ul>
-<li>Avoid any quantization, realizing alignment between mask and instance(e.g. use $x/16$ instead of $[x/16]$)</li>
-<li>Use bilinear interpolation on feature map</li>
-<li>Compared to RoIWarp, which also adopts bilinear resampling, proving the effectiveness of RoIAlign mainly comes from alignment instead of bilinear interpolation.</li>
-</ul>
-<h3 id="Network-Structure"><a href="#Network-Structure" class="headerlink" title="Network Structure"></a>Network Structure</h3><p>Two networks: <em>backbone</em> for feature extraction over an entire image and <em>head</em> for bbox recognition and mask prediction.</p>
-<p>Backbone:</p>
-<ul>
-<li>ResNet/ResNeXt</li>
-<li>ResNet-FPN(more effective)</li>
-</ul>
-<p>And their corresponding head networks. </p>
-<p><span style="background: yellow">To be discussed about the network design.</span></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/24/Mask-RCNN/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -462,7 +402,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:19:23" itemprop="dateModified" datetime="2020-06-29T22:19:23-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -509,59 +449,14 @@
 <li>Create a set of synthetic questions to prove the ability of SMer-VQA to learn logical inference rules by visualizing the attention weights.</li>
 <li>Evaluate several existing models and compare with SMer-VQA on public datasets.</li>
 </ol>
-<h3 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h3><ol start="0">
-<li><p>Memory Network:</p>
-<ul>
-<li>This model is investigated in question answering, where the long-term memory acts as a dynamic knowledge base and the output is a textual response. It is composed of:<ul>
-<li>memory</li>
-<li>four composents: input feature map, generalization, output feature map and response</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Neural Attention Mechanism(soft):</p>
-<ul>
-<li>Use an alignment function based on “<em>concatenation</em>“ of the input and each candidate, see <a href="https://arxiv.org/abs/1508.04025" target="_blank" rel="noopener">this paper</a></li>
-<li><p>Use an alignment function based on the <em>dot product</em> of the input and each candidate, see <a href="https://arxiv.org/abs/1503.08895" target="_blank" rel="noopener">this paper</a></p>
-<p>They both need to compute a scalar value according to input and candidate vector, and apply a softmax function to produce the attention weight for each candidate.</p>
-<p>In this paper, the author chosed the <em>dop product</em> alignment function because “<em>concatenation</em>“ alignment function does not yield good performance on the <a href="https://arxiv.org/abs/1508.04025" target="_blank" rel="noopener">neural machine translation task</a>. </p>
-<p>The paper didn’t provide result using <em>concatenation</em> alignment function. And the difference between <em>soft attention mechanism</em> and <em>hard</em> is the attention weights are continously real value between 0 and 1 in <em>soft attention machanism</em>, while <em>hard</em> generates weights as 0 or 1 only.</p>
-</li>
-</ul>
-</li>
-<li><p>Compared Models:</p>
-<ul>
-<li>ACK model: Feed the generated image caption and relevant external knowledge as input to a LSTM.</li>
-<li><p>DPPnet model: Learn a CNN with some parameters predicted from a seperate network, which utilizes Gate Recurrent Unit to generate a quesition representation. Based on the input question, it maps the predicted weights to CNN needed to be learned via hashing.</p>
-<p>Neither of them contains a <strong>spatial attention mechanism</strong>, also they both use external knowledge. So, in this paper, the author is going to solve these two problems.</p>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="SMem-VQA-structure"><a href="#SMem-VQA-structure" class="headerlink" title="SMem-VQA structure"></a>SMem-VQA structure</h3><p><img src="https://cl.ly/3c0h1m1l1O1L/Image%202017-03-21%20at%202.18.51%20PM.png" alt="SMEM-VQA"></p>
-<figcaption class="caption">Fig.1 Spatial Memory Nework for Visual Question Answering(SMem-VQA)</figcaption>
-
-<p>To simply describe what the network does: </p>
-<ul>
-<li>First align words and the corresponding embedded visual features, find regions related to <code>basket</code> and <code>cat</code> using two different embeddings. </li>
-<li>Then generate the selected visual evidence vector $S_{att}$ based on spacial attention weights(related to <code>basket</code>) and evidence embedding(related to “cat”). Basically this step accumulates <code>cat</code> presence features at the <code>basket</code> location</li>
-<li>Finally combine $S_{att}$ and the question embedding $Q$(obtained using BOW) to predict the answer. </li>
-</ul>
-<p>Two embeddings are used: <strong>“attention”</strong> embedding $W_A$, <strong>“evidence”</strong> embedding $W_E$. </p>
-<p>$W_A$ is for generating spacial <em>attention weights</em> at each location using word-guided atttention process in (b). Each word vector will separately select a related region with the highest correlation value, which provide more fine-grained attention. </p>
-<p>$W_E$ is responsible for detecting the presence of semantic concepts or objects that can be used as the “evidence” of the answer. And the embedding results are multiplied with <em>attention weights</em> and summed over all locations to generate the visual evidence vector $S_{att}$.</p>
-<p>So far, the One-Hop model has been completed. But in the first hop, <strong>all the words are utilized separately and only local evidence is provided, a way to extract additional correlated visual features to the whole question is needed</strong>. Then the author came up with Two-Hop model, which made use of $S_{att}$ and $Q$ generated in the previous hop to update the question vector. The question vector will take place of the individual word vectors in hop 1, and everything should be updated accordingly.</p>
-<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>The author proved the ability of attention mechanism to learn spacial inference through experiments on a simple symthetic dataset like Fig.2.</p>
-<p><img src="https://cl.ly/2J3h292n2R1X/Image%202017-03-21%20at%204.43.40%20PM.png" alt="synthetic dataset"></p>
-<p><figcaption class="caption">Fig.2 Absolute position experiment on the Synthetic Dataset</figcaption>&gt;</p>
-<p>Through comparison to other models, there are some interesting conclusions:</p>
-<ul>
-<li>Deep features are much better!<div class="spoiler"><p>This is apparently correct..</p></div></li>
-<li>iBOWIMG model has no spatial information because it did mean pooling.</li>
-<li>SMem-VQA will fail while there are multiple objects belong to the same category.</li>
-<li>Spatial attention is valuable.</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/16/Ask-Attend-and-Answer/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -611,7 +506,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:23:24" itemprop="dateModified" datetime="2020-06-29T22:23:24-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -660,33 +555,14 @@
 </ul>
 </li>
 </ol>
-<ol start="2">
-<li><p>Indirect approach</p>
-<blockquote>
-<p>People counting is carried out using the measurements of some features with learning algorithms or statistical analysis of the whole crowd to achieve counting process.</p>
-</blockquote>
-<p> Complicated to understand, while considered to be more robust than direct methods and the basic principle is:</p>
-<blockquote>
-<p>The relationship between the foreground area and the number of people in the scene is nearly linear.</p>
-</blockquote>
-<p> But when heavy occlusions and prespective problems happen, this relation usually fails. Therefore, some appraches have been proposed to utilize local features to deal with issues and to reduce the required training data:</p>
-<ul>
-<li><strong>Pixel-based analysis</strong>: Focused on mostly crowd density estimation rather than identifying individuals.</li>
-<li><strong>Texture-based analysis</strong>: Mainly used to estimate the number of people rather than counting persons in a scene. [??]</li>
-<li><strong>Corner point based analysis</strong>: Treat moving corner points as features to estimate number of moving people</li>
-</ul>
-</li>
-</ol>
-<h3 id="Benchmark-datasets"><a href="#Benchmark-datasets" class="headerlink" title="Benchmark datasets"></a>Benchmark datasets</h3><ul>
-<li><a href="http://personal.ie.cuhk.edu.hk/~ccloy/downloads_mall_dataset.html" target="_blank" rel="noopener">The Mall Dataset</a></li>
-<li><a href="http://www.ee.cuhk.edu.hk/~xgwang/grandcentral.html" target="_blank" rel="noopener">Grand Central Dataset</a></li>
-<li><a href="https://wiki.qut.edu.au/display/cyphy/Datasets" target="_blank" rel="noopener">QUT Dataset</a></li>
-<li><a href="https://www.cis.upenn.edu/~jshi/ped_html/" target="_blank" rel="noopener">Fudan Pedestrian Dataset</a></li>
-<li><a href="http://www.cvg.reading.ac.uk/PETS2009/a.html" target="_blank" rel="noopener">Pets2009 Dataset</a></li>
-<li><a href="http://www.svcl.ucsd.edu/projects/peoplecnt/" target="_blank" rel="noopener">The UCSD Dataset</a></li>
-<li>LIBRARY Dataset (can’t find)</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/10/Survey-on-crowd-density-estimation/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -736,7 +612,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:20:00" itemprop="dateModified" datetime="2020-06-29T22:20:00-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -778,57 +654,14 @@
 <li>Be able to combine coarse, semantic information and shallow, fine information</li>
 <li>Be capable of handling with inputs with different sizes</li>
 </ol>
-<h3 id="Comparision-of-speed-between-AlexNet-and-FCN"><a href="#Comparision-of-speed-between-AlexNet-and-FCN" class="headerlink" title="Comparision of speed between AlexNet and FCN"></a>Comparision of speed between AlexNet and FCN</h3><ol start="0">
-<li><blockquote>
-<p>AlexNet takes 1.2 ms to produce the classification scores of a 227x227 image while the fully convolutional version takes 22 ms to produce a 10x10 grid of outputs from a 500x500 image, which is more than 5 times faster than the naïve approach.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>The corresponding backward times for the AlexNet example are 2.4 ms for a single image and 37 ms for a fully convolutional 10×10 output map, resulting in a speedup similar to that of the forward pass.</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="Connect-coarse-outputs-and-dense-pixels"><a href="#Connect-coarse-outputs-and-dense-pixels" class="headerlink" title="Connect coarse outputs and dense pixels"></a>Connect coarse outputs and dense pixels</h3><ol start="0">
-<li><p><strong>Unmatched size between output and input</strong></p>
-<ul>
-<li><p>Shift-and-stitch</p>
-<blockquote>
-<p>If the outputs are downsampled by a factor of $f$ , the input is shifted (by left and top padding) <em>x</em> pixels to the right and $y$, pixels down, once for every value of $$(x,y) \in {0,…,f − 1}×{0,…,f − 1}$$.</p>
-</blockquote>
-<p>  We interlace $f^2$ outputs from $f^2$ shifted inputs to produce predictions correspond to the pixels at the <em>center</em> of their receptive fields.</p>
-<p>  Also we can decrease the stride of one convolutional/pooling layer from <em>s</em> to <em>1</em>, which causes upsampling the output by <em>s</em>, in this case we can adjust the filters and layer strides to keep size of output and input same. <strong>However</strong>, because <em>the original filter only sees a reduced prtion of its (now upsampled) input</em>. And there is still extended way to solve the problem.</p>
-</li>
-<li><p>Interpolation</p>
-<blockquote>
-<p>Upsampling with factor $f$ is convolution with a fractional input stride of 1/$f$. So long as $f$ is integral, a natural way to upsample is therefore <em>backwards convolution</em> (sometimes called <em>deconvolution</em>) with an output stride of $f$ .</p>
-</blockquote>
-<p>  Using this method, we can upsample the reduced-sized output to the same size with input. And it can be done in-network for end-to-end learning.</p>
-</li>
-<li><p>In-network upsampling is <em>fast</em> and <em>effective</em> in this paper, and the filter can be learned.</p>
-</li>
-</ul>
-</li>
-<li><p><strong>Deep Jet</strong></p>
-</li>
-</ol>
-<p>The output of upsampling the final pool layer is coarse like Figure 1, because the large pixel stride at the final prediction limits the scale of detail in it. </p>
-<p><img src="https://cl.ly/3u2v0J0w1j42/Image%202017-03-07%20at%202.48.13%20PM.png" alt="refine comparision"></p>
-<center>Figure 1. Comparision between with deep jet and without</center>
-
-<p>So combining the final prediction layer with lower layers with finer strides(smaller strides) can produce finer segmentation result.</p>
-<blockquote>
-<p> As they see fewer pixels, the finer scale predictions should need fewer layers, so it makes sense to make them from shallower net outputs.</p>
-</blockquote>
-<p>Here <strong>“finer scale”</strong> means more concentration on local feature, and shallower net outputs are more suitable for generating finer scale predictions because they pay attention to local regions instead of global images.</p>
-<h3 id="Exact-way-to-do-it"><a href="#Exact-way-to-do-it" class="headerlink" title="Exact way to do it"></a>Exact way to do it</h3><p><img src="https://cl.ly/0d1N2P3n3A1f/Image%202017-03-07%20at%202.57.06%20PM.png" alt="process of deep jet"></p>
-<center>Figure 2. Details of how to implement deep jet</center>
-
-<p>Simply speaking, the author did a 2x upsampling to the output of a higher layer and fused the upsampled result with the output of a lower layer. Then upsampled the fused result to match the input’s size, calculated the loss. And when fusing features inside the network, according to the paper：</p>
-<blockquote>
-<p>Final layer deconvolutional filters are fixed to bilinear interpolation, while intermediate upsampling layers are initialized to bilinear upsampling, and then learned.</p>
-</blockquote>
-<p>Therefore, when using FCN-32s there’s no fusing operation, and the final upsampling should be simply <code>torch.nn.UpsamplingBilinear2d</code> in <code>Pytorch</code>. And if you want to train this <em>deconv layer</em> you can use <code>torch.nn.ConvTranspose2d</code>. </p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/07/Fully-Convolutional-Network/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -878,7 +711,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:24:07" itemprop="dateModified" datetime="2020-06-29T22:24:07-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -920,40 +753,14 @@
 <p> <span class="evidence"><em>Question</em></span>: Why can reconstruction task provide clue for hard negative/positive example? How about choosing verification task or recognition task?</p>
 </li>
 </ol>
-<ol>
-<li><p>Compare <em>Triplet Loss</em> and <em>Contrastive Loss</em>:</p>
-<ul>
-<li>In this paper the author chose <em>contrastive loss</em> because <strong>generalize better and to converge at higher performance</strong></li>
-<li><p>Triplet Loss:</p>
-<p>  $$<br>  L = \sum_i^N(||f(x^a)-f(x^p)||_2^2 - ||f(x^a)-f(x^n)||^2_2)<br>  $$</p>
-</li>
-<li><p>Constrastive Loss:</p>
-<p>  $$<br>  L(i,j) = \frac{1}{2}(Y(i,j)||\overline{f}(i)-\overline{f}(j)||^2)+(1-Y(i,j))(\max{0, \tau-||\overline{f}(i)-\overline{f}(j)||^2})<br>  $$</p>
-<p>  $\tau$ is able to exlude the influence of example when non-matching pairs have large enough distance.</p>
-</li>
-<li><blockquote>
-<p>The triplet loss appears to be inferior in our context; we observe oscillation of the error in the validation set from early epochs, which implies over-fitting.</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><blockquote>
-<p>For a query image <em>q</em>, a pool <em>M(q)</em> of candidate <strong>positive</strong> images is constructed based on the camera positions in the cluster of <em>q</em>. It consists of the <em>k</em> images with closest camera centers to the query.</p>
-</blockquote>
-<p> To further sample postive example, three strategies are come up with in the paper:</p>
-<ul>
-<li>MAC distance: choose the image with the lowest MAC distance to the query. (MAC distance means inner product between <strong>L2 normalized ReLU</strong> activation of two image representation)</li>
-<li>maximum inliers: choose the image with the highest number of co-observed 3D points with the query.</li>
-<li>relaxed inliers:<ul>
-<li>change the candidate positive set to <strong>all images</strong> with <strong>enough</strong> number of co-observd 3D points with the query, but not with too extreme scale change</li>
-<li>select <strong>randomly</strong> from the candidate set</li>
-<li>help to increase the variance of viewpoints.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/02/28/cnn-image-retrieval-bow/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1003,7 +810,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:21:21" itemprop="dateModified" datetime="2020-06-29T22:21:21-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1041,37 +848,14 @@
 
       
           <p>After setting up successfully the vncserver on your Ubuntu machine, a common problem is the grey screen and “X” pointer in vncviewer.</p>
-<p>This problem is caused by there is no desktop running while running the vncserver, so there is going to show nothing. A simple solution is to edit the file <code>~/.vnc/xstartup</code> by simply replacing the content with</p>
-<pre><code>#!/bin/sh 
-# Uncomment the following two lines for normal desktop:
-# unset SESSION_MANAGER
-# exec /etc/X11/xinit/xinitrc
-
-[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup
-[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources
-
-xsetroot -solid grey 
-vncconfig -iconic &amp;
-x-terminal-emulator -geometry 80x24+10+10 -ls -title &quot;$VNCDESKTOP Desktop&quot; &amp;
-x-window-manager &amp;
-mate-session &amp;
-</code></pre><p>At last, run <code>(sudo) chmod 777 ~/.vnc/xstartup</code> to change the previlege. Then the problem is solved.</p>
-<p>Here we introduce some common <em>vncserver commands</em>:</p>
-<ul>
-<li>Create a connection: <code>vncserver</code><ul>
-<li>-geometry 1920x1200: the resolution of desktop in vncviewer will be 1920x1200<br>This will return a connection address with a port number.</li>
-</ul>
-</li>
-<li>Delete a connection: <code>vncserver -kill :PORT_NUMBER</code></li>
-<li>List all vnc connections: <code>ps -ef | grep vnc</code></li>
-</ul>
-<p>The PID of each connection will be stored in <code>~/.vnc/xxxxx:x.pid</code> file, <strong>DO NOT</strong> delete .pid file unless you want to kill the connection by yourself.</p>
-<h3 id="The-following-procedure-is-expecially-for-connecting-computers-in-VML-lab-via-VNC-outside-campus"><a href="#The-following-procedure-is-expecially-for-connecting-computers-in-VML-lab-via-VNC-outside-campus" class="headerlink" title="The following procedure is expecially for connecting computers in VML lab via VNC outside campus"></a>The following procedure is expecially for connecting computers in VML lab via VNC outside campus</h3><ol>
-<li><code>ssh -L 5901:cs-vml-ID_OF_MACHINE.cs.sfu.ca:5901 USER_ID@rcg-linux-ts1.rcg.sfu.ca</code> and enter your password to make<br>an SSH tunnel.</li>
-<li>In your VNC client software, connect to 127.0.0.1:1.</li>
-<li>If port 5901 is occupied, try <code>5902</code> and <code>127.0.0.1:2</code> till you successfully connect.</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/02/21/vncviewer-grey-screen-problem-on-Ubuntu/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1121,7 +905,7 @@ mate-session &amp;
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:17:22" itemprop="dateModified" datetime="2020-06-29T22:17:22-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1161,16 +945,14 @@ mate-session &amp;
           <blockquote>
 <p>“我们不全是长篇小说，也不全是短篇故事。最后的最后，我们成为一部人生作品集” </p>
 </blockquote>
-<p>书店老板A.J.的人生作品集大概分成了两个长篇和一个短篇，分别是第一任妻子妮可离世前和遇到玛雅之后，以及妮可离世到遇到玛雅之间。</p>
-<p>妮可离世前A.J.的生活按部就班，没多少好担心的事，可是却太过平淡，像是他自己最讨厌的“已亡故的讲述者”会写出的回忆录的风格。</p>
-<p>妮可的离世对他的影响大，又不大，他会想念他喝醉酒来麻痹自己看到鬼妻，他认为自己的“很大一部分死了”，可是他的生活岛上书店的经营却仍然没有多少变化，他仍然毫无激情的经营书店只为了读自己想读的书，“我们读书，因为我们孤单”。也许最大的区别在于妮可离世后他只能整天吃冷冻食品。</p>
-<p>强行回想起封面的那句，“可能你我正在经历生命中最难的一年，也正是这一年让我们的人生变得美好而辽阔”，遇到玛雅是他余生最大的转折，这个聪明漂亮却被遗弃的两岁小女孩意外的让A.J.发现了自己未被发掘的一面，他热爱阅读热爱书，但是整个艾丽丝岛上甚至在他之前的人生中并没有遇到过和他一样酷爱书的人，也许妮可算是和他相似但也绝对没有达到他的程度。而玛雅是上帝给他送来的天使，以她的小小年纪就表现出对阅读和写作的热情和天分，她的童年少年全都是在书店里度过但她也并不觉得枯燥。</p>
-<blockquote>
-<p>“我们读书，所以我们不孤单”。</p>
-</blockquote>
-<p>玛雅打开了A.J.和身边的人沟通的大门，他不再像以前那样只关注自己的内心世界，他开始注意到身边的其他人开始参与小岛上的许多活动，“而沟通，沟通是最重要的，没有谁是一座孤岛”。他找到了他爱的艾米，幸运的是艾米也认为他是“最好的人”，他的玛雅获得了县里短篇小说竞赛的第三名，他引导他的警察朋友逐渐爱上了读书，生活在不断的变好。</p>
-<p>可是绝不能像“超过四百页”的长篇小说那样温吞的结束，也“没有一本人生作品集的所有故事都有圆满的结局”，一种文中罕见的疾病带走了A.J. 。小小的私心里好希望他们能一直生活在那个小小的岛上书店里，就像希望父母不要变老，自己不要长大，恋人不要分手，朋友不要离开，但是故事的情节一定要发展，生活也一定要往前走。岛上书店的一切又周而复始地开始重复，书店里的每个人都变成了一本人生作品集，每一天都不断有新的内容填充。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/02/04/20160204-island-book-store/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1314,6 +1096,26 @@ mate-session &amp;
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 

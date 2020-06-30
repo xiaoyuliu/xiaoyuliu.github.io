@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://cl.ly/3A152A17071t/Image%202018-04-14%20at%203.58.46%20PM.png">
 <meta property="og:image" content="https://cl.ly/2h161X1z072R/Image%202018-04-14%20at%204.27.01%20PM.png">
 <meta property="og:image" content="https://cl.ly/1p2E3a1V3B2e/Image%202018-04-14%20at%204.31.18%20PM.png">
-<meta property="og:updated_time" content="2019-10-18T04:29:34.067Z">
+<meta property="og:updated_time" content="2020-06-30T05:17:44.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields - notes">
 <meta name="twitter:description" content="I read this paper not very carefully when CVPR 2017 accepted list was released, and felt the performance was really impressive. For some reason, once again I re-read this paper and got a more detailed">
@@ -217,7 +217,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:17:44" itemprop="dateModified" datetime="2020-06-29T22:17:44-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -230,6 +230,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -255,6 +262,7 @@
 
       
         <p>I read this paper not very carefully when CVPR 2017 accepted list was released, and felt the performance was really impressive. For some reason, once again I re-read this paper and got a more detailed understanding about it.</p>
+<a id="more"></a>
 <p>The most eye-catching key words of this paper are <strong>Realtime</strong> and <strong>Multi-person</strong>. The biggest difference for the common pose estimation methods is that this algorithm DOES NOT require person detector ahead. Though this is the most popular/straightforward solution to the pose estimation problem.</p>
 <p>Similar to skeleton detection/body keypoint detection, pose estimation methods aim at detecting and localizing body joints, connecting them to find body parts. This paper proposes an efficient way to address the problem in 2D environment.</p>
 <h3 id="Top-down-pose-estimation-algorithm"><a href="#Top-down-pose-estimation-algorithm" class="headerlink" title="Top-down pose estimation algorithm"></a>Top-down pose estimation algorithm</h3><h4 id="Overview-of-top-down-algorithms-from-paper"><a href="#Overview-of-top-down-algorithms-from-paper" class="headerlink" title="Overview of top-down algorithms from paper"></a>Overview of top-down algorithms from <a href="https://arxiv.org/pdf/1701.01779.pdf" target="_blank" rel="noopener">paper</a></h4><p>According to the <a href="http://cocodataset.org/#keypoints-leaderboard" target="_blank" rel="noopener">keypoint detection leaderboard</a> from MSCOCO, most of leading algorithms(<a href="https://arxiv.org/abs/1711.07319" target="_blank" rel="noopener">Megvii (Face++)</a>, <a href="https://github.com/MVIG-SJTU/RMPE" target="_blank" rel="noopener">RMPE</a>) are two-stage ones as well as top-down ones. They obtain keypoint results by applying single-person skeleton models on the human bounding boxes generated from some advanced object detector/pedestrian detector.</p>
@@ -453,6 +461,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 

@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"xiaoyuliu.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="This post is to specify some details from faster rcnn series for object detection myself. NMS(Non-Maximum Surppression)python implementation: 1234567891011121314151617181920212223242526272829303132333">
+  <meta name="description" content="This post is to specify some details from faster rcnn series for object detection myself.">
 <meta name="keywords" content="detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Details about faster RCNN for object detection">
 <meta property="og:url" content="https://xiaoyuliu.github.io/2017/12/27/faster-rcnn-details/index.html">
 <meta property="og:site_name" content="Xiaoyu Liu">
-<meta property="og:description" content="This post is to specify some details from faster rcnn series for object detection myself. NMS(Non-Maximum Surppression)python implementation: 1234567891011121314151617181920212223242526272829303132333">
+<meta property="og:description" content="This post is to specify some details from faster rcnn series for object detection myself.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-18T04:29:34.073Z">
+<meta property="og:updated_time" content="2020-06-30T05:19:54.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Details about faster RCNN for object detection">
-<meta name="twitter:description" content="This post is to specify some details from faster rcnn series for object detection myself. NMS(Non-Maximum Surppression)python implementation: 1234567891011121314151617181920212223242526272829303132333">
+<meta name="twitter:description" content="This post is to specify some details from faster rcnn series for object detection myself.">
 
 <link rel="canonical" href="https://xiaoyuliu.github.io/2017/12/27/faster-rcnn-details/">
 
@@ -213,7 +213,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:19:54" itemprop="dateModified" datetime="2020-06-29T22:19:54-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,6 +226,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -251,6 +258,7 @@
 
       
         <p><strong>This post is to specify some details from faster rcnn series for object detection myself.</strong></p>
+<a id="more"></a>
 <h3 id="NMS-Non-Maximum-Surppression"><a href="#NMS-Non-Maximum-Surppression" class="headerlink" title="NMS(Non-Maximum Surppression)"></a>NMS(Non-Maximum Surppression)</h3><p><a href="https://github.com/rbgirshick/py-faster-rcnn/blob/master/lib/nms/py_cpu_nms.py" target="_blank" rel="noopener">python implementation</a>:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Fast R-CNN</span></span><br><span class="line"><span class="comment"># Copyright (c) 2015 Microsoft</span></span><br><span class="line"><span class="comment"># Licensed under The MIT License [see LICENSE for details]</span></span><br><span class="line"><span class="comment"># Written by Ross Girshick</span></span><br><span class="line"><span class="comment"># --------------------------------------------------------</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">py_cpu_nms</span><span class="params">(dets, thresh)</span>:</span></span><br><span class="line">    <span class="string">"""Pure Python NMS baseline."""</span></span><br><span class="line">    x1 = dets[:, <span class="number">0</span>]</span><br><span class="line">    y1 = dets[:, <span class="number">1</span>]</span><br><span class="line">    x2 = dets[:, <span class="number">2</span>]</span><br><span class="line">    y2 = dets[:, <span class="number">3</span>]</span><br><span class="line">    scores = dets[:, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">    areas = (x2 - x1 + <span class="number">1</span>) * (y2 - y1 + <span class="number">1</span>)</span><br><span class="line">    order = scores.argsort()[::<span class="number">-1</span>] </span><br><span class="line">    <span class="comment"># sort the detections according to scores, high to low values.</span></span><br><span class="line"></span><br><span class="line">    keep = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># keep doing until all bboxes are covered by THIS BBOX</span></span><br><span class="line">    <span class="keyword">while</span> order.size &gt; <span class="number">0</span>: </span><br><span class="line">        <span class="comment"># choose the bbox with highest iou score, namely THIS BBOX</span></span><br><span class="line">        i = order[<span class="number">0</span>] </span><br><span class="line">        keep.append(i)</span><br><span class="line">        xx1 = np.maximum(x1[i], x1[order[<span class="number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[i], y1[order[<span class="number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[i], x2[order[<span class="number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[i], y2[order[<span class="number">1</span>:]])</span><br><span class="line"></span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2 - xx1 + <span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2 - yy1 + <span class="number">1</span>)</span><br><span class="line">        inter = w * h</span><br><span class="line">        ovr = inter / (areas[i] + areas[order[<span class="number">1</span>:]] - inter)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># filter out all detections which have IOUs larger than the threshold, which means they are covered by THIS BBOX</span></span><br><span class="line">        inds = np.where(ovr &lt;= thresh)[<span class="number">0</span>] </span><br><span class="line">        order = order[inds + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure>
 <p>From the scripts we can tell the principle of NMS is searching the local maximum value and surpressing others. Therefore, starting from the <em>prediction bbox</em>(MAX) with highest iou score with its <em>ground-truth bbox</em>, excluding all bboxes with $iou(THIS, MAX) \geqslant THRESH$. Then selecting the next prediction bbox with the highest iou from the left bboxes until no bbox left.</p>
@@ -443,6 +451,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 

@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"xiaoyuliu.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.  Prepare dataset I use the code from Xitao Zhang’s github repository and modify">
+  <meta name="description" content="This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.">
 <meta name="keywords" content="tensorflow,Ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally">
 <meta property="og:url" content="https://xiaoyuliu.github.io/2017/12/08/ubuntu-local-tensorflow-finetune/index.html">
 <meta property="og:site_name" content="Xiaoyu Liu">
-<meta property="og:description" content="This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.  Prepare dataset I use the code from Xitao Zhang’s github repository and modify">
+<meta property="og:description" content="This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-18T04:29:34.075Z">
+<meta property="og:updated_time" content="2020-06-30T05:21:12.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fine-tune pre-trained model on a MSCOCO subset using Tensorflow locally">
-<meta name="twitter:description" content="This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.  Prepare dataset I use the code from Xitao Zhang’s github repository and modify">
+<meta name="twitter:description" content="This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.">
 
 <link rel="canonical" href="https://xiaoyuliu.github.io/2017/12/08/ubuntu-local-tensorflow-finetune/">
 
@@ -213,7 +213,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 21:29:34" itemprop="dateModified" datetime="2019-10-17T21:29:34-07:00">2019-10-17</time>
+                <time title="Modified: 2020-06-29 22:21:12" itemprop="dateModified" datetime="2020-06-29T22:21:12-07:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,6 +226,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -251,6 +258,7 @@
 
       
         <p>This is simply a record for my own use to fine-tune a pre-trained tensorflow model on 6 subcategories of MSCOCO dataset.</p>
+<a id="more"></a>
 <ol>
 <li><h4 id="Prepare-dataset"><a href="#Prepare-dataset" class="headerlink" title="Prepare dataset"></a>Prepare dataset</h4><p> I use the code from <a href="https://github.com/offbye/tensorflow_object_detection_create_coco_tfrecord/" target="_blank" rel="noopener">Xitao Zhang’s github repository</a> and modify <code>create_coco_tf_record.py</code>:</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">LABELS_EXPECTED = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ann <span class="keyword">in</span> anns:</span><br><span class="line">    category_id = ann[<span class="string">'category_id'</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> category_id <span class="keyword">in</span> LABELS_EXPECTED:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    bboxes_data = ann[<span class="string">'bbox'</span>]</span><br><span class="line">    bboxes_data = [bboxes_data[<span class="number">0</span>]/float(pic_width), bboxes_data[<span class="number">1</span>]/float(pic_height),\</span><br><span class="line">                          bboxes_data[<span class="number">2</span>]/float(pic_width), bboxes_data[<span class="number">3</span>]/float(pic_height)]</span><br><span class="line">                 <span class="comment"># the format of coco bounding boxs is [Xmin, Ymin, width, height]</span></span><br><span class="line">    bboxes.append(bboxes_data)</span><br><span class="line">    <span class="comment"># labels.append(ann['category_id'])</span></span><br><span class="line">    <span class="keyword">if</span> category_id <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        labels.append(category_id)</span><br><span class="line">    <span class="keyword">elif</span> category_id == <span class="number">6</span>:</span><br><span class="line">        labels.append(<span class="number">5</span>)</span><br><span class="line">    <span class="keyword">elif</span> category_id == <span class="number">8</span>:</span><br><span class="line">        labels.append(<span class="number">6</span>)</span><br><span class="line"><span class="keyword">if</span> len(labels) == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
@@ -467,6 +475,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
